@@ -1,6 +1,6 @@
 var projectControllers = angular.module('projectControllers', []);
 
-projectControllers.controller('FirstController', ['$scope', 'CommonData' , , function($scope, CommonData ) {
+projectControllers.controller('FirstController', ['$scope', 'CommonData' , function($scope, CommonData ) {
   
 /*
 
