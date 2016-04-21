@@ -6,7 +6,11 @@ app.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'partials/collections.html',
     controller: 'FirstController'
   }).
+  when('/home', {
+    templateUrl: 'partials/home.html',
+    controller: 'FirstController'
+  }).
   otherwise({
-    redirectTo: '/collections'
+    redirectTo: '/home'
   });
 } ]);

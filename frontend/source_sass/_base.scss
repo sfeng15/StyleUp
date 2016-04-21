@@ -1,89 +1,21 @@
-// Add any custom Sass & CSS here
-
-.add_button {
-  //background-color: green;
-}
-
-.delete_button {
-  //float: right;
-  position: relative;
-  top: 50%;
-  //transform: translateY(-50%);
-}
-
-p, a, span, div {
-  //font-family
-
-}
-
-li {
-  list-style-type: none;
-}
-
-.User_name {
-    text-decoration: none;
-    color: green;
-    //font-size
-}
-.email_address {
-  //p
-  //font-size
-}
-.asterisk {
-  color: red;
-}
-
-.task_row{
-  //border-bottom:  1px solid black;
-}
-
-.info_heading {
-  font-size: 32px;
-}
-
-.submit_button {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.profile_first_info {
-  font-size: 26px;
-}
-.profile_secondary_info {
-  font-size: 22px;
-}
-
-.secondary_header {
-  font-size: 24px;
-}
-
-.significant_row {
-  margin: 1%;
-  border-bottom: 1px solid grey;
-}
-
-.disabled {
-  background-color: grey !important;
-}
-.right_button {
-  float: right;
-}
-.user_list_info {
-  font-size: 20px;
-}
-
-.normal_message {
-  display: none;
+.top-bar span, p, button {
   color: white;
 }
 
-.error_message {
-  background-color: red;
-  display: block;
+#search_icon_label {
+  margin-right: 4%;
+}
+.trending_bar {
+  background-color : $charcoal;
+  height: 10vh;
+  text-align: center;
 }
 
-.info_message {
-  background-color: green;
-  display: block;
+#trending_text {
+  color: white;
+  line-height: 10vh;
+}
+
+#main_page_carousel {
+  height: 50vh;
 }

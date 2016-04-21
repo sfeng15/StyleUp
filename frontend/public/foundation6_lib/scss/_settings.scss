@@ -74,6 +74,9 @@ $global-weight-bold: bold;
 $global-radius: 0;
 $global-text-direction: ltr;
 
+$charcoal: 	#36454F;
+
+
 // 2. Breakpoints
 // --------------
 
@@ -549,6 +552,7 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.5rem;
-$topbar-background: $light-gray;
+//$topbar-background: $light-gray;
+$topbar-background: $charcoal;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;

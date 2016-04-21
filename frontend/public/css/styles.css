@@ -4093,7 +4093,7 @@ table.hover tr:nth-of-type(even):hover {
   /* line 30, ../foundation6_lib/scss/components/_top-bar.scss */
   .top-bar,
   .top-bar ul {
-    background-color: #e6e6e6; }
+    background-color: #36454F; }
   /* line 35, ../foundation6_lib/scss/components/_top-bar.scss */
   .top-bar input {
     width: 200px;
@@ -4160,77 +4160,28 @@ table.hover tr:nth-of-type(even):hover {
 .top-bar-right {
   float: right; }
 
-/* line 7, ../../source_sass/_base.scss */
-.delete_button {
-  position: relative;
-  top: 50%; }
-
-/* line 19, ../../source_sass/_base.scss */
-li {
-  list-style-type: none; }
-
-/* line 23, ../../source_sass/_base.scss */
-.User_name {
-  text-decoration: none;
-  color: green; }
-
-/* line 32, ../../source_sass/_base.scss */
-.asterisk {
-  color: red; }
-
-/* line 40, ../../source_sass/_base.scss */
-.info_heading {
-  font-size: 32px; }
-
-/* line 44, ../../source_sass/_base.scss */
-.submit_button {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%); }
-
-/* line 50, ../../source_sass/_base.scss */
-.profile_first_info {
-  font-size: 26px; }
-
-/* line 53, ../../source_sass/_base.scss */
-.profile_secondary_info {
-  font-size: 22px; }
-
-/* line 57, ../../source_sass/_base.scss */
-.secondary_header {
-  font-size: 24px; }
-
-/* line 61, ../../source_sass/_base.scss */
-.significant_row {
-  margin: 1%;
-  border-bottom: 1px solid grey; }
-
-/* line 66, ../../source_sass/_base.scss */
-.disabled {
-  background-color: grey !important; }
-
-/* line 69, ../../source_sass/_base.scss */
-.right_button {
-  float: right; }
-
-/* line 72, ../../source_sass/_base.scss */
-.user_list_info {
-  font-size: 20px; }
-
-/* line 76, ../../source_sass/_base.scss */
-.normal_message {
-  display: none;
+/* line 1, ../../source_sass/_base.scss */
+.top-bar span, p, button {
   color: white; }
 
-/* line 81, ../../source_sass/_base.scss */
-.error_message {
-  background-color: red;
-  display: block; }
+/* line 5, ../../source_sass/_base.scss */
+#search_icon_label {
+  margin-right: 4%; }
 
-/* line 86, ../../source_sass/_base.scss */
-.info_message {
-  background-color: green;
-  display: block; }
+/* line 8, ../../source_sass/_base.scss */
+.trending_bar {
+  background-color: #36454F;
+  height: 10vh;
+  text-align: center; }
+
+/* line 14, ../../source_sass/_base.scss */
+#trending_text {
+  color: white;
+  line-height: 10vh; }
+
+/* line 19, ../../source_sass/_base.scss */
+#main_page_carousel {
+  height: 50vh; }
 
 /*
   NOTE: Do not touch this file. Write the bulk of your custom styles
