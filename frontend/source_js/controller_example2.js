@@ -1,5 +1,3 @@
-var projectControllers = angular.module('projectControllers', []);
-
 projectControllers.controller('secondController', ['$scope', 'CommonData' , function($scope, CommonData ) {
   
 /*
