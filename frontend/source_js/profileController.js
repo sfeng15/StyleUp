@@ -1,4 +1,4 @@
-projectControllers.controller('secondController', ['$scope', 'CommonData' , function($scope, CommonData ) {
+projectControllers.controller('profileController', ['$scope', 'CommonData' , function($scope, CommonData ) {
   
 /*
 
