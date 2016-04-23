@@ -1,0 +1,52 @@
+[
+{
+"_id": 311111,
+"title": "Great Style",
+"items": [{"type": "Shirt", "url": "i111" }, {"type": "pants", "url": "i112" }]
+},
+{
+"_id": 411111,
+"title": "Awesome Style",
+"items": [{"type": "Blouse", "url": "i113" }, {"type": "Skirt", "url": "i114" }]
+},
+{
+"_id": 511111,
+"title": "Pretty",
+"items": [{"type": "dress", "url": "i115" }, {"type": "shoes", "url": "i116" }]
+},
+{
+"_id": 311112,
+"title": "Cute",
+"items": [{"type": "accessory", "url": "i117" }, {"type": "accessory", "url": "i118" }]
+},
+{
+"_id": 411112,
+"title": "Beautiful",
+"items": [{"type": "dress", "url": "i119" }, {"type": "shoes", "url": "i120" }]
+},
+{
+"_id": 311113,
+"title": "Sweet",
+"items": [{"type": "coat", "url": "i121" }]
+},
+{
+"_id": 311114,
+"title": "Superb Style",
+"items": [{"type": "Shirt", "url": "i122" }, {"type": "Skirt", "url": "i123" }]
+},
+{
+"_id": 411114,
+"title": "Magnificent Style",
+"items": [{"type": "dress", "url": "i124" }, {"type": "pants", "url": "i125" }, {"type": "shoes", "url": "i126" }]
+},
+{
+"_id": 511114,
+"title": "Check me Out",
+"items": [{"type": "accessory", "url": "i127" }, {"type": "accessory", "url": "i128" }, {"type": "blouse", "url": "i129" } , {"type": "pants", "url": "i130" }]
+},
+{
+"_id": 611114,
+"title": "Neat Style",
+"items": [{"type": "dress", "url": "i131" }, {"type": "coat", "url": "i132" }, {"type": "shoes", "url": "i133" }]
+}
+]

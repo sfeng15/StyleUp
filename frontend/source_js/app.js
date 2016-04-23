@@ -10,6 +10,10 @@ app.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'partials/home.html',
     controller: 'FirstController'
   }).
+  when('/users/:id', {
+    templateUrl: 'partials/userProfile.html',
+    controller: 'profileController'
+  }).
   otherwise({
     redirectTo: '/home'
   });

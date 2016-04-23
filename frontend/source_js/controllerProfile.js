@@ -1,5 +1,6 @@
-projectControllers.controller('secondController', ['$scope', 'CommonData' , function($scope, CommonData ) {
-  
+
+projectControllers.controller('profileController', ['$scope', 'CommonData' , function($scope, CommonData ) {
+
 /*
 
   $scope.setData = function(){
@@ -10,4 +11,3 @@ projectControllers.controller('secondController', ['$scope', 'CommonData' , func
 
 
 }]);
-
