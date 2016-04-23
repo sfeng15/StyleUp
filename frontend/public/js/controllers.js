@@ -1,1 +1,1 @@
-var projectControllers=angular.module("projectControllers",[]);projectControllers.controller("FirstController",["$scope","CommonData",function($scope,CommonData){}]);
+projectControllers.controller("profileController",["$scope","CommonData",function($scope,CommonData){}]);var projectControllers=angular.module("projectControllers",[]);projectControllers.controller("FirstController",["$scope","CommonData",function($scope,CommonData){}]);
