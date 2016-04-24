@@ -1,0 +1,18 @@
+User
+  id
+  username
+  email
+  name
+  password
+  collections[collectionID]
+  favorites[collectionID]
+Collection
+  id
+  name
+  description
+  items[ItemID]
+Item
+  id
+  name
+  type
+  img path

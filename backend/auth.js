@@ -48,8 +48,19 @@ module.exports = function(passport, jwt) {
 
   router.post('/register', api.register);
   router.post('/login', api.login);
-  router.get('/test', passport.authenticate('jwt', {session: false}), function(req,res) {
-     res.send('It worked! User id is: ' + req.user._id + '.');
+  // router.get('/test', passport.authenticate('jwt', {session: false}), function(req,res) {
+  //    res.send('It worked! User id is: ' + req.user._id + '.');
+  // });
+  router.get('/test', function(req,res) {
+    //  res.send('It worked! User id is: ' + req.user._id + '.');
+    var msg = '';
+     passport.authenticate('jwt', function(err,user,info) {
+       console.log('wol');
+        if (err) { return next(err); }
+        if (!user) 'User not found'
+        else msg = 'User is ' + user.username;
+     });
+    //  res.send(msg);
   });
 
   return router;
