@@ -8,19 +8,22 @@ module.exports = function(passport, jwt) {
   var api = {};
 
   api.register = function(req, res) {
-    console.log(req.body);
     if (!req.body.email || !req.body.password) {
       res.json({msg: 'No user email/password provided'});
     } else {
-      var newUser = new User();
-      newUser.email = req.body.email;
+      var newUser = new User(req.body);
       newUser.password = newUser.generateHash(req.body.password);
+
       // save the user
       newUser.save(function(err) {
         if (err) {
-          return res.json({msg: 'Email already exists.'});
+          console.log(err.code);
+          var msg = '';
+          if(err.code == 11000) msg = 'Duplicate email or username'
+          else msg = 'Missing required field';
+          return res.status(500).json({msg: msg});
         }
-        res.json({msg: 'Successful created new user.'});
+        res.status(201).json({msg: 'Successful created new user.'});
       });
     }
   }
@@ -30,14 +33,14 @@ module.exports = function(passport, jwt) {
     }, function(err, user) {
       if (err) throw err;
       if (!user) {
-        res.send({msg: 'User not found.'});
+        res.status(404).json({msg: 'User not found.'});
       } else {
         // check if password matches
         if(!user.validPassword(req.body.password)) {
-          return res.json({msg: 'Invalid password'});
+          return res.status(500).json({msg: 'Invalid password'});
         } else {
           var token = jwt.sign(user, l.config.secretKey, {expiresIn: 100800});
-          return res.json({token: 'JWT ' + token});
+          return res.status(200).json({token: 'JWT ' + token});
         }
       }
     });

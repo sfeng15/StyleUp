@@ -4,8 +4,6 @@
 var express = require('express'),
 path = require('path'),
 fs = require('fs'),
-passport = require('passport'),
-jwt = require('jsonwebtoken'),
 methodOverride = require('method-override'),
 morgan = require('morgan'),
 bodyParser = require('body-parser'),
@@ -68,10 +66,6 @@ app.use(methodOverride());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//Setup passport authentication
-app.use(passport.initialize());
-require('./config/passport')(passport);
-app.use('/api', require('./auth')(passport, jwt));
 
 // Bootstrap routes
 var routesPath = path.join(__dirname, 'routes');

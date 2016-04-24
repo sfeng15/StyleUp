@@ -25,20 +25,11 @@ api.users = function (req, res) {
 	});
 };
 
-// POST
-api.adduser = function (req, res) {
-	user.addUser(req.body.user,function	(err,data){
-		if(err) res.status(500).json(err);
-		else {
-			res.status(201).json(data);
-		}
-	});
-};
 
 // GET
 api.user = function (req, res) {
-	var id = req.params.id;
-	user.getUser(id,function(err,data){
+	var username = req.params.username;
+	user.getUser(username,function(err,data){
 		if (err) {
 			res.status(404).json(err);
 		} else {
@@ -77,28 +68,37 @@ api.deleteUser = function (req, res) {
 	});
 };
 
-// DELETE All
-api.deleteAllUsers = function (req, res) {
-	return user.deleteAllUsers( function (err, data) {
-		if (!err) {
-			l.p("removed All user");
-			return res.status(204).send();
-		} else {
-			l.p(err);
-			return res.status(500).json(err);
-		}
-	});
-};
 
 
 /*
 =====================  ROUTES  =====================
 */
 
+// module.exports = function(passport) {
+//
+// 	router.post('/user',api.adduser);
+//
+// 	router.route('/user/:id')
+// 	.get(api.user)
+// 	.put(api.editUser)
+// 	.delete(api.deleteUser);
+//
+//
+// 	router.route('/users')
+// 	.get(api.users)
+// 	.delete(api.deleteAllUsers);
+//
+//
+//
+// 	router.get('/users/test',function(req,res){
+// 		return user.test(function (err, data) {
+// 			res.status(200).json(data);
+// 		});
+// 	});
+// 	return router;
+// }
 
-router.post('/user',api.adduser);
-
-router.route('/user/:id')
+router.route('/user/:username')
 .get(api.user)
 .put(api.editUser)
 .delete(api.deleteUser);
@@ -106,14 +106,6 @@ router.route('/user/:id')
 
 router.route('/users')
 .get(api.users)
-.delete(api.deleteAllUsers);
 
-
-
-router.get('/users/test',function(req,res){
-	return user.test(function (err, data) {
-		res.status(200).json(data);
-	});
-});
 
 module.exports = router;

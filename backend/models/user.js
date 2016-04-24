@@ -7,7 +7,7 @@ ObjectId = Schema.ObjectId,
 l=require('../config/lib');
 
 var fields = {
-		email: {
+		username: {
 			type: String,
 			required: true,
 			unique: true
@@ -15,8 +15,18 @@ var fields = {
 		password: {
 			type: String,
 			required: true
-	 	}
-
+	 	},
+		email: {
+			type: String,
+			required: true,
+			unique: true
+		},
+		name: {
+			type: String,
+			required: true
+		},
+		collections: [mongoose.Types.ObjectId],
+		favorites: [mongoose.Types.ObjectId]
 };
 
 var userSchema = new Schema(fields);
