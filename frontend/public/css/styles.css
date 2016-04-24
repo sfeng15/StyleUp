@@ -4161,7 +4161,7 @@ table.hover tr:nth-of-type(even):hover {
   float: right; }
 
 /* line 1, ../../source_sass/_base.scss */
-.top-bar span, p, button {
+.top-bar span, .top-bar p, .top-bar button {
   color: white; }
 
 /* line 5, ../../source_sass/_base.scss */
@@ -4182,6 +4182,63 @@ table.hover tr:nth-of-type(even):hover {
 /* line 19, ../../source_sass/_base.scss */
 #main_page_carousel {
   height: 50vh; }
+
+/* line 23, ../../source_sass/_base.scss */
+li {
+  list-style: none; }
+
+/* line 28, ../../source_sass/_base.scss */
+.profile_item {
+  position: relative;
+  display: block;
+  margin: 1%;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  width: 300px;
+  height: 500px; }
+
+/* line 39, ../../source_sass/_base.scss */
+.album_cover, .album_cover_img_full, .album_cover_img_partial, .img_white_filler {
+  position: relative;
+  width: 98%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.33) inset;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.33) inset;
+  border-radius: 3px;
+  margin: 0 auto; }
+
+/* line 51, ../../source_sass/_base.scss */
+.album_cover_img_full {
+  height: 440px; }
+
+/* line 56, ../../source_sass/_base.scss */
+.album_cover_img_partial, .img_white_filler {
+  height: 215px;
+  margin: 3%; }
+
+/* line 66, ../../source_sass/_base.scss */
+.collection-title {
+  margin: 2%; }
+
+/* line 69, ../../source_sass/_base.scss */
+.profile_user_name {
+  margin: 2%; }
+
+/* line 73, ../../source_sass/_base.scss */
+.profile_picture {
+  position: relative;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-top: 10%;
+  margin-bottom: 5%; }
 
 /*
   NOTE: Do not touch this file. Write the bulk of your custom styles

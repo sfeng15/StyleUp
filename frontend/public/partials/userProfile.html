@@ -1,4 +1,47 @@
 <div class="list" ng-controller='profileController'>
 
-<p> This is the profile page.</p>
+
+
+<div class = "row">
+  <div class = "columns small-12">
+    <ul>
+      <li>
+
+        <div class = "profile_info profile_item float-left text-center">
+          <div class = "columns small-12">
+            <div class= "profile_picture" style = "background-image: url('./data/images/{{user.profilePicUrl}}.jpg')"> </div>
+            <p class = "profile_user_name"> {{user.name}} </p>
+            <p class = "profile_user_description"> {{user.description}}</p>
+        </div>
+
+      </li>
+      <li ng-repeat = "collection in collections">
+
+        <div class = "collection_album profile_item float-left text-center">
+          <p class = "collection-title"> {{collection.title}} </p>
+          <div class = "row">
+            <div class = "columns small-11 small-centered">
+
+              <span ng-show="collection.wholeimgUrl">
+                <div class = "album_cover_img_full" style ="background-image:url('./data/images/{{collection.wholeimgUrl}}.jpg')"></div>
+              </span>
+
+              <span ng-hide="collection.wholeimgUrl">
+                <div class = "album_cover_img_partial" style ="background-image: url('./data/images/{{collection.items[0].url}}.jpg')"> </div>
+
+                <div ng-show = "collection.items[1]" class = "album_cover_img_partial" style = "background-image: url('./data/images/{{collection.items[1].url}}.jpg')"> </div>
+                <div ng-hide = "collection.items[1]" class = "album_cover_img_partial img_white_filler"> </div>
+
+              </span>
+
+            </div>
+          </div>
+        </div>
+
+      </li>
+    </ul>
+
+  </div>
+</div>
+
 </div>

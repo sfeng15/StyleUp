@@ -4,8 +4,8 @@
  "name" : "Farnaz Jahanbakhsh",
  "username": "farnazj",
  "description" : "blah blah blah blah",
- "profilePicID" : 211111,
- "collections" : [311111, 411111, 511111],
+ "profilePicUrl" : "211111",
+ "collections" : [311111, 411111, 511111]
  
 },
 {
@@ -13,24 +13,23 @@
  "name" : "Dandi Wang",
  "username": "dandiw",
  "description" : "blah blah blah blah",
- "profilePicID" : 211112,
- "collections" : [311112, 411112],
+ "profilePicUrl" : "211112",
+ "collections" : [311112, 411112]
 },
 {
  "_id" : 111113,
  "name" : "Shuo Feng",
  "username": "shuof",
  "description" : "blah blah blah blah",
- "profilePicID" : 211113,
- "collections" : [311113],
+ "profilePicUrl" : "211113",
+ "collections" : [311113]
 }, 
 {
  "_id" : 111114,
  "name" : "Michael Whiteman",
  "username": "michealw",
  "description" : "blah blah blah blah",
- "profilePicID" : 211114,
- "collections" : [311114, 411114, 511114, 611114],
+ "profilePicUrl" : "211114",
+ "collections" : [311114, 411114, 511114, 611114]
 }
-
 ]

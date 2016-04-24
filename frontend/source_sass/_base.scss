@@ -1,4 +1,4 @@
-.top-bar span, p, button {
+.top-bar span, .top-bar p, .top-bar button {
   color: white;
 }
 
@@ -20,3 +20,69 @@
   height: 50vh;
 }
 
+li {
+  list-style: none;
+}
+
+
+.profile_item {
+  position: relative;
+  display: block;
+  margin: 1%;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
+  width: 300px;
+  height: 500px;
+}
+
+.album_cover {
+  position: relative;
+  width: 98%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: 0 0 2px rgba(0,0,0,0.33) inset;
+  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.33) inset;
+  border-radius: 3px;
+  margin: 0 auto;
+}
+
+.album_cover_img_full {
+  @extend .album_cover;
+  height: 440px;
+}
+
+.album_cover_img_partial {
+  @extend .album_cover ;
+  height: 215px;
+  margin: 3%;
+}
+
+.img_white_filler{
+  @extend .album_cover_img_partial;
+}
+
+.collection-title {
+  margin: 2%;
+}
+.profile_user_name {
+  margin: 2%;
+}
+
+.profile_picture {
+  position: relative;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+
+.profile_user_description {
+
+}

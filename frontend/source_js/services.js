@@ -18,7 +18,8 @@ projectServices.factory('Users', function($http, $window) {
 
     return {
         get : function(select_options) {
-            return $http.get($window.sessionStorage.baseurl+'/api/users'+ select_options);
+            //return $http.get($window.sessionStorage.baseurl+'/api/users'+ select_options);
+            return $http.get('./data/users.json');
         },
         post : function(data) {
              return $http.post($window.sessionStorage.baseurl+'/api/users', data , { headers: {'content-type': 'application/json'}});
@@ -32,6 +33,18 @@ projectServices.factory('Users', function($http, $window) {
 
         }
 
+
+
+    }
+});
+
+projectServices.factory('Collections', function($http, $window) {
+
+    return {
+        get : function(select_options) {
+            //return $http.get($window.sessionStorage.baseurl+'/api/collections'+ select_options);
+            return $http.get('./data/collections.json');
+        },
 
 
     }
