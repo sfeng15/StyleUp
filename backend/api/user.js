@@ -2,6 +2,7 @@
 var express = require('express'),
 router = express.Router(),
 user = require('../apiObjects/user'),
+UserSchema = require('../models/user'),
 l=require('../config/lib');
 
 var api = {};
@@ -21,7 +22,7 @@ api.users = function (req, res) {
 		} else {
 			res.status(200).json({users: data});
 		}
-	}); 
+	});
 };
 
 // POST
@@ -31,7 +32,7 @@ api.adduser = function (req, res) {
 		else {
 			res.status(201).json(data);
 		}
-	});	
+	});
 };
 
 // GET
@@ -43,7 +44,7 @@ api.user = function (req, res) {
 		} else {
 			res.status(200).json({user: data});
 		}
-	}); 
+	});
 };
 
 // PUT
@@ -57,7 +58,7 @@ api.editUser = function (req, res) {
 		} else {
 			return res.status(500).json(err);
 		}
-		return res.status(200).json(data);   
+		return res.status(200).json(data);
 	});
 
 };
@@ -89,6 +90,7 @@ api.deleteAllUsers = function (req, res) {
 	});
 };
 
+
 /*
 =====================  ROUTES  =====================
 */
@@ -105,6 +107,7 @@ router.route('/user/:id')
 router.route('/users')
 .get(api.users)
 .delete(api.deleteAllUsers);
+
 
 
 router.get('/users/test',function(req,res){

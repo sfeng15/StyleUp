@@ -7,25 +7,27 @@ var logFile='../debug.log';
 
 
 /*
-========== CONFIGURATION ============	
+========== CONFIGURATION ============
 */
 
 //Uncomment as per usage
 api.config={
 	version:'0.0.3',
+	secretKey: 'thisIsTheSecretKey',
 	homepage:'http://something.com'
 };
 
 
 
+
 /*
-========== FUNCTIONS ============	
+========== FUNCTIONS ============
 */
 
 /**
  * [p description] Quick Print
- * @type {String} 
- * @type {Object} 
+ * @type {String}
+ * @type {Object}
  */
  api.p=function(str,obj){
 
@@ -85,7 +87,7 @@ function IsJsonString(str) {
 function ObjCopy(obj1,obj2){
   for (var attrname in obj2) { obj1[attrname] = obj2[attrname]; }
 
-    return obj1;  
+    return obj1;
 };
 
 
