@@ -50,5 +50,48 @@ Users.get().then(function(data){
 });
 
 
+$scope.modal_show = false;
+$scope.tops = [];
+$scope.bottoms = [];
+$scope.accessories = [];
+
+
+$scope.showAlbum = function(index) {
+
+  $scope.shown_collection = $scope.collections[index];
+  console.log ("index");
+  console.log(index);
+
+  for (var i = 0 ; i < $scope.collections[index].items.length ; i++)
+  {
+    if ($scope.collections[index].items[i].type == "Shirt" ||
+   $scope.collections[index].items[i].type == "Blouse" ||
+ $scope.collections[index].items[i].type == "Dress" ||
+$scope.collections[index].items[i].type == "Coat" )
+    $scope.tops.push($scope.collections[index].items[i]);
+
+    else if ($scope.collections[index].items[i].type == "Pants" ||
+   $scope.collections[index].items[i].type == "Skirt" )
+    $scope.bottoms.push($scope.collections[index].items[i]);
+
+    else if ($scope.collections[index].items[i].type == "Accessory" )
+      $scope.accessories.push($scope.collections[index].items[i]);
+  }
+
+  console.log($scope.accessories);
+  console.log($scope.tops);
+  console.log($scope.bottoms);
+
+  $scope.modal_show = true;
+}
+
+$scope.closeModal = function (){
+
+  $scope.modal_show = false;
+  $scope.tops = [];
+  $scope.bottoms = [];
+  $scope.accessories = [];
+}
+
 
 }]);

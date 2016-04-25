@@ -4240,6 +4240,103 @@ li {
   margin-top: 10%;
   margin-bottom: 5%; }
 
+/* line 90, ../../source_sass/_base.scss */
+.modal_container {
+  position: fixed;
+  /* Stay in place */
+  z-index: 5;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Black w/ opacity */ }
+
+/* line 102, ../../source_sass/_base.scss */
+.modal {
+  background-color: #fefefe;
+  margin: 2% auto;
+  /* 2% from the top and centered */
+  border: 1px solid #888;
+  width: 90%; }
+
+/* line 109, ../../source_sass/_base.scss */
+.modal_item, .modal_whole_image, .accessory_item.place_filler, .modal_whole_image.place_filler, .top_item.place_filler, .bottom_item.place_filler {
+  position: relative;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 200px;
+  height: 200px;
+  z-index: 8;
+  display: inline-block;
+  float: left;
+  margin: 0 3%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.33) inset;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.33) inset;
+  border-radius: 5px; }
+
+/* line 129, ../../source_sass/_base.scss */
+.top-section {
+  margin-bottom: 4%;
+  overflow: scroll; }
+
+/* line 134, ../../source_sass/_base.scss */
+.modal_item.accessory_item, .accessory_item.modal_whole_image, .accessory_item.place_filler {
+  margin-bottom: 3%; }
+
+/* line 138, ../../source_sass/_base.scss */
+.accessories-section {
+  overflow: scroll; }
+
+/* line 143, ../../source_sass/_base.scss */
+.bottom-section {
+  overflow: scroll;
+  margin-bottom: 4%; }
+
+/* line 148, ../../source_sass/_base.scss */
+.modal_whole_image {
+  width: 300px;
+  height: 465px; }
+
+/* line 155, ../../source_sass/_base.scss */
+.modal-header {
+  padding: 2px 16px;
+  background-color: #36454F;
+  color: white; }
+
+/* line 161, ../../source_sass/_base.scss */
+.modal-header h2 {
+  display: inline-block; }
+
+/* line 165, ../../source_sass/_base.scss */
+.close {
+  font-size: 36px;
+  font-weight: bold;
+  color: white; }
+
+/* line 171, ../../source_sass/_base.scss */
+.accessory_item.place_filler, .modal_whole_image.place_filler {
+  height: 465px;
+  border: 1px solid #dfdfdf; }
+
+/* line 178, ../../source_sass/_base.scss */
+.top_item.place_filler, .bottom_item.place_filler {
+  height: 200px;
+  width: 430px;
+  border: 1px solid #dfdfdf; }
+
+/* line 187, ../../source_sass/_base.scss */
+a:focus, a:hover {
+  cursor: pointer; }
+
 /*
   NOTE: Do not touch this file. Write the bulk of your custom styles
   in _base.scss

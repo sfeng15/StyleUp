@@ -86,3 +86,104 @@ li {
 .profile_user_description {
 
 }
+
+.modal_container {
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+
+.modal {
+  background-color: #fefefe;
+   margin: 2% auto; /* 2% from the top and centered */
+   border: 1px solid #888;
+   width: 90%;
+}
+
+.modal_item {
+  position: relative;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 200px;
+  height: 200px;
+  z-index: 8;
+  display: inline-block;
+  float: left;
+  margin: 0 3%;
+  box-shadow: 0 0 2px rgba(0,0,0,0.33) inset;
+  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.33) inset;
+  border-radius: 5px;
+
+
+}
+.top_item {
+}
+
+.top-section {
+  margin-bottom: 4%;
+  overflow: scroll;
+}
+
+.modal_item.accessory_item {
+  margin-bottom: 3%;
+}
+
+.accessories-section {
+  //margin-right: 6%;
+  overflow: scroll;
+
+}
+.bottom-section {
+  overflow: scroll;
+  margin-bottom: 4%;
+}
+
+.modal_whole_image {
+@extend .modal_item;
+  width: 300px;
+  height: 465px;
+  //margin-left: 6%;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: $charcoal;
+    color: white;
+}
+
+.modal-header h2 {
+  display: inline-block;
+}
+
+.close {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+}
+
+.accessory_item.place_filler, .modal_whole_image.place_filler {
+  @extend .modal_item;
+  height: 465px;
+  border: 1px solid #dfdfdf;
+}
+
+
+.top_item.place_filler, .bottom_item.place_filler  {
+  @extend .modal_item;
+  height: 200px;
+  width: 430px;
+  border: 1px solid #dfdfdf;
+
+}
+
+
+a:focus , a:hover {
+  cursor: pointer;
+}

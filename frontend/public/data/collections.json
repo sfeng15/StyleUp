@@ -2,7 +2,7 @@
 {
 "_id": 311111,
 "title": "Great Style",
-"items": [{"type": "Shirt", "url": "i111" }, {"type": "pants", "url": "i112" }],
+"items": [{"type": "Shirt", "url": "i111" }, {"type": "Pants", "url": "i112" }],
 "wholeimgUrl": "w210"
 },
 {
@@ -14,25 +14,25 @@
 {
 "_id": 511111,
 "title": "Pretty",
-"items": [{"type": "dress", "url": "i115" }, {"type": "shoes", "url": "i116" }],
+"items": [{"type": "Dress", "url": "i115" }, {"type": "Shoes", "url": "i116" }],
 "wholeimgUrl": "w212"
 },
 {
 "_id": 311112,
 "title": "Cute",
-"items": [{"type": "accessory", "url": "i117" }, {"type": "accessory", "url": "i118" }],
+"items": [{"type": "Accessory", "url": "i117" }, {"type": "Accessory", "url": "i118" }],
 "wholeimgUrl": ""
 },
 {
 "_id": 411112,
 "title": "Beautiful",
-"items": [{"type": "dress", "url": "i119" }, {"type": "shoes", "url": "i120" }],
+"items": [{"type": "Dress", "url": "i119" }, {"type": "Shoes", "url": "i120" }],
 "wholeimgUrl": "w213"
 },
 {
 "_id": 311113,
 "title": "Sweet",
-"items": [{"type": "coat", "url": "i121" }],
+"items": [{"type": "Coat", "url": "i121" }],
 "wholeimgUrl": ""
 },
 {
@@ -44,19 +44,19 @@
 {
 "_id": 411114,
 "title": "Magnificent Style",
-"items": [{"type": "dress", "url": "i124" }, {"type": "pants", "url": "i125" }, {"type": "shoes", "url": "i126" }],
+"items": [{"type": "Dress", "url": "i124" }, {"type": "Pants", "url": "i125" }, {"type": "Shoes", "url": "i126" }],
 "wholeimgUrl": "w215"
 },
 {
 "_id": 511114,
 "title": "Check me Out",
-"items": [{"type": "accessory", "url": "i127" }, {"type": "accessory", "url": "i128" }, {"type": "blouse", "url": "i129" } , {"type": "pants", "url": "i130" }],
+"items": [{"type": "Accessory", "url": "i127" }, {"type": "Accessory", "url": "i128" }, {"type": "Blouse", "url": "i129" } , {"type": "Pants", "url": "i130" }],
 "wholeimgUrl": "w216"
 },
 {
 "_id": 611114,
 "title": "Neat Style",
-"items": [{"type": "dress", "url": "i131" }, {"type": "coat", "url": "i132" }, {"type": "shoes", "url": "i133" }],
+"items": [{"type": "Dress", "url": "i131" }, {"type": "Coat", "url": "i132" }, {"type": "Shoes", "url": "i133" }],
 "wholeimgUrl": ""
 }
 ]

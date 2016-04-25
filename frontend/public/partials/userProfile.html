@@ -1,5 +1,6 @@
 <div class="list" ng-controller='profileController'>
 
+  <div ng-include="'./partials/CollectionModal.html'"></div>
 
 
 <div class = "row">
@@ -17,6 +18,7 @@
       </li>
       <li ng-repeat = "collection in collections">
 
+        <a ng-click= "showAlbum($index)">
         <div class = "collection_album profile_item float-left text-center">
           <p class = "collection-title"> {{collection.title}} </p>
           <div class = "row">
@@ -37,6 +39,7 @@
             </div>
           </div>
         </div>
+      </a>
 
       </li>
     </ul>
