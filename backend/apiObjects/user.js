@@ -13,7 +13,7 @@ l=require('../config/lib');
 // ALL
 api.getAllUsers = function (skip,limit,cb) {
   var q=User.find();
-  
+
   if(skip!=undefined)
     q.skip(skip*1);
 
@@ -21,14 +21,14 @@ api.getAllUsers = function (skip,limit,cb) {
     q.limit(limit*1);
 
   return q.exec(function(err, users) {
-    cbf(cb,err,users);    
+    cbf(cb,err,users);
   });
 };
 
 // GET
-api.getUser = function (id,cb) {
+api.getUser = function (uname,cb) {
 
-  User.findOne({ '_id': id }, function(err, user) {
+  User.findOne({ 'username': uname }, function(err, user) {
     cbf(cb,err,user);
   });
 };
@@ -50,23 +50,23 @@ api.addUser = function (user,cb) {
 // PUT
 api.editUser = function (id,updateData, cb) {
   User.findById(id, function (err, user) {
-   
+
    if(updateData===undefined || user===undefined){
-    return cbf(cb,'Invalid Data. Please Check user and/or updateData fields',null); 
+    return cbf(cb,'Invalid Data. Please Check user and/or updateData fields',null);
   }
-  
-  
+
+
     if(typeof updateData["email"] != 'undefined'){
       user["email"] = updateData["email"];
     }
-    
+
     if(typeof updateData["password"] != 'undefined'){
       user["password"] = updateData["password"];
     }
-    
+
 
   return user.save(function (err) {
-    cbf(cb,err,user.toObject()); 
+    cbf(cb,err,user.toObject());
     }); //eo user.save
   });// eo user.find
 };
@@ -74,7 +74,7 @@ api.editUser = function (id,updateData, cb) {
 // DELETE
 api.deleteUser = function (id,cb) {
   return User.findById(id).remove().exec(function (err, user) {
-   return cbf(cb,err,true);      
+   return cbf(cb,err,true);
  });
 };
 
@@ -92,7 +92,7 @@ api.test=function (cb) {
 
 api.deleteAllUsers = function (cb) {
   return User.remove({},function (err) {
-    cbf(cb,err,true);      
+    cbf(cb,err,true);
   });
 };
 
@@ -111,7 +111,7 @@ api.deleteAllUsers = function (cb) {
  * @param  {Object} - Data Object
  * @return {Function} - Callback
  */
- 
+
  var cbf=function(cb,err,data){
   if(cb && typeof(cb)=='function'){
     if(err) cb(err);
