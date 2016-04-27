@@ -1,0 +1,9 @@
+Search by
+  User
+  Collection
+User profile picture
+Protect collection/item routes
+  Post
+  Put
+  Delete
+Mark/Unmark favorite by user
