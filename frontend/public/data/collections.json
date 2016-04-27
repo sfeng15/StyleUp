@@ -2,37 +2,37 @@
 {
 "_id": 311111,
 "title": "Great Style",
-"items": [{"type": "Shirt", "url": "i111" }, {"type": "Pants", "url": "i112" }],
-"wholeimgUrl": "w210"
+"items": [{"type": "Shirt", "url": "top1" }, {"type": "Skirt", "url": "skirt1" }, {"type": "Shoes", "url": "boots1" }],
+"wholeimgUrl": "outfit1"
 },
 {
 "_id": 411111,
 "title": "Awesome Style",
-"items": [{"type": "Blouse", "url": "i113" }, {"type": "Skirt", "url": "i114" }],
-"wholeimgUrl": "w211"
+"items": [{"type": "Blouse", "url": "top2" }, {"type": "Pants", "url": "pants2" }, {"type": "Shoes", "url": "shoes2" }],
+"wholeimgUrl": "outfit2"
 },
 {
 "_id": 511111,
 "title": "Pretty",
-"items": [{"type": "Dress", "url": "i115" }, {"type": "Shoes", "url": "i116" }],
-"wholeimgUrl": "w212"
+"items": [{"type": "Pants", "url": "shorts3" }, {"type": "Accessory", "url": "necklace" }],
+"wholeimgUrl": "outfit3"
 },
 {
 "_id": 311112,
 "title": "Cute",
-"items": [{"type": "Accessory", "url": "i117" }, {"type": "Accessory", "url": "i118" }],
-"wholeimgUrl": ""
+"items": [{"type": "Accessory", "url": "bracelet" }, {"type": "Pants", "url": "jeans4" } , {"type": "Accessory", "url": "bag4" }, {"type": "Blouse", "url": "top4" }],
+"wholeimgUrl": "outfit4"
 },
 {
 "_id": 411112,
 "title": "Beautiful",
-"items": [{"type": "Dress", "url": "i119" }, {"type": "Shoes", "url": "i120" }],
-"wholeimgUrl": "w213"
+"items": [{"type": "Skirt", "url": "skirt5" }],
+"wholeimgUrl": "outfit5"
 },
 {
 "_id": 311113,
 "title": "Sweet",
-"items": [{"type": "Coat", "url": "i121" }],
+"items": [{"type": "Dress", "url": "dress3" }],
 "wholeimgUrl": ""
 },
 {
