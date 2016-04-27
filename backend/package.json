@@ -13,6 +13,7 @@
     "method-override": "latest",
     "mongoose": "latest",
     "morgan": "latest",
+    "multer": "^1.1.0",
     "passport-jwt": "^2.0.0",
     "request": "latest"
   },

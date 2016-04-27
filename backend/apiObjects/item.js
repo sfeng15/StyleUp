@@ -13,7 +13,7 @@ l=require('../config/lib');
 // ALL
 api.getAllItems = function (skip,limit,cb) {
   var q=Item.find();
-  
+
   if(skip!=undefined)
     q.skip(skip*1);
 
@@ -21,7 +21,7 @@ api.getAllItems = function (skip,limit,cb) {
     q.limit(limit*1);
 
   return q.exec(function(err, items) {
-    cbf(cb,err,items);    
+    cbf(cb,err,items);
   });
 };
 
@@ -34,12 +34,13 @@ api.getItem = function (id,cb) {
 };
 
 // POST
-api.addItem = function (item,cb) {
+api.addItem = function (item, file, cb) {
 
-  if(item == 'undefined'){
+  // if(item == 'undefined'){
+  if(!item) {
     cb('No Item Provided. Please provide valid item data.');
   }
-
+  item.path = file.path;
   item = new Item(item);
 
   item.save(function (err) {
@@ -50,27 +51,27 @@ api.addItem = function (item,cb) {
 // PUT
 api.editItem = function (id,updateData, cb) {
   Item.findById(id, function (err, item) {
-   
+
    if(updateData===undefined || item===undefined){
-    return cbf(cb,'Invalid Data. Please Check item and/or updateData fields',null); 
+    return cbf(cb,'Invalid Data. Please Check item and/or updateData fields',null);
   }
-  
-  
+
+
     if(typeof updateData["name"] != 'undefined'){
       item["name"] = updateData["name"];
     }
-    
+
     if(typeof updateData["type"] != 'undefined'){
       item["type"] = updateData["type"];
     }
-    
+
     if(typeof updateData["path"] != 'undefined'){
       item["path"] = updateData["path"];
     }
-    
+
 
   return item.save(function (err) {
-    cbf(cb,err,item.toObject()); 
+    cbf(cb,err,item.toObject());
     }); //eo item.save
   });// eo item.find
 };
@@ -78,7 +79,7 @@ api.editItem = function (id,updateData, cb) {
 // DELETE
 api.deleteItem = function (id,cb) {
   return Item.findById(id).remove().exec(function (err, item) {
-   return cbf(cb,err,true);      
+   return cbf(cb,err,true);
  });
 };
 
@@ -96,7 +97,7 @@ api.test=function (cb) {
 
 api.deleteAllItems = function (cb) {
   return Item.remove({},function (err) {
-    cbf(cb,err,true);      
+    cbf(cb,err,true);
   });
 };
 
@@ -115,7 +116,7 @@ api.deleteAllItems = function (cb) {
  * @param  {Object} - Data Object
  * @return {Function} - Callback
  */
- 
+
  var cbf=function(cb,err,data){
   if(cb && typeof(cb)=='function'){
     if(err) cb(err);

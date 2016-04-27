@@ -4,6 +4,9 @@ router = express.Router(),
 item = require('../apiObjects/item'),
 l=require('../config/lib');
 
+var multer = require('multer');
+var upload = multer({dest: './uploads/items'});
+
 var api = {};
 // ALL
 api.items = function (req, res) {
@@ -26,7 +29,10 @@ api.items = function (req, res) {
 
 // POST
 api.additem = function (req, res) {
-	item.addItem(req.body.item,function	(err,data){
+	console.log(req.body);
+	console.log(req.file);
+	// console.log(req.files);
+	item.addItem(req.body, req.file, function	(err,data){
 		if(err) res.status(500).json(err);
 		else {
 			res.status(201).json(data);
@@ -61,7 +67,7 @@ api.deleteItem = function (req, res) {
 };
 
 api.itemImage = function(req, res) {
-	
+
 }
 
 
@@ -70,7 +76,7 @@ api.itemImage = function(req, res) {
 */
 
 
-router.post('/item',api.additem);
+router.post('/item', upload.single('image'), api.additem);
 
 router.route('/item/:id')
 .get(api.item)
