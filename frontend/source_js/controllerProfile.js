@@ -71,7 +71,8 @@ $scope.collections[index].items[i].type == "Coat" )
     $scope.tops.push($scope.collections[index].items[i]);
 
     else if ($scope.collections[index].items[i].type == "Pants" ||
-   $scope.collections[index].items[i].type == "Skirt" )
+   $scope.collections[index].items[i].type == "Skirt" ||
+  $scope.collections[index].items[i].type == "Shoes" )
     $scope.bottoms.push($scope.collections[index].items[i]);
 
     else if ($scope.collections[index].items[i].type == "Accessory" )
