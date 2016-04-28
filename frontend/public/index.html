@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
 
+
     <!-- Angular Scripts -->
     <!-- NOTE: removing the ".min." can help debugging in the console-->
     <script src="./lib/angular/angular.min.js"></script>
@@ -17,6 +18,13 @@
     <script src="./js/app.js"></script>
     <script src="./js/controllers.js"></script>
     <script src="./js/services.js"></script>
+
+     <!--   slider  -->
+
+
+    <link href='http://fonts.googleapis.com/css?family=Dosis:200,400,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="./lib/slider/modernizr.custom.79639.js"></script>
+
 
 </head>
 
@@ -34,5 +42,17 @@
 
 
     <script src="http://localhost:35729/livereload.js"></script>
+
+    <!-- jQuery if needed -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!--		<script type="text/javascript" src="./lib/slider/slider.js"></script>-->
+		<script type="text/javascript">
+			$(function() {
+
+				Slider.init();
+
+			});
+		</script>
+
 </body>
 </html>
