@@ -1,3 +1,6 @@
+var projectControllers = angular.module('projectControllers', []);
+
+
 
 projectControllers.controller('profileController', ['$scope', 'CommonData', '$routeParams', 'Users', 'Collections' , function($scope, CommonData, $routeParams, Users, Collections ) {
 
