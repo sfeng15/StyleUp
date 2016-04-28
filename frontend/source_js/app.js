@@ -14,7 +14,11 @@ app.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'partials/userProfile.html',
     controller: 'profileController'
   }).
+  when('/login', {
+    templateUrl: 'partials/Login.html',
+    controller: 'FirstController'
+  }).
   otherwise({
-    redirectTo: '/home'
+    redirectTo: '/login'
   });
 } ]);
