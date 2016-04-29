@@ -5,7 +5,6 @@ api = {},
 l=require('../config/lib');
 
 
-
 /*
 ========= [ CORE METHODS ] =========
 */
@@ -49,7 +48,7 @@ api.addUser = function (user,cb) {
 
 // PUT
 api.editUser = function (id,updateData, cb) {
-  User.findById(id, function (err, user) {
+  User.findOne({ 'username': username }, function(err, user) {
 
    if(updateData===undefined || user===undefined){
     return cbf(cb,'Invalid Data. Please Check user and/or updateData fields',null);
@@ -72,10 +71,20 @@ api.editUser = function (id,updateData, cb) {
 };
 
 // DELETE
-api.deleteUser = function (id,cb) {
-  return User.findById(id).remove().exec(function (err, user) {
+api.deleteUser = function (username,cb) {
+  return User.findOne({ 'email': username }).remove().exec(function (err, user) {
    return cbf(cb,err,true);
  });
+};
+
+api.setProfilePic = function(username, file, cb) {
+  User.findOne({ 'username': username }, function(err, user) {
+    user.profilePicPath = file.path;
+    console.log(user);
+    user.save(function(err) {
+      cbf(cb,err);
+    })
+  });
 };
 
 
