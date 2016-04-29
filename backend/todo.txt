@@ -1,8 +1,8 @@
 Michael:
-Protect collection/item routes
-  Post
-  Put
-  Delete
+Protect collection/item/user routes
+  Exclude password from user get (just in case they want to decrypt)
+  Collections (post, put, delete)
+  Items (post, put delete)
 
 Shuo:
 Search by
