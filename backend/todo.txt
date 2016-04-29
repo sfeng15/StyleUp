@@ -1,9 +1,14 @@
-Search by
-  User
-  Collection
-User profile picture
+Michael:
 Protect collection/item routes
   Post
   Put
   Delete
+
+Shuo:
+Search by
+  User
+  Collection
 Mark/Unmark favorite by user
+
+COMPLETE:
+  User profile picture
