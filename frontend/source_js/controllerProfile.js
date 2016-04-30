@@ -17,6 +17,38 @@ projectControllers.controller('FirstController', ['$scope', 'CommonData' , funct
 
 
 
+projectControllers.controller('loginController', ['$scope', '$location', 'CommonData' , function($scope, $location, CommonData ) {
+
+/*
+
+  $scope.setData = function(){
+    CommonData.setData($scope.data);
+    $scope.displayText = "Data set"
+
+  }; */
+
+  $scope.TrySignIn = function (){
+    //ValidateUser();
+    //If not validated return error
+    //if validated:
+    //CommonData.setUser($scope.email).then(function(data){
+      //console.log (CommonData.getUser());
+    //});
+    console.log($scope.email);
+
+    CommonData.setUser($scope.email).then(function(data){
+      console.log(CommonData.getUser());
+      $location.path('/home')
+    });
+
+  };
+
+
+
+}]);
+
+
+
 projectControllers.controller('profileController', ['$scope', 'CommonData', '$routeParams', 'Users', 'Collections' , function($scope, CommonData, $routeParams, Users, Collections ) {
 
 /*
@@ -27,22 +59,32 @@ projectControllers.controller('profileController', ['$scope', 'CommonData', '$ro
 
   }; */
 
-  CommonData.getUser.then(function(data){
-    console.log(data.data);
-})
 
-$scope.collections = [];
-console.log($routeParams.id);
+  var LoggedInUser = CommonData.getUser();
+  console.log("logged in user");
+  console.log(LoggedInUser._id);
 
-Users.get().then(function(data){
-  console.log(data.data);
+
+    $scope.profile_owner = false; //whether or not this profile belongs to the visitor
+    $scope.collections = [];
+    console.log($routeParams.id);
+
+    Users.get().then(function(data){
+      console.log(data.data);
   /////to be deleted in real code where we specify the id in the get request to the server
-  for (var i = 0 ; i < data.data.length ; i++)
-  {
-    if (data.data[i]._id == $routeParams.id)
-      $scope.user = data.data[i];
-  }
-  console.log($scope.user.profilePicUrl);
+    for (var i = 0 ; i < data.data.length ; i++)
+    {
+      if (data.data[i]._id == $routeParams.id)
+        $scope.user = data.data[i];
+      }
+      console.log($scope.user.profilePicUrl);
+
+      if (LoggedInUser._id == $scope.user._id)
+        {
+          $scope.profile_owner = true;
+          console.log("same user");
+
+        }
 
   /////end of to be deleted
 

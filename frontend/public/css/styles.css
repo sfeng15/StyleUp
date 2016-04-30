@@ -4193,7 +4193,7 @@ li {
   list-style: none; }
 
 /* line 30, ../../source_sass/_base.scss */
-.profile_item {
+.profile_item, .add_board {
   position: relative;
   display: block;
   margin: 1%;
@@ -4205,6 +4205,30 @@ li {
   background-color: white; }
 
 /* line 42, ../../source_sass/_base.scss */
+.add_board {
+  background: rgba(0, 0, 0, 0.03);
+  border: 2px dashed #bbb;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #888;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 1px 1px #fff; }
+
+/* line 56, ../../source_sass/_base.scss */
+.plus_sign {
+  position: absolute;
+  top: 40%;
+  transform: translateX(-50%); }
+
+/* line 61, ../../source_sass/_base.scss */
+.create_collection_text {
+  margin-top: 2%; }
+
+/* line 65, ../../source_sass/_base.scss */
 .album_cover, .album_cover_img_full, .album_cover_img_partial, .img_white_filler {
   position: relative;
   width: 98%;
@@ -4216,24 +4240,24 @@ li {
   border-radius: 3px;
   margin: 0 auto; }
 
-/* line 54, ../../source_sass/_base.scss */
+/* line 77, ../../source_sass/_base.scss */
 .album_cover_img_full {
   height: 440px; }
 
-/* line 59, ../../source_sass/_base.scss */
+/* line 82, ../../source_sass/_base.scss */
 .album_cover_img_partial, .img_white_filler {
   height: 215px;
   margin: 3%; }
 
-/* line 69, ../../source_sass/_base.scss */
+/* line 92, ../../source_sass/_base.scss */
 .collection-title {
   margin: 2%; }
 
-/* line 72, ../../source_sass/_base.scss */
+/* line 95, ../../source_sass/_base.scss */
 .profile_user_name {
   margin: 2%; }
 
-/* line 76, ../../source_sass/_base.scss */
+/* line 99, ../../source_sass/_base.scss */
 .profile_picture {
   position: relative;
   background-size: 100% auto;
@@ -4246,7 +4270,7 @@ li {
   margin-top: 10%;
   margin-bottom: 5%; }
 
-/* line 93, ../../source_sass/_base.scss */
+/* line 116, ../../source_sass/_base.scss */
 .modal_container {
   position: fixed;
   /* Stay in place */
@@ -4265,7 +4289,7 @@ li {
   background-color: rgba(0, 0, 0, 0.7);
   /* Black w/ opacity */ }
 
-/* line 105, ../../source_sass/_base.scss */
+/* line 128, ../../source_sass/_base.scss */
 .modal {
   background-color: #fefefe;
   margin: 2% auto;
@@ -4273,7 +4297,7 @@ li {
   border: 1px solid #888;
   width: 90%; }
 
-/* line 112, ../../source_sass/_base.scss */
+/* line 135, ../../source_sass/_base.scss */
 .modal_item, .modal_whole_image, .accessory_item.place_filler, .modal_whole_image.place_filler, .top_item.place_filler, .bottom_item.place_filler {
   position: relative;
   background-size: 100% auto;
@@ -4289,57 +4313,57 @@ li {
   -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.33) inset;
   border-radius: 5px; }
 
-/* line 132, ../../source_sass/_base.scss */
+/* line 155, ../../source_sass/_base.scss */
 .top-section {
   margin-bottom: 4%;
   overflow: auto; }
 
-/* line 137, ../../source_sass/_base.scss */
+/* line 160, ../../source_sass/_base.scss */
 .modal_item.accessory_item, .accessory_item.modal_whole_image, .accessory_item.place_filler {
   margin-bottom: 3%; }
 
-/* line 141, ../../source_sass/_base.scss */
+/* line 164, ../../source_sass/_base.scss */
 .accessories-section {
   overflow: auto; }
 
-/* line 146, ../../source_sass/_base.scss */
+/* line 169, ../../source_sass/_base.scss */
 .bottom-section {
   overflow: auto;
   margin-bottom: 4%; }
 
-/* line 151, ../../source_sass/_base.scss */
+/* line 174, ../../source_sass/_base.scss */
 .modal_whole_image {
   width: 300px;
   height: 465px; }
 
-/* line 158, ../../source_sass/_base.scss */
+/* line 181, ../../source_sass/_base.scss */
 .modal-header {
   padding: 2px 16px;
   background-color: #36454F;
   color: white; }
 
-/* line 164, ../../source_sass/_base.scss */
+/* line 187, ../../source_sass/_base.scss */
 .modal-header h2 {
   display: inline-block; }
 
-/* line 168, ../../source_sass/_base.scss */
+/* line 191, ../../source_sass/_base.scss */
 .close {
   font-size: 36px;
   font-weight: bold;
   color: white; }
 
-/* line 174, ../../source_sass/_base.scss */
+/* line 197, ../../source_sass/_base.scss */
 .accessory_item.place_filler, .modal_whole_image.place_filler {
   height: 465px;
   border: 1px solid #dfdfdf; }
 
-/* line 181, ../../source_sass/_base.scss */
+/* line 204, ../../source_sass/_base.scss */
 .top_item.place_filler, .bottom_item.place_filler {
   height: 200px;
   width: 430px;
   border: 1px solid #dfdfdf; }
 
-/* line 190, ../../source_sass/_base.scss */
+/* line 213, ../../source_sass/_base.scss */
 a:focus, a:hover {
   cursor: pointer; }
 

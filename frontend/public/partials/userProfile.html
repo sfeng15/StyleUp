@@ -16,6 +16,21 @@
         </div>
 
       </li>
+
+
+      <li ng-show = "profile_owner">
+
+        <div class = " profile_item add_board float-left text-center">
+          <div class = "columns small-12">
+            <i class="fa fa-plus-circle fa-5x plus_sign" aria-hidden="true"></i>
+            <div class = "create_collection_text"> Create a new collection </div>
+
+        </div>
+
+      </li>
+
+
+
       <li ng-repeat = "collection in collections">
 
         <a ng-click= "showAlbum($index)">

@@ -1,8 +1,10 @@
 var projectServices = angular.module('projectServices', []);
 
-projectServices.factory('CommonData', function(){
+projectServices.factory('CommonData', function($http){
     var data = "";
-    var logged_in_user = null;
+    var logged_in_user = {};
+    //the logged in user needs to be an object (a user object with name, user id)
+
     return{
         getData : function(){
             return data;
@@ -10,16 +12,19 @@ projectServices.factory('CommonData', function(){
         setData : function(newData){
             data = newData;
         },
-    }
+        getUser : function(){
+          return logged_in_user;
+        },
+        setUser : function(user){
 
-    return {
-      getUser : function(){
-        return logged_in_user
-      },
-      setUser : function(user){
-        logged_in_user = user;
-      },
-    }
+          return $http.get('./data/users.json').then(function(data){
+            logged_in_user = data.data[0];
+          });
+
+          //for now, the logged_in_user is hard coded to be farnaz
+        },
+    };
+
 });
 
 

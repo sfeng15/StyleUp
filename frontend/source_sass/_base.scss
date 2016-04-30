@@ -39,6 +39,29 @@ li {
   background-color: white;
 }
 
+.add_board {
+  @extend .profile_item;
+  background: rgba(0,0,0,0.03);
+  border: 2px dashed #bbb;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #888;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 1px 1px #fff;
+}
+.plus_sign {
+  position: absolute;
+  top: 40%;
+  transform: translateX(-50%);
+}
+.create_collection_text {
+  margin-top: 2%;
+}
+
 .album_cover {
   position: relative;
   width: 98%;
