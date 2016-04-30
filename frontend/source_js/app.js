@@ -16,7 +16,7 @@ app.config(['$routeProvider', function($routeProvider) {
   }).
   when('/login', {
     templateUrl: 'partials/Login.html',
-    controller: 'FirstController'
+    controller: 'loginController'
   }).
   otherwise({
     redirectTo: '/login'

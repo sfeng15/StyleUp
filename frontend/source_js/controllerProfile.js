@@ -3,7 +3,7 @@ var projectControllers = angular.module('projectControllers', []);
 
 
 projectControllers.controller('FirstController', ['$scope', 'CommonData' , function($scope, CommonData ) {
-  
+
 /*
 
   $scope.setData = function(){
@@ -26,6 +26,11 @@ projectControllers.controller('profileController', ['$scope', 'CommonData', '$ro
     $scope.displayText = "Data set"
 
   }; */
+
+  CommonData.getUser.then(function(data){
+    console.log(data.data);
+})
+
 $scope.collections = [];
 console.log($routeParams.id);
 

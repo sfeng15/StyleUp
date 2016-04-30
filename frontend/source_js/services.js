@@ -2,6 +2,7 @@ var projectServices = angular.module('projectServices', []);
 
 projectServices.factory('CommonData', function(){
     var data = "";
+    var logged_in_user = null;
     return{
         getData : function(){
             return data;
@@ -9,6 +10,15 @@ projectServices.factory('CommonData', function(){
         setData : function(newData){
             data = newData;
         },
+    }
+
+    return {
+      getUser : function(){
+        return logged_in_user
+      },
+      setUser : function(user){
+        logged_in_user = user;
+      },
     }
 });
 

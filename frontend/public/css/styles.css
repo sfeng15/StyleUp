@@ -4201,9 +4201,10 @@ li {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   width: 300px;
-  height: 500px; }
+  height: 500px;
+  background-color: white; }
 
-/* line 41, ../../source_sass/_base.scss */
+/* line 42, ../../source_sass/_base.scss */
 .album_cover, .album_cover_img_full, .album_cover_img_partial, .img_white_filler {
   position: relative;
   width: 98%;
@@ -4215,24 +4216,24 @@ li {
   border-radius: 3px;
   margin: 0 auto; }
 
-/* line 53, ../../source_sass/_base.scss */
+/* line 54, ../../source_sass/_base.scss */
 .album_cover_img_full {
   height: 440px; }
 
-/* line 58, ../../source_sass/_base.scss */
+/* line 59, ../../source_sass/_base.scss */
 .album_cover_img_partial, .img_white_filler {
   height: 215px;
   margin: 3%; }
 
-/* line 68, ../../source_sass/_base.scss */
+/* line 69, ../../source_sass/_base.scss */
 .collection-title {
   margin: 2%; }
 
-/* line 71, ../../source_sass/_base.scss */
+/* line 72, ../../source_sass/_base.scss */
 .profile_user_name {
   margin: 2%; }
 
-/* line 75, ../../source_sass/_base.scss */
+/* line 76, ../../source_sass/_base.scss */
 .profile_picture {
   position: relative;
   background-size: 100% auto;
@@ -4245,7 +4246,7 @@ li {
   margin-top: 10%;
   margin-bottom: 5%; }
 
-/* line 92, ../../source_sass/_base.scss */
+/* line 93, ../../source_sass/_base.scss */
 .modal_container {
   position: fixed;
   /* Stay in place */
@@ -4264,7 +4265,7 @@ li {
   background-color: rgba(0, 0, 0, 0.7);
   /* Black w/ opacity */ }
 
-/* line 104, ../../source_sass/_base.scss */
+/* line 105, ../../source_sass/_base.scss */
 .modal {
   background-color: #fefefe;
   margin: 2% auto;
@@ -4272,7 +4273,7 @@ li {
   border: 1px solid #888;
   width: 90%; }
 
-/* line 111, ../../source_sass/_base.scss */
+/* line 112, ../../source_sass/_base.scss */
 .modal_item, .modal_whole_image, .accessory_item.place_filler, .modal_whole_image.place_filler, .top_item.place_filler, .bottom_item.place_filler {
   position: relative;
   background-size: 100% auto;
@@ -4288,57 +4289,57 @@ li {
   -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.33) inset;
   border-radius: 5px; }
 
-/* line 131, ../../source_sass/_base.scss */
+/* line 132, ../../source_sass/_base.scss */
 .top-section {
   margin-bottom: 4%;
-  overflow: scroll; }
+  overflow: auto; }
 
-/* line 136, ../../source_sass/_base.scss */
+/* line 137, ../../source_sass/_base.scss */
 .modal_item.accessory_item, .accessory_item.modal_whole_image, .accessory_item.place_filler {
   margin-bottom: 3%; }
 
-/* line 140, ../../source_sass/_base.scss */
+/* line 141, ../../source_sass/_base.scss */
 .accessories-section {
-  overflow: scroll; }
+  overflow: auto; }
 
-/* line 145, ../../source_sass/_base.scss */
+/* line 146, ../../source_sass/_base.scss */
 .bottom-section {
-  overflow: scroll;
+  overflow: auto;
   margin-bottom: 4%; }
 
-/* line 150, ../../source_sass/_base.scss */
+/* line 151, ../../source_sass/_base.scss */
 .modal_whole_image {
   width: 300px;
   height: 465px; }
 
-/* line 157, ../../source_sass/_base.scss */
+/* line 158, ../../source_sass/_base.scss */
 .modal-header {
   padding: 2px 16px;
   background-color: #36454F;
   color: white; }
 
-/* line 163, ../../source_sass/_base.scss */
+/* line 164, ../../source_sass/_base.scss */
 .modal-header h2 {
   display: inline-block; }
 
-/* line 167, ../../source_sass/_base.scss */
+/* line 168, ../../source_sass/_base.scss */
 .close {
   font-size: 36px;
   font-weight: bold;
   color: white; }
 
-/* line 173, ../../source_sass/_base.scss */
+/* line 174, ../../source_sass/_base.scss */
 .accessory_item.place_filler, .modal_whole_image.place_filler {
   height: 465px;
   border: 1px solid #dfdfdf; }
 
-/* line 180, ../../source_sass/_base.scss */
+/* line 181, ../../source_sass/_base.scss */
 .top_item.place_filler, .bottom_item.place_filler {
   height: 200px;
   width: 430px;
   border: 1px solid #dfdfdf; }
 
-/* line 189, ../../source_sass/_base.scss */
+/* line 190, ../../source_sass/_base.scss */
 a:focus, a:hover {
   cursor: pointer; }
 

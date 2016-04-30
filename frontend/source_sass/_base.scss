@@ -36,6 +36,7 @@ li {
   -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
   width: 300px;
   height: 500px;
+  background-color: white;
 }
 
 .album_cover {
@@ -130,7 +131,7 @@ li {
 
 .top-section {
   margin-bottom: 4%;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .modal_item.accessory_item {
@@ -139,11 +140,11 @@ li {
 
 .accessories-section {
   //margin-right: 6%;
-  overflow: scroll;
+  overflow: auto;
 
 }
 .bottom-section {
-  overflow: scroll;
+  overflow: auto;
   margin-bottom: 4%;
 }
 
