@@ -16,6 +16,7 @@
 			        <div class="tabs">
 				            <span class="tab signin active"><a href="#signin">Sign in</a></span>
 				            <span class="tab signup"><a href="#signup">Sign up</a></span>
+                            <span class="tab signup"><a ng-click="TrySignIn()">Explore</a></span>
 			        </div>
 			        <div class="content">
 				            <div class="signin-cont cont">
@@ -27,7 +28,7 @@
 						                    <input type="checkbox" id="remember" class="checkbox" checked>
 						                    <label for="remember">Remember me</label>
 						                    <div class="submit-wrap">
-							                        <input ng-click="TrySignIn()" value="Sign in" class="submit">
+							                        <input type ="submit" ng-click="TrySignIn()" value="Sign in" class="submit">
 							                        <a href="#" class="more">Forgot your password?</a>
 						                    </div>
         					        </form>
