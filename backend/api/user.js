@@ -8,7 +8,7 @@ l=require('../config/lib');
 var api = {};
 // ALL
 api.users = function (req, res) {
-	var skip=null,limit=10;
+	var skip=null,limit=10,where;
 
 	if(req.query.skip!=undefined)
 		skip=req.query.skip;
@@ -16,7 +16,11 @@ api.users = function (req, res) {
 	if(req.query.limit!=undefined)
 		limit=req.query.limit;
 
-	user.getAllUsers(skip,limit,function(err,data){
+    if(req.query.where!=undefined){
+        var  where=eval("("+req.query.where+")");
+    }
+
+	user.getAllUsers(skip,limit,where, function(err,data){
 		if (err) {
 			res.status(500).json(err);
 		} else {
@@ -42,7 +46,7 @@ api.user = function (req, res) {
 api.editUser = function (req, res) {
 	var id = req.params.id;
 
-	return user.editUser(id,req.body.user, function (err, data) {
+	return user.editUser(id,req.body, function (err, data) {
 		if (!err) {
 			l.p("updated user");
 			return res.status(200).json(data);

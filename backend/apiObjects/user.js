@@ -11,8 +11,8 @@ l=require('../config/lib');
 */
 
 // ALL
-api.getAllUsers = function (skip,limit,cb) {
-  var q=User.find();
+api.getAllUsers = function (skip,limit,where, cb) {
+  var q=User.find(where);
 
   if(skip!=undefined)
     q.skip(skip*1);
