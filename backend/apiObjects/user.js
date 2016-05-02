@@ -63,9 +63,16 @@ api.editUser = function (id,updateData, cb) {
     if(typeof updateData["password"] != 'undefined'){
       user["password"] = updateData["password"];
     }
-
-
-  return user.save(function (err) {
+    if(typeof updateData["name"] != 'undefined'){
+      user["name"] = updateData["name"];
+    }
+    if(typeof updateData["username"] != 'undefined'){
+      user["username"] = updateData["username"];
+    }
+    if(typeof updateData["favorites"] != 'undefined'){
+        user["favorites"]=updateData["favorites"];
+    }
+      return user.save(function (err) {
     cbf(cb,err,user.toObject());
     }); //eo user.save
   });// eo user.find

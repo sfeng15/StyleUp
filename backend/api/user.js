@@ -32,7 +32,7 @@ api.users = function (req, res) {
 
 // GET
 api.user = function (req, res) {
-	var username = req.params.username;
+	var username = req.params.id;
 	user.getUser(username,function(err,data){
 		if (err) {
 			res.status(404).json(err);
@@ -102,7 +102,7 @@ api.deleteUser = function (req, res) {
 // 	return router;
 // }
 
-router.route('/user/:username')
+router.route('/user/:id')
 .get(api.user)
 .put(api.editUser)
 .delete(api.deleteUser);

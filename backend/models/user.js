@@ -25,8 +25,8 @@ var fields = {
 			type: String,
 			required: true
 		},
-		collections: [mongoose.Types.ObjectId],
-		favorites: [mongoose.Types.ObjectId]
+		collections: [String],
+		favorites: [String]
 };
 
 var userSchema = new Schema(fields);
