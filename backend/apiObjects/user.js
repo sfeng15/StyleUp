@@ -48,8 +48,8 @@ api.addUser = function (user,cb) {
 };
 
 // PUT
-api.editUser = function (id,updateData, cb) {
-  User.findById(id, function (err, user) {
+api.editUser = function (user,updateData, cb) {
+  User.findOne({'username':user}, function (err, user) {
 
    if(updateData===undefined || user===undefined){
     return cbf(cb,'Invalid Data. Please Check user and/or updateData fields',null);

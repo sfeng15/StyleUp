@@ -44,9 +44,9 @@ api.user = function (req, res) {
 
 // PUT
 api.editUser = function (req, res) {
-	var id = req.params.id;
+	var username = req.params.username;
 
-	return user.editUser(id,req.body, function (err, data) {
+	return user.editUser(username,req.body, function (err, data) {
 		if (!err) {
 			l.p("updated user");
 			return res.status(200).json(data);
@@ -102,7 +102,7 @@ api.deleteUser = function (req, res) {
 // 	return router;
 // }
 
-router.route('/user/:id')
+router.route('/user/:username')
 .get(api.user)
 .put(api.editUser)
 .delete(api.deleteUser);
