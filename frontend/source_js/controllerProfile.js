@@ -3,6 +3,31 @@ var projectControllers = angular.module('projectControllers', []);
 
 
 projectControllers.controller('FirstController', ['$scope', 'CommonData' , function($scope, CommonData ) {
+    
+     $(document).on('click', '.navToggle', function(){    
+//            $(this).addClass("open");
+//            $("nav").addClass("open");
+         if ($(this).hasClass('open')) {
+            $(this).removeClass("open");
+            $("nav").removeClass("open");
+             console.log($(this).hasClass('open'));
+         }
+         if ($(this).hasClass('open')==false){
+            $(this).addClass("open");
+            $("nav").addClass("open");
+             console.log($(this).hasClass('open'));
+         }
+    });
+
+//    
+//    $('.navToggle').click (function(){
+//          $(this).toggleClass('open');
+//          $('nav').toggleClass('open');
+//  
+//          console.log($(this).hasClass('open'));
+//        
+//        });
+////    
 
 /*
 
@@ -11,29 +36,8 @@ projectControllers.controller('FirstController', ['$scope', 'CommonData' , funct
     $scope.displayText = "Data set"
 
   }; */
-    console.log('test');
+   
     
-    $(document).on('click', '.tabs .tab', function(){    
-    if ($(this).hasClass('signin')) {
-        $('.tabs .tab').removeClass('active');
-        $(this).addClass('active');
-        $('.cont').hide();
-        $('.signin-cont').show();
-    } 
-    if ($(this).hasClass('signup')) {
-        $('.tabs .tab').removeClass('active');
-        $(this).addClass('active');
-        $('.cont').hide();
-        $('.signup-cont').show();
-    }
-});
-
-
-$(document).on('mousemove', '.container .bg', (function(e){
-    var amountMovedX = (e.pageX * -1 / 30);
-    var amountMovedY = (e.pageY * -1 / 9);
-    $(this).css('background-position', amountMovedX + 'px ' + amountMovedY + 'px');
-}));
 
 //---------------------------
 
@@ -71,7 +75,7 @@ var Slider = (function() {
 		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
 
 		init = function() {
-            console.log("work");
+           
 
 			// show first item
 			var $currentItem = $items.eq( current ),
@@ -92,7 +96,7 @@ var Slider = (function() {
 
 		},
 		updateNavImages = function() {
-            console.log("work2");
+            
 
 			// updates the background image for the navigation arrows
 			var configPrev = ( current > 0 ) ? $slides.eq( current - 1 ).css( 'background-image' ) : $slides.eq( itemsCount - 1 ).css( 'background-image' ),
@@ -103,8 +107,7 @@ var Slider = (function() {
 
 		},
 		initEvents = function() {
-            console.log("work3");
-
+           
 			$navprev.on( 'click', function( event ) {
 
 				if( !isAnimating ) {
@@ -208,7 +211,7 @@ var Slider = (function() {
 })();
     
     $(function() {
-        console.log("here");
+       
         Slider.init();
 
     });
@@ -245,6 +248,29 @@ projectControllers.controller('loginController', ['$scope', '$location', 'Common
     });
 
   };
+    
+     $(document).on('click', '.tabs .tab', function(){    
+    if ($(this).hasClass('signin')) {
+        $('.tabs .tab').removeClass('active');
+        $(this).addClass('active');
+        $('.cont').hide();
+        $('.signin-cont').show();
+    } 
+    if ($(this).hasClass('signup')) {
+        $('.tabs .tab').removeClass('active');
+        $(this).addClass('active');
+        $('.cont').hide();
+        $('.signup-cont').show();
+    }
+});
+
+
+$(document).on('mousemove', '.container .bg', (function(e){
+    var amountMovedX = (e.pageX * -1 / 30);
+    var amountMovedY = (e.pageY * -1 / 9);
+    $(this).css('background-position', amountMovedX + 'px ' + amountMovedY + 'px');
+}));
+
 
 
 
