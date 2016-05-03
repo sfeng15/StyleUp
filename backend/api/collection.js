@@ -97,25 +97,27 @@ api.deleteCollection = function (req, res) {
 =====================  ROUTES  =====================
 */
 
+module.exports = function(passport) {
 
-router.post('/collection',api.addcollection);//??how to not use .route()
+	router.post('/collection',api.addcollection);//??how to not use .route()
 
-router.route('/collection/:id')
-.get(api.collection)
-.put(api.editCollection)
-.delete(api.deleteCollection);
-
-
-router.route('/collections')
-.get(api.collections);
-//.delete(api.deleteAllCollections);
-//prevent users from deleting all records
+	router.route('/collection/:id')
+	.get(api.collection)
+	.put(api.editCollection)
+	.delete(api.deleteCollection);
 
 
-router.get('/collections/test',function(req,res){
-	return collection.test(function (err, data) {
-		res.status(200).json(data);
+	router.route('/collections')
+	.get(api.collections);
+	//.delete(api.deleteAllCollections);
+	//prevent users from deleting all records
+
+
+	router.get('/collections/test',function(req,res){
+		return collection.test(function (err, data) {
+			res.status(200).json(data);
+		});
 	});
-});
 
-module.exports = router;
+	return router;
+}
