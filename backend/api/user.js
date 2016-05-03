@@ -5,6 +5,10 @@ user = require('../apiObjects/user'),
 UserSchema = require('../models/user'),
 l=require('../config/lib');
 
+var path = require('path');
+var multer = require('multer');
+var upload = multer({dest: './uploads/profilePics'});
+
 var api = {};
 // ALL
 api.users = function (req, res) {
@@ -32,7 +36,7 @@ api.users = function (req, res) {
 
 // GET
 api.user = function (req, res) {
-	var username = req.params.id;
+	var username = req.params.username;
 	user.getUser(username,function(err,data){
 		if (err) {
 			res.status(404).json(err);
@@ -46,7 +50,7 @@ api.user = function (req, res) {
 api.editUser = function (req, res) {
 	var username = req.params.username;
 
-	return user.editUser(username,req.body, function (err, data) {
+	return user.editUser(id,req.body.user, function (err, data) {
 		if (!err) {
 			l.p("updated user");
 			return res.status(200).json(data);
@@ -60,8 +64,8 @@ api.editUser = function (req, res) {
 
 // DELETE
 api.deleteUser = function (req, res) {
-	var id = req.params.id;
-	return user.deleteUser(id, function (err, data) {
+	var username = req.params.username;
+	return user.deleteUser(username, function (err, data) {
 		if (!err) {
 			l.p("removed user");
 			return res.status(204).send();
@@ -72,6 +76,30 @@ api.deleteUser = function (req, res) {
 	});
 };
 
+//PROFILE PICTURE
+api.setProfilePic = function(req, res) {
+	if(req.params.username != req.user.username) { //Wrong user logged in
+		return res.status(401).send('Wrong User');
+	}
+	var username = req.params.username;
+	user.setProfilePic(username, req.file, function(err) {
+		if (err) {
+			res.status(404).json(err);
+		} else {
+			res.status(201).json({msg: 'Profile picture set'});
+		}
+	});
+};
+api.getProfilePic = function(req, res) {
+	var username = req.params.username;
+	user.getUser(username, function(err,user){
+		if (err || !user) {
+			res.status(404).sendFile(path.resolve('uploads/profilePics/default.png'));
+		} else {
+			res.status(200).sendFile(path.resolve(user.profilePicPath));
+		}
+	});
+};
 
 
 /*
@@ -101,15 +129,26 @@ api.deleteUser = function (req, res) {
 // 	});
 // 	return router;
 // }
+module.exports = function(passport) {
+	router.route('/user/:username')
+	.get(api.user)
+	.put(api.editUser)
+	.delete(api.deleteUser);
 
-router.route('/user/:username')
-.get(api.user)
-.put(api.editUser)
-.delete(api.deleteUser);
+	router.route('/user/:username')
+	.get(api.user)
+	.put(api.editUser)
+	.delete(api.deleteUser);
 
+	router.route('/users')
+	.get(api.users)
 
-router.route('/users')
-.get(api.users)
-
-
-module.exports = router;
+	router.get('/test', passport.authenticate('jwt', {session: false}), function(req,res) {
+     res.send('It worked! User is: ' + req.user);
+  });
+	router.route('/profilePic/:username')
+	.get(api.getProfilePic)
+	.post(passport.authenticate('jwt', {session: false}), upload.single('image'), api.setProfilePic);
+	
+	return router;
+}

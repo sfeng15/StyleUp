@@ -81,17 +81,18 @@ api.itemImage = function(req, res) {
 */
 
 
-router.post('/item', upload.single('image'), api.additem);
+module.exports = function(passport) {
+	router.post('/item', upload.single('image'), api.additem);
 
-router.route('/item/:id')
-.get(api.item)
-.delete(api.deleteItem);
+	router.route('/item/:id')
+	.get(api.item)
+	.delete(api.deleteItem);
 
-router.get('/itemImage/:id', api.itemImage);
-
-
-router.route('/items')
-.get(api.items)
+	router.get('/itemImage/:id', api.itemImage);
 
 
-module.exports = router;
+	router.route('/items')
+	.get(api.items)
+
+	return router;
+}

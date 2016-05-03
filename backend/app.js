@@ -82,7 +82,7 @@ fs.readdirSync(routesPath).forEach(function(file) {
 // Bootstrap api
 var apiPath = path.join(__dirname, 'api');
 fs.readdirSync(apiPath).forEach(function(file) {
-  app.use('/api', require(apiPath + '/' + file));
+  app.use('/api', require(apiPath + '/' + file)(passport));
 });
 
 // Start server
