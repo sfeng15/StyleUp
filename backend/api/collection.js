@@ -53,7 +53,10 @@ api.collection = function (req, res) {
 // PUT
 api.editCollection = function (req, res) {
 	var id = req.params.id;
-
+	if(req.user.collections.indexOf(id) < 0) {
+		l.p('Collection does not belong to you');
+		return res.status(401).send();
+	}
 	return collection.editCollection(id,req.body, function (err, data) {
 		if (!err) {
 			l.p("updated collection");
@@ -69,6 +72,10 @@ api.editCollection = function (req, res) {
 // DELETE
 api.deleteCollection = function (req, res) {
 	var id = req.params.id;
+	if(req.user.collections.indexOf(id) < 0) {
+		l.p('Collection does not belong to you');
+		return res.status(401).send();
+	}
 	return collection.deleteCollection(id, function (err, data) {
 		if (!err) {
 			l.p("removed collection");
@@ -99,12 +106,12 @@ api.deleteCollection = function (req, res) {
 
 module.exports = function(passport) {
 
-	router.post('/collection',api.addcollection);//??how to not use .route()
+	router.post('/collection', passport.authenticate('jwt', {session: false}), api.addcollection);//??how to not use .route()
 
 	router.route('/collection/:id')
 	.get(api.collection)
-	.put(api.editCollection)
-	.delete(api.deleteCollection);
+	.put(passport.authenticate('jwt', {session: false}), api.editCollection)
+	.delete(passport.authenticate('jwt', {session: false}), api.deleteCollection);
 
 
 	router.route('/collections')
