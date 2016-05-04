@@ -48,8 +48,10 @@ api.user = function (req, res) {
 
 // PUT
 api.editUser = function (req, res) {
+	if(req.params.username != req.user.username) { //Wrong user logged in
+		return res.status(401).send('Wrong User');
+	}
 	var username = req.params.username;
-
 	return user.editUser(id,req.body.user, function (err, data) {
 		if (!err) {
 			l.p("updated user");
@@ -64,6 +66,9 @@ api.editUser = function (req, res) {
 
 // DELETE
 api.deleteUser = function (req, res) {
+	if(req.params.username != req.user.username) { //Wrong user logged in
+		return res.status(401).send('Wrong User');
+	}
 	var username = req.params.username;
 	return user.deleteUser(username, function (err, data) {
 		if (!err) {
@@ -130,25 +135,23 @@ api.getProfilePic = function(req, res) {
 // 	return router;
 // }
 module.exports = function(passport) {
-	router.route('/user/:username')
-	.get(api.user)
-	.put(api.editUser)
-	.delete(api.deleteUser);
 
 	router.route('/user/:username')
 	.get(api.user)
-	.put(api.editUser)
-	.delete(api.deleteUser);
+	.put(passport.authenticate('jwt', {session: false}), api.editUser)
+	.delete(passport.authenticate('jwt', {session: false}), api.deleteUser);
 
 	router.route('/users')
 	.get(api.users)
 
-	router.get('/test', passport.authenticate('jwt', {session: false}), function(req,res) {
-     res.send('It worked! User is: ' + req.user);
-  });
 	router.route('/profilePic/:username')
 	.get(api.getProfilePic)
 	.post(passport.authenticate('jwt', {session: false}), upload.single('image'), api.setProfilePic);
-	
+
+	//Used to verify login status (if you want)
+	router.get('/test', passport.authenticate('jwt', {session: false}), function(req,res) {
+		res.send('It worked! User is: ' + req.user);
+	});
+
 	return router;
 }
