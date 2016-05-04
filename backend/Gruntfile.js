@@ -24,7 +24,7 @@ module.exports = function(grunt) {
     },
     express: {
       options: {
-        port : 3000,
+        port : 4000,
         node_env: 'development'
       },
       dev: {
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
     },
     open: {
       server: {
-        url: 'http://localhost:3000'
+        url: 'http://localhost:4000'
       }
     }
   });

@@ -52,7 +52,7 @@ api.editUser = function (req, res) {
 		return res.status(401).send('Wrong User');
 	}
 	var username = req.params.username;
-	return user.editUser(id,req.body.user, function (err, data) {
+	return user.editUser(id,req.body, function (err, data) {
 		if (!err) {
 			l.p("updated user");
 			return res.status(200).json(data);

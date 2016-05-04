@@ -50,6 +50,19 @@ api.item = function (req, res) {
 	});
 };
 
+// PUT
+api.editItem = function (req, res) {
+	var id = req.params.id;
+	return item.editItem(id,req.body, req.file, function (err, data) {
+		if (!err) {
+			return res.status(200).json(data);
+		} else {
+			return res.status(500).json(err);
+		}
+		return res.status(200).json(data);
+	});
+};
+
 // DELETE
 api.deleteItem = function (req, res) {
 	var id = req.params.id;
