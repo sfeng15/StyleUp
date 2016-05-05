@@ -50,7 +50,6 @@ api.addItem = function (item, file, cb) {
 
 // PUT
 api.editItem = function (id,updateData, file, cb) {
-  console.log('bleh');
   Item.findById(id, function (err, item) {
 
    if(updateData===undefined || item===undefined){
