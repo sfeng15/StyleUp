@@ -15,10 +15,18 @@
     padding-left:20px;
     margin-left: 65px;
     font-size: 23px;
-    color: white;
+    color: white; 
     text-decoration: none;
     font-family: $font_logo;
     
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color:$nickel;
 }
 
 nav{

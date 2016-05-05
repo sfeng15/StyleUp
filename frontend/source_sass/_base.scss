@@ -16,14 +16,16 @@ h1 h2 h3 h4 h5 h6 {
 
 .trending_bar {
   background-color : $charcoal;
-  height: 10vh;
+  height: 14vh;
   text-align: center;
   top: 50vh;
   position: relative;;
 }
 #trending_text {
   color: white;
-  line-height: 10vh;
+  line-height: 14vh;
+  font-family: $font_title1;
+  font-size: 23px;
 }
 
 #main_page_carousel {
