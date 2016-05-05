@@ -1,0 +1,32 @@
+<<<<<<< b89dafa03d18e79d8be667f60a71f27412870238
+var app = angular.module('project', ['ngRoute', 'projectControllers', 'projectServices', 'ngFileUpload', 'angular-img-cropper', 'xeditable']);
+=======
+<<<<<<< Updated upstream
+var app = angular.module('project', ['ngRoute', 'projectControllers', 'projectServices', 'userService']);
+=======
+var app = angular.module('project', ['ngRoute', 'projectControllers', 'projectServices', 'apiServices', 'ngFileUpload', 'angular-img-cropper', 'xeditable']);
+>>>>>>> Stashed changes
+>>>>>>> Work on the profile in controllers
+
+app.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.
+    when('/collections', {
+    templateUrl: 'partials/collections.html',
+    controller: 'FirstController'
+  }).
+  when('/home', {
+    templateUrl: 'partials/home.html',
+    controller: 'FirstController'
+  }).
+  when('/users/:username', {
+    templateUrl: 'partials/userProfile.html',
+    controller: 'profileController'
+  }).
+  when('/login', {
+    templateUrl: 'partials/Login.html',
+    controller: 'loginController'
+  }).
+  otherwise({
+    redirectTo: '/login'
+  });
+} ]);
