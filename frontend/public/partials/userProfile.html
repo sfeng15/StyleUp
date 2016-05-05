@@ -14,10 +14,8 @@
         <div class = "profile_info profile_item float-left text-center">
           <div class = "columns small-12">
 
-            <div ng-show="user.profilePicUrl" class= "profile_picture" style = "background-image: url('./data/images/{{user.profilePicUrl}}.jpg')"> </div>
-
-            <div ng-show="!user.profilePicUrl && !profile_owner" class= "profile_picture" style = "background-image: url('./data/images/profilePicPlaceHolder.png')"> </div>
-            <div ng-show="!user.profilePicUrl && profile_owner" ng-click="AddPic()" class= "profile_picture" style = "background-image: url('./data/images/profilePicPlaceHolder.png')">
+            <div ng-show="!profile_owner" class= "profile_picture" style = "background-image: url('{{profilePic}}')"> </div>
+            <div ng-show="profile_owner" ng-click="AddPic()" class= "profile_picture" style = "background-image: url('{{profilePic}}')">
              </div>
 
 

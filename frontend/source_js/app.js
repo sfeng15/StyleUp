@@ -1,4 +1,4 @@
-var app = angular.module('project', ['ngRoute', 'projectControllers', 'projectServices', 'ngFileUpload', 'angular-img-cropper', 'xeditable']);
+var app = angular.module('project', ['ngRoute', 'projectControllers', 'projectServices', 'apiServices', 'ngFileUpload', 'angular-img-cropper', 'xeditable']);
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
@@ -10,7 +10,7 @@ app.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'partials/home.html',
     controller: 'FirstController'
   }).
-  when('/users/:id', {
+  when('/users/:username', {
     templateUrl: 'partials/userProfile.html',
     controller: 'profileController'
   }).
