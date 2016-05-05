@@ -3,9 +3,10 @@ var apiService = angular.module('apiService', []);
 // Change this in case of domain name
 var baseUrl = 'localhost:4000/api/';
 
-apiService.factory('User', function($http, $window, $q){
+apiService.factory('Users', function($http, $window, $q){
   return {
     register: function(user) {
+      console.log(user);
       return $http.post(baseUrl+'register', user);
     },
     login: function(user) {
@@ -14,6 +15,7 @@ apiService.factory('User', function($http, $window, $q){
       .success(function(data) {
         //Set the token as a default header
         $http.defaults.headers.common['Authorization'] = data.token;
+        console.log('thing', $http.defaults.headers.common['Authorization']);
         $window.localStorage['curUser'] = user.username;
         deferred.resolve(user);
       }).catch(function(err) {
@@ -44,7 +46,7 @@ apiService.factory('User', function($http, $window, $q){
   };
 });
 
-apiService.factory('Collection', function($http, $window, $q) {
+apiService.factory('Collections', function($http, $window, $q) {
   //Create, edit, delete are protected
   //Get collection
   //Add favorite toggling
@@ -99,7 +101,7 @@ apiService.factory('Collection', function($http, $window, $q) {
 
 });
 
-apiService.factory('Item', function($http, $window, $q) {
+apiService.factory('Items', function($http, $window, $q) {
   return {
     get: function(id) {
       return $http.get(baseUrl+'item/'+id);

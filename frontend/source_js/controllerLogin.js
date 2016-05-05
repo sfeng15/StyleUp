@@ -1,6 +1,6 @@
 
 
-projectControllers.controller('loginController', ['$scope',  '$location', 'CommonData' , function($scope, $location, CommonData ) {
+projectControllers.controller('loginController', ['$scope', '$location', 'Users' , function($scope, $location, Users ) {
 
 $scope.showmsg = false;
 $scope.show_error = false;
@@ -12,6 +12,8 @@ $scope.show_ok = false;
     $scope.displayText = "Data set"
 
   }; */
+  $scope.user = {};
+  $scope.msg = '';
 
   $scope.RedirectToHome = function(){
     $location.path('/home');
@@ -23,48 +25,25 @@ $scope.show_ok = false;
   }
 
   $scope.TrySignUp = function (){
-
-    var userData = {"name": $scope.signupName, "email":$scope.signupEmail, "password": $scope.signupPassword};
-
-    /*
-    Users.post(userData).success(function(msg){
-
-      Users.get('?where={"email": { "$eq":\"' +  $scope.singupEmail + '\"}').then(function(data){
-
+    Users.register($scope.user).success(function(data) {
+      Users.login(user).success(function(data) {
+        $location.path('/home');
+      });
+    }).console.error();(function(err){
+      $scope.msg = 'Invalid signup';
       $scope.showmsg = true;
-      $scope.show_ok = true;
-      CommonData.setUser(data);
-
-
     });
-
-    }).error(function(err){
-
-    $scope.showmsg = true;
-    $scope.show_error = true;
-
-
-  });
-    */
-
   };
 
   $scope.TrySignIn = function (){
-    //ValidateUser();
-    //If not validated return error
-    //if validated:
-    //CommonData.setUser($scope.email).then(function(data){
-      //console.log (CommonData.getUser());
-    //});
-    console.log($scope.loginEmail);
-
-
-
-    CommonData.setUser($scope.loginEmail).then(function(data){
-      console.log(CommonData.getUser());
+    console.log('signing in');
+    Users.login($scope.user).then(function(data) {
+      console.log('redirecting');
       $location.path('/home');
+    }).catch(function(err) {
+      $scope.msg = 'Invalid login';
+      $scope.showmsg = true;
     });
-
   };
 
      $(document).on('click', '.tabs .tab', function(){

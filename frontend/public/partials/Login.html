@@ -4,15 +4,13 @@
   <section  id = "signUpInmsg">
     <div class = "row">
       <div class = "columns small-centered small-6 text-center">
-        <p ng-show = "show_ok"> Awesome! </p>
-        <p ng-show = "show_error" id = "error_msg_text"> </p>
+        <p>{{msg}}</p>
       </div>
     </div>
 
     <div class = "row">
       <div class = "columns small-centered small-4 text-center">
-        <button ng-show="show_ok" ng-click="RedirectToHome()" class = "button msg_modal_button"> Ok </button>
-        <button ng-show="show_error" ng-click= "goAway()" class = "button msg_modal_button"> Ok </button>
+        <button ng-click= "goAway()" class = "button msg_modal_button"> Ok </button>
 
       </div>
     </div>
@@ -31,29 +29,31 @@
 			        <div class="content">
 				            <div class="signin-cont cont">
 					                <form action="#" method="post" enctype="multipart/form-data">
-						                    <input type="email" ng-model="loginEmail" id="email" class="inpt" required="required" placeholder="Your email">
-						                    <label for="email">Your email</label>
-						                    <input type="password" ng-model="loginPassword" id="password" class="inpt" required="required" placeholder="Your password">
-                						    <label for="password">Your password</label>
-						                    <input type="checkbox" id="remember" ng-model="loginRemember" class="checkbox" checked>
-						                    <label for="remember">Remember me</label>
+						                    <input type="name" ng-model="user.username" id="username" class="inpt" required="required" placeholder="Username">
+						                    <label for="username">Username</label>
+						                    <input type="password" ng-model="user.password" id="password" class="inpt" required="required" placeholder="Password">
+                						    <label for="password">Password</label>
+						                    <!-- <input type="checkbox" id="remember" ng-model="loginRemember" class="checkbox" checked> -->
+						                    <!-- <label for="remember">Remember me</label> -->
 						                    <div class="submit-wrap">
-							                        <input type ="submit" ng-click="TrySignIn()" value="Sign in" class="submit">
-							                        <a href="#" class="more">Forgot your password?</a>
+							                        <input type ="button" ng-click="TrySignIn()" value="Sign in" class="submit">
+							                        <!-- <a href="#" class="more">Forgot your password?</a> -->
 						                    </div>
         					        </form>
     				        </div>
     				        <div class="signup-cont cont">
                 <form action="#" method="post" enctype="multipart/form-data">
-						                    <input type="name" ng-model="signupName" id="name" class="inpt" required="required" placeholder="Your name">
-						                    <label for="name">Your name</label>
-                    <input type="email" ng-model="signupEmail" id="email" class="inpt" required="required" placeholder="Your email">
-						                    <label for="email">Your email</label>
-						                    <input type="password" ng-model="signupPassword" id="password" class="inpt" required="required" placeholder="Your password">
-                						    <label for="password">Your password</label>
+						                    <input type="name" ng-model="user.name" id="name" class="inpt" required="required" placeholder="Name">
+						                    <label for="name">Name</label>
+                                <input type="username" ng-model="user.username" id="username" class="inpt" required="required" placeholder="Username">
+						                    <label for="username">Username</label>
+                                <input type="email" ng-model="user.email" id="email" class="inpt" required="required" placeholder="Email">
+						                    <label for="email">Email</label>
+						                    <input type="password" ng-model="user.password" id="password" class="inpt" required="required" placeholder="Password">
+                						    <label for="password">Password</label>
 						                    <div class="submit-wrap">
-							                        <input type="submit" value="Sign up" ng-click= "TrySignUp()" class="submit">
-							                        <a href="#" class="more">Terms and conditions</a>
+							                        <input type="button" value="Sign up" ng-click= "TrySignUp()" class="submit">
+							                        <!-- <a href="#" class="more">Terms and conditions</a> -->
 						                    </div>
         					        </form>
             </div>
