@@ -16,7 +16,6 @@ projectControllers.controller('profileController', ['$scope', 'Upload', '$window
 			$scope.navBarUserLoggedIn = true;
 			$scope.profile_owner = LoggedInUser.username === $routeParams['username'];
 		}
-		console.log('mememe', $scope.profile_owner);
 		$scope.collections = [];
 		Users.getUser($routeParams['username']).then(function(data){
 			console.log(data);

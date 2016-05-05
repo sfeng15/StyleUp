@@ -26,11 +26,11 @@ $scope.show_ok = false;
 
   $scope.TrySignUp = function (){
     Users.register($scope.user).success(function(data) {
-      Users.login(user).success(function(data) {
+      Users.login($scope.user).then(function(data) {
         $location.path('/home');
       });
-    }).console.error();(function(err){
-      $scope.msg = 'Invalid signup';
+    }).error(function(err){
+      $scope.msg = 'User already exists';
       $scope.showmsg = true;
     });
   };
