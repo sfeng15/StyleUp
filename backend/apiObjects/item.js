@@ -49,7 +49,7 @@ api.addItem = function (item, file, cb) {
 };
 
 // PUT
-api.editItem = function (id,updateData, cb) {
+api.editItem = function (id,updateData, file, cb) {
   Item.findById(id, function (err, item) {
 
    if(updateData===undefined || item===undefined){
@@ -65,8 +65,8 @@ api.editItem = function (id,updateData, cb) {
       item["type"] = updateData["type"];
     }
 
-    if(typeof updateData["path"] != 'undefined'){
-      item["path"] = updateData["path"];
+    if(typeof file != 'undefined') {
+      item.path = file.path;
     }
 
 
