@@ -2,13 +2,21 @@
   color: white;
 }
 
+div {
+    font-family: $font1;
+}
+
+h1 h2 h3 h4 h5 h6 { 
+    font-family: $font1;
+}
+
 #search_icon_label {
   margin-right: 4%;
 }
 
 .trending_bar {
   background-color : $charcoal;
-  height: 10vh;
+//  height: 10vh;
   text-align: center;
   position: absolute;
   top:1500px;
@@ -31,11 +39,15 @@ li {
   position: relative;
   display: block;
   margin: 1%;
+  margin-top: 3%;
+  margin-right: 1%;
+  margin-left: 5%;
   border-radius: 6px;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
   -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
-  width: 300px;
-  height: 500px;
+  width: 288px;
+  height: 526px;
+    
   background-color: white;
 }
 
@@ -76,7 +88,8 @@ li {
 
 .album_cover_img_full {
   @extend .album_cover;
-  height: 440px;
+   height: 445px;
+   width: 93%;
 }
 
 .album_cover_img_partial {
@@ -90,7 +103,9 @@ li {
 }
 
 .collection-title {
-  margin: 2%;
+  margin: 4%;
+  color: $charcoal;
+  font-weight: 600;
 }
 .profile_user_name {
   margin: 2%;
@@ -126,7 +141,7 @@ li {
 }
 
 .modal {
-  background-color: #fefefe;
+  background-color: $bg;
    margin: 2% auto; /* 2% from the top and centered */
    border: 1px solid #888;
    width: 90%;
@@ -180,18 +195,18 @@ li {
 
 .modal-header {
     padding: 2px 16px;
-    background-color: $charcoal;
+    background-color: $main_blue;
     color: white;
 }
 
 .modal-header h2 {
-  display: inline-block;
+  text-align: center;
 }
 
 .close {
     font-size: 36px;
     font-weight: bold;
-    color: white;
+    color: $plchldr;
 }
 
 .accessory_item.place_filler, .modal_whole_image.place_filler {

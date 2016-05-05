@@ -2,11 +2,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
-$bg: #f8f8f8;
-$white: #ffffff;
-$blue: #263238;
-$grey: #d9d9d9;
-$plchldr: #999999;
+
 
 * {@include box-sizing(border-box); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;}
 

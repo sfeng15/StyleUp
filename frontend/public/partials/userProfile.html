@@ -3,13 +3,45 @@
   <div ng-include="'./partials/CollectionModal.html'"></div>
   <div ng-include="'./partials/CreateBoardModal.html'"></div>
 
+<nav>
+    
+  <div class="navToggle small-1">
+    <div class="icon"></div>
+  </div>
+    
+  <div class = "logo small-1 columns">
+        StyleUP
+  </div>
+    
+  <div class = "small-3 large-2 columns">
+        <div class="search_container">
+            <div class="search-box">
+                <input type="text" />
+                <span></span>
+            </div>
+        </div>
+  </div>
+    
+  
+  
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Login / Sign up</a></li>
+   
+<!--
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+-->
+  </ul>
+    
+</nav>    
 
 <div class = "row">
   <div class = "columns small-12">
     <ul>
       <li>
 
-        <div class = "profile_info profile_item float-left text-center">
+        <div class = "profile_info profile_item float-left text-center small-centered">
           <div class = "columns small-12">
             <div ng-show="user.profilePicUrl" class= "profile_picture" style = "background-image: url('./data/images/{{user.profilePicUrl}}.jpg')"> </div>
 
@@ -27,7 +59,7 @@
 
       <li ng-show = "profile_owner">
 
-        <div ng-click = "showCreateBoard()" class = " profile_item add_board float-left text-center">
+        <div ng-click = "showCreateBoard()" class = " profile_item add_board float-left text-center small-centered">
           <div class = "columns small-12">
             <i class="fa fa-plus-circle fa-5x plus_sign" aria-hidden="true"></i>
             <div class = "create_collection_text"> Create a new collection </div>
@@ -41,7 +73,7 @@
       <li ng-repeat = "collection in collections">
 
         <a ng-click= "showAlbum($index)">
-        <div class = "collection_album profile_item float-left text-center">
+        <div class = "collection_album profile_item float-left text-center small-centered">
           <p class = "collection-title"> {{collection.title}} </p>
           <div class = "row">
             <div class = "columns small-11 small-centered">
