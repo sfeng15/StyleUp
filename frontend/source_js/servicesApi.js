@@ -21,6 +21,14 @@ apiService.factory('User', function($http, $window, $q){
       });
       return deferred.promise;
     },
+    setProfilePic: function(image) {
+      var fd = new FormData();
+      fd.append('image', image);
+      return $http.post(baseUrl+'profilePic/'+$window.localStorage['curUser'], fd, {
+        headers: {'Content-Type': undefined},
+        transformRequest: angular.identity
+      });
+    },
     getCurrent: function() {
       return $http.get(baseUrl+'user/'+$window.localStorage['curUser']);
     },
