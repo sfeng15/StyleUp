@@ -4,8 +4,8 @@ var projectControllers = angular.module('projectControllers',  []);
 
 
 projectControllers.controller('FirstController', ['$scope', 'CommonData' , function($scope, CommonData ) {
-    
-     $(document).on('click', '.navToggle', function(){    
+
+     $(document).on('click', '.navToggle', function(){
 //            $(this).addClass("open");
 //            $("nav").addClass("open");
          if ($(this).hasClass('open')) {
@@ -20,15 +20,15 @@ projectControllers.controller('FirstController', ['$scope', 'CommonData' , funct
          }
     });
 
-//    
+//
 //    $('.navToggle').click (function(){
 //          $(this).toggleClass('open');
 //          $('nav').toggleClass('open');
-//  
+//
 //          console.log($(this).hasClass('open'));
-//        
+//
 //        });
-////    
+////
 
 /*
 
@@ -37,14 +37,14 @@ projectControllers.controller('FirstController', ['$scope', 'CommonData' , funct
     $scope.displayText = "Data set"
 
   }; */
-   
-    
+
+
 
 //---------------------------
 
 
 var Slider = (function() {
-	
+
 	var $container = $( '#ps-container' ),
 		$contentwrapper = $container.children( 'div.ps-contentwrapper' ),
 		// the items (description elements for the slides/products)
@@ -76,7 +76,7 @@ var Slider = (function() {
 		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
 
 		init = function() {
-           
+
 
 			// show first item
 			var $currentItem = $items.eq( current ),
@@ -88,7 +88,7 @@ var Slider = (function() {
 
 			$currentItem.css( initCSS );
 			$currentSlide.css( initCSS );
-			
+
 			// update nav images
 			updateNavImages();
 
@@ -97,7 +97,7 @@ var Slider = (function() {
 
 		},
 		updateNavImages = function() {
-            
+
 
 			// updates the background image for the navigation arrows
 			var configPrev = ( current > 0 ) ? $slides.eq( current - 1 ).css( 'background-image' ) : $slides.eq( itemsCount - 1 ).css( 'background-image' ),
@@ -108,13 +108,13 @@ var Slider = (function() {
 
 		},
 		initEvents = function() {
-           
+
 			$navprev.on( 'click', function( event ) {
 
 				if( !isAnimating ) {
-					
+
 					slide( 'prev' );
-				
+
 				}
 				return false;
 
@@ -123,9 +123,9 @@ var Slider = (function() {
 			$navnext.on( 'click', function( event ) {
 
 				if( !isAnimating ) {
-					
+
 					slide( 'next' );
-				
+
 				}
 				return false;
 
@@ -134,7 +134,7 @@ var Slider = (function() {
 			// transition end event
 			$items.on( transEndEventName, removeTransition );
 			$slides.on( transEndEventName, removeTransition );
-			
+
 		},
 		removeTransition = function() {
 
@@ -170,7 +170,7 @@ var Slider = (function() {
 				top : ( dir === 'next' ) ? '-100%' : '100%',
 				zIndex : 999
 			} );
-			
+
 			$newSlide.css( {
 				top : ( dir === 'next' ) ? '100%' : '-100%',
 				zIndex : 999
@@ -178,7 +178,7 @@ var Slider = (function() {
 
 			setTimeout( function() {
 
-				// move the current item and slide to the top or bottom depending on the direction 
+				// move the current item and slide to the top or bottom depending on the direction
 				$currentItem.addClass( 'ps-move' ).css( {
 					top : ( dir === 'next' ) ? '100%' : '-100%',
 					zIndex : 1
@@ -210,14 +210,14 @@ var Slider = (function() {
 	return { init : init };
 
 })();
-    
+
     $(function() {
-       
+
         Slider.init();
 
     });
-    
-    
+
+
 
 }]);
 
@@ -229,7 +229,7 @@ projectControllers.controller('testController', ['$scope', 'Upload', 'CommonData
 }]);
 
 
-projectControllers.controller('loginController', ['$scope', '$location', 'CommonData' , function($scope, $location, CommonData ) {
+projectControllers.controller('loginController', ['$scope',  '$location', 'CommonData' , function($scope, $location, CommonData ) {
 
 $scope.showmsg = false;
 $scope.show_error = false;
@@ -295,14 +295,14 @@ $scope.show_ok = false;
     });
 
   };
-    
-     $(document).on('click', '.tabs .tab', function(){    
+
+     $(document).on('click', '.tabs .tab', function(){
     if ($(this).hasClass('signin')) {
         $('.tabs .tab').removeClass('active');
         $(this).addClass('active');
         $('.cont').hide();
         $('.signin-cont').show();
-    } 
+    }
     if ($(this).hasClass('signup')) {
         $('.tabs .tab').removeClass('active');
         $(this).addClass('active');
@@ -325,7 +325,7 @@ $(document).on('mousemove', '.container .bg', (function(e){
 
 
 
-projectControllers.controller('profileController', ['$scope', '$window', 'CommonData', '$routeParams', 'Users', 'Collections' , function($scope, $window, CommonData, $routeParams, Users, Collections ) {
+projectControllers.controller('profileController', ['$scope', 'Upload', '$window', 'CommonData', '$routeParams', 'Users', 'Collections' , function($scope, Uplaod, $window, CommonData, $routeParams, Users, Collections ) {
 
 /*
 
@@ -340,6 +340,9 @@ projectControllers.controller('profileController', ['$scope', '$window', 'Common
   console.log("logged in user");
   console.log(LoggedInUser._id);
   console.log($window.sessionStorage.logged_in_user);
+
+  if (LoggedInUser != null)
+  $scope.navBarUserLoggedIn = true;
 
 
     $scope.profile_owner = false; //whether or not this profile belongs to the visitor
@@ -469,17 +472,22 @@ $scope.submitCollectionForm = function() {
         $scope.categories.splice(i, 1);
       }
 
+      console.log($scope.picFiles[0]);
+
       var wholeimage = null;
 
-      if ($scope.croppedImage != null)
-          wholeimage = $scope.croppedImage;
-      else if ($scope.sourceImage != null)
-          wholeimage = $scope.sourceImage;
+      if ($scope.cropper.croppedImage != null)
+          wholeimage = $scope.cropper.croppedImage;
+      else if ($scope.cropper.sourceImage != null)
+          wholeimage = $scope.cropper.sourceImage;
 
 
   /*
      if ($scope.picFiles && $scope.picFiles.length) {
-       Upload.upload({ url: 'upload/url', data: {files: $scope.picFiles, categories: $scope.categories, wholeimg : wholeimage }}).then(function(data){
+       Upload.upload({ url: 'upload/url',
+        data: {files: $scope.picFiles, categories: $scope.categories, wholeimg : wholeimage },
+        method: 'POST'
+      }).then(function(data){
 
        });
      }
@@ -515,6 +523,25 @@ $scope.submitCollectionForm = function() {
    }
 
 
+////TODO: check to see if that works with put
+   $scope.uploadPic = function (file) {
+        Upload.upload({
+            url: 'upload/url',
+            data: {file: file},
+            method: 'PUT'
+        }).then(function (resp) {
+            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+        });
+    };
+////////
+
+
+    $scope.$watch('user.description', function(newVal, oldVal) {
+        if (newVal !== oldVal) {
+          console.log("sthhhh");
+          ///Users.put()
+        }
+      });
 
 
 }]);

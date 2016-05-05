@@ -95,6 +95,9 @@ li {
 .profile_user_name {
   margin: 2%;
 }
+.profile_info {
+  position: relative;
+}
 
 .profile_picture {
   position: relative;
@@ -107,10 +110,11 @@ li {
   margin: 0 auto;
   margin-top: 10%;
   margin-bottom: 5%;
+  z-index: 2;
 }
 
 .profile_user_description {
-
+  word-wrap: break-word;
 }
 
 .modal_container {
@@ -264,4 +268,28 @@ canvas {
 
 .CreateBoardText {
   margin: 2% 0;
+}
+
+.camera_input {
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
+  border-radius: 5%;
+  width: 70px;
+  bottom: 3%;
+}
+
+.add_pic_text {
+  margin: 0 2% 2% 2%;
+  font-size: 12px;
+  font-weight: lighter;
+}
+
+.camera_icon {
+  margin: 8%;
+}
+
+.description_holder {
+  overflow: scroll;
 }

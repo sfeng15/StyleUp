@@ -1,4 +1,6 @@
-<div class="list" >
+<div ng-controller="profileController" class="list" >
+
+  <div ng-include="'./partials/navbar.html'"></div>
 
   <div ng-include="'./partials/CollectionModal.html'"></div>
   <div ng-include="'./partials/CreateBoardModal.html'"></div>
@@ -11,15 +13,27 @@
 
         <div class = "profile_info profile_item float-left text-center">
           <div class = "columns small-12">
+
             <div ng-show="user.profilePicUrl" class= "profile_picture" style = "background-image: url('./data/images/{{user.profilePicUrl}}.jpg')"> </div>
 
-            <div ng-show="!user.profilePicUrl && !profile_owner" class= "profile_picture" style = "background-image: url('./data/images/profilePicPlaceHolder.jpg')"> </div>
-            <div ng-show="!user.profilePicUrl && profile_owner" ng-click="AddPic()" class= "profile_picture add_profile_picture">
-              <div class = "Add_photo_text"> Add a photo </div>
+            <div ng-show="!user.profilePicUrl && !profile_owner" class= "profile_picture" style = "background-image: url('./data/images/profilePicPlaceHolder.png')"> </div>
+            <div ng-show="!user.profilePicUrl && profile_owner" ng-click="AddPic()" class= "profile_picture" style = "background-image: url('./data/images/profilePicPlaceHolder.png')">
              </div>
 
+
             <p class = "profile_user_name"> {{user.name}} </p>
-            <p class = "profile_user_description"> {{user.description}}</p>
+
+            <div class = "description_holder">
+            <a ng-show="profile_owner" href="#" class = "profile_user_description" editable-text="user.description">{{ user.description || "empty" }}</a>
+
+            <p ng-show="!profile_owner" class = "profile_user_description"> {{user.description}} </p>
+          </div>
+
+
+            <div ngf-select="uploadPic($file)" ng-show="profile_owner" class="camera_input">
+              <i class="fa fa-camera fa-2x camera_icon" aria-hidden="true"></i>
+              <div class="add_pic_text"> Add photo</div>
+            </div>
         </div>
 
       </li>
@@ -64,6 +78,8 @@
       </a>
 
       </li>
+
+
     </ul>
 
   </div>
