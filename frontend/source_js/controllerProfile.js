@@ -5,29 +5,10 @@ var projectControllers = angular.module('projectControllers',  []);
 
 projectControllers.controller('FirstController', ['$scope', 'CommonData' , function($scope, CommonData ) {
 
-     $(document).on('click', '.navToggle', function(){
-//            $(this).addClass("open");
-//            $("nav").addClass("open");
-         if ($(this).hasClass('open')) {
-            $(this).removeClass("open");
-            $("nav").removeClass("open");
-             console.log($(this).hasClass('open'));
-         }
-         if ($(this).hasClass('open')==false){
-            $(this).addClass("open");
-            $("nav").addClass("open");
-             console.log($(this).hasClass('open'));
-         }
-    });
+
 
 //
-//    $('.navToggle').click (function(){
-//          $(this).toggleClass('open');
-//          $('nav').toggleClass('open');
-//
-//          console.log($(this).hasClass('open'));
-//
-//        });
+
 ////
 
 /*

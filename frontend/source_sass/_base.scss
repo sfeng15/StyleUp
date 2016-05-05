@@ -8,14 +8,14 @@
 
 .trending_bar {
   background-color : $charcoal;
-  height: 10vh;
+  height: 6vh;
   text-align: center;
-  position: absolute;
-  top:1500px;
+  top: 50vh;
+  position: relative;;
 }
 #trending_text {
   color: white;
-  line-height: 10vh;
+  line-height: 6vh;
 }
 
 #main_page_carousel {
@@ -91,6 +91,7 @@ li {
 
 .collection-title {
   margin: 2%;
+  color: black;
 }
 .profile_user_name {
   margin: 2%;
@@ -278,6 +279,7 @@ canvas {
   border-radius: 5%;
   width: 70px;
   bottom: 3%;
+  cursor: pointer;
 }
 
 .add_pic_text {
@@ -292,4 +294,13 @@ canvas {
 
 .description_holder {
   overflow: scroll;
+}
+
+.topNavBar {
+  padding-left: 1%;
+}
+
+.temporary_buttons {
+  position: relative;
+  top:56vh;
 }

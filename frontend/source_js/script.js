@@ -191,3 +191,33 @@ var Slider = (function() {
 	return { init : init };
 
 })();
+
+
+$(document).on('click', '.navToggle', function(){
+//            $(this).addClass("open");
+//            $("nav").addClass("open");
+  console.log($(this));
+
+    if ($(this).hasClass('open')) {
+       //$(this).removeClass("open");
+       //$("nav").removeClass("open");
+       //$(".topNavBar").removeAttr("open");
+       $(".navToggle").attr("class", "navToggle small-1");
+
+       console.log($(".navToggle"));
+
+       $(".topNavBar").attr("class", "topNavBar ng-scope");
+       console.log($(".topNavBar"));
+       //$(".navToggle").removeAttr("open");
+
+
+       console.log("here");
+    }
+
+    else if ($(this).hasClass('open')==false){
+      $(".topNavBar").addClass("open");
+      $(".navToggle").addClass("open");
+      console.log("doesn't have");
+    }
+
+});

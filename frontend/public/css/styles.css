@@ -4174,15 +4174,15 @@ table.hover tr:nth-of-type(even):hover {
 /* line 9, ../../source_sass/_base.scss */
 .trending_bar {
   background-color: #36454F;
-  height: 10vh;
+  height: 6vh;
   text-align: center;
-  position: absolute;
-  top: 1500px; }
+  top: 50vh;
+  position: relative; }
 
 /* line 16, ../../source_sass/_base.scss */
 #trending_text {
   color: white;
-  line-height: 10vh; }
+  line-height: 6vh; }
 
 /* line 21, ../../source_sass/_base.scss */
 #main_page_carousel {
@@ -4251,17 +4251,18 @@ li {
 
 /* line 92, ../../source_sass/_base.scss */
 .collection-title {
-  margin: 2%; }
+  margin: 2%;
+  color: black; }
 
-/* line 95, ../../source_sass/_base.scss */
+/* line 96, ../../source_sass/_base.scss */
 .profile_user_name {
   margin: 2%; }
 
-/* line 98, ../../source_sass/_base.scss */
+/* line 99, ../../source_sass/_base.scss */
 .profile_info {
   position: relative; }
 
-/* line 102, ../../source_sass/_base.scss */
+/* line 103, ../../source_sass/_base.scss */
 .profile_picture {
   position: relative;
   background-size: 100% auto;
@@ -4275,11 +4276,11 @@ li {
   margin-bottom: 5%;
   z-index: 2; }
 
-/* line 116, ../../source_sass/_base.scss */
+/* line 117, ../../source_sass/_base.scss */
 .profile_user_description {
   word-wrap: break-word; }
 
-/* line 120, ../../source_sass/_base.scss */
+/* line 121, ../../source_sass/_base.scss */
 .modal_container {
   position: fixed;
   /* Stay in place */
@@ -4298,7 +4299,7 @@ li {
   background-color: rgba(0, 0, 0, 0.7);
   /* Black w/ opacity */ }
 
-/* line 132, ../../source_sass/_base.scss */
+/* line 133, ../../source_sass/_base.scss */
 .modal, .createBoardModal {
   background-color: #fefefe;
   margin: 2% auto;
@@ -4306,7 +4307,7 @@ li {
   border: 1px solid #888;
   width: 90%; }
 
-/* line 139, ../../source_sass/_base.scss */
+/* line 140, ../../source_sass/_base.scss */
 .modal_item, .modal_whole_image, .accessory_item.place_filler, .modal_whole_image.place_filler, .top_item.place_filler, .bottom_item.place_filler {
   position: relative;
   background-size: 100% auto;
@@ -4322,76 +4323,76 @@ li {
   -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.33) inset;
   border-radius: 5px; }
 
-/* line 159, ../../source_sass/_base.scss */
+/* line 160, ../../source_sass/_base.scss */
 .top-section {
   margin-bottom: 4%;
   overflow: auto; }
 
-/* line 164, ../../source_sass/_base.scss */
+/* line 165, ../../source_sass/_base.scss */
 .modal_item.accessory_item, .accessory_item.modal_whole_image, .accessory_item.place_filler {
   margin-bottom: 3%; }
 
-/* line 168, ../../source_sass/_base.scss */
+/* line 169, ../../source_sass/_base.scss */
 .accessories-section {
   overflow: auto; }
 
-/* line 173, ../../source_sass/_base.scss */
+/* line 174, ../../source_sass/_base.scss */
 .bottom-section {
   overflow: auto;
   margin-bottom: 4%; }
 
-/* line 178, ../../source_sass/_base.scss */
+/* line 179, ../../source_sass/_base.scss */
 .modal_whole_image {
   width: 300px;
   height: 465px; }
 
-/* line 185, ../../source_sass/_base.scss */
+/* line 186, ../../source_sass/_base.scss */
 .modal-header {
   padding: 2px 16px;
   background-color: #36454F;
   color: white; }
 
-/* line 191, ../../source_sass/_base.scss */
+/* line 192, ../../source_sass/_base.scss */
 .modal-header h2 {
   display: inline-block; }
 
-/* line 195, ../../source_sass/_base.scss */
+/* line 196, ../../source_sass/_base.scss */
 .close {
   font-size: 36px;
   font-weight: bold;
   color: white; }
 
-/* line 201, ../../source_sass/_base.scss */
+/* line 202, ../../source_sass/_base.scss */
 .accessory_item.place_filler, .modal_whole_image.place_filler {
   height: 465px;
   border: 1px solid #dfdfdf; }
 
-/* line 208, ../../source_sass/_base.scss */
+/* line 209, ../../source_sass/_base.scss */
 .top_item.place_filler, .bottom_item.place_filler {
   height: 200px;
   width: 430px;
   border: 1px solid #dfdfdf; }
 
-/* line 217, ../../source_sass/_base.scss */
+/* line 218, ../../source_sass/_base.scss */
 a:focus, a:hover {
   cursor: pointer; }
 
-/* line 221, ../../source_sass/_base.scss */
+/* line 222, ../../source_sass/_base.scss */
 .cropArea {
   background: #E4E4E4;
   overflow: hidden;
   width: 500px;
   height: 350px; }
 
-/* line 229, ../../source_sass/_base.scss */
+/* line 230, ../../source_sass/_base.scss */
 .createBoardModal {
   width: 80%; }
 
-/* line 234, ../../source_sass/_base.scss */
+/* line 235, ../../source_sass/_base.scss */
 .uploaded_file_name_holder {
   overflow: auto; }
 
-/* line 238, ../../source_sass/_base.scss */
+/* line 239, ../../source_sass/_base.scss */
 #signUpInmsg {
   margin: 0 auto;
   margin: 5% auto;
@@ -4400,35 +4401,35 @@ a:focus, a:hover {
   border: 1px solid #dfdfdf;
   background-color: white; }
 
-/* line 246, ../../source_sass/_base.scss */
+/* line 247, ../../source_sass/_base.scss */
 .add_profile_picture {
   background: #888; }
 
-/* line 249, ../../source_sass/_base.scss */
+/* line 250, ../../source_sass/_base.scss */
 .Add_photo_text {
   position: relative;
   top: 50%;
   transform: translateY(-50%); }
 
-/* line 255, ../../source_sass/_base.scss */
+/* line 256, ../../source_sass/_base.scss */
 .create_whole_image {
   height: 300px;
   width: 200px; }
 
-/* line 260, ../../source_sass/_base.scss */
+/* line 261, ../../source_sass/_base.scss */
 canvas {
   width: 100%;
   height: auto; }
 
-/* line 265, ../../source_sass/_base.scss */
+/* line 266, ../../source_sass/_base.scss */
 .submit_modal_button {
   margin: 6% auto; }
 
-/* line 269, ../../source_sass/_base.scss */
+/* line 270, ../../source_sass/_base.scss */
 .CreateBoardText {
   margin: 2% 0; }
 
-/* line 273, ../../source_sass/_base.scss */
+/* line 274, ../../source_sass/_base.scss */
 .camera_input {
   position: absolute;
   z-index: 1;
@@ -4436,21 +4437,31 @@ canvas {
   -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   border-radius: 5%;
   width: 70px;
-  bottom: 3%; }
+  bottom: 3%;
+  cursor: pointer; }
 
-/* line 283, ../../source_sass/_base.scss */
+/* line 285, ../../source_sass/_base.scss */
 .add_pic_text {
   margin: 0 2% 2% 2%;
   font-size: 12px;
   font-weight: lighter; }
 
-/* line 289, ../../source_sass/_base.scss */
+/* line 291, ../../source_sass/_base.scss */
 .camera_icon {
   margin: 8%; }
 
-/* line 293, ../../source_sass/_base.scss */
+/* line 295, ../../source_sass/_base.scss */
 .description_holder {
   overflow: scroll; }
+
+/* line 299, ../../source_sass/_base.scss */
+.topNavBar {
+  padding-left: 1%; }
+
+/* line 303, ../../source_sass/_base.scss */
+.temporary_buttons {
+  position: relative;
+  top: 56vh; }
 
 /* line 7, ../../source_sass/_slider.scss */
 .ps-container {
