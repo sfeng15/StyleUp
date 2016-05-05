@@ -4959,6 +4959,170 @@ body {
     font-weight: 700;
     text-decoration: none; }
 
+/* line 12, ../../source_sass/_nav.scss */
+.logo {
+  float: left;
+  padding-top: 10px;
+  padding-left: 20px;
+  margin-left: 65px;
+  font-size: 23px;
+  color: white; }
+
+/* line 22, ../../source_sass/_nav.scss */
+nav {
+  width: 100%;
+  height: 61px;
+  background-color: #36454F;
+  position: relative;
+  transition-duration: 0.5s;
+  transition-timing-function: swing;
+  overflow: hidden; }
+  /* line 32, ../../source_sass/_nav.scss */
+  nav.open {
+    height: 200px; }
+  /* line 36, ../../source_sass/_nav.scss */
+  nav ul {
+    padding-top: 100px;
+    padding-left: 35px; }
+    /* line 40, ../../source_sass/_nav.scss */
+    nav ul li {
+      list-style: none; }
+      /* line 43, ../../source_sass/_nav.scss */
+      nav ul li a {
+        padding: 10px 0;
+        display: inline-block;
+        text-decoration: none;
+        color: white; }
+
+/* line 53, ../../source_sass/_nav.scss */
+.navToggle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 20px;
+  transition-duration: 0.5s; }
+  /* line 61, ../../source_sass/_nav.scss */
+  .navToggle .icon {
+    transition-duration: 0.25s;
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    top: 10px;
+    left: 40px;
+    background-color: white; }
+    /* line 70, ../../source_sass/_nav.scss */
+    .navToggle .icon:before, .navToggle .icon:after {
+      transition-duration: 0.25s;
+      position: absolute;
+      width: 30px;
+      height: 2px;
+      background-color: white;
+      content: ""; }
+    /* line 79, ../../source_sass/_nav.scss */
+    .navToggle .icon:before {
+      top: -7px;
+      left: 0; }
+    /* line 84, ../../source_sass/_nav.scss */
+    .navToggle .icon:after {
+      top: 7px;
+      left: 0; }
+  /* line 90, ../../source_sass/_nav.scss */
+  .navToggle:hover {
+    cursor: pointer; }
+    /* line 94, ../../source_sass/_nav.scss */
+    .navToggle:hover .icon:before {
+      top: -10px; }
+    /* line 98, ../../source_sass/_nav.scss */
+    .navToggle:hover .icon:after {
+      top: 10px; }
+  /* line 104, ../../source_sass/_nav.scss */
+  .navToggle.open {
+    transition-duration: 1s;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg); }
+    /* line 109, ../../source_sass/_nav.scss */
+    .navToggle.open .icon {
+      transition-duration: 0.5s;
+      background-color: transparent; }
+      /* line 113, ../../source_sass/_nav.scss */
+      .navToggle.open .icon:before {
+        transition-duration: 0.5s;
+        top: 0;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg); }
+      /* line 120, ../../source_sass/_nav.scss */
+      .navToggle.open .icon:after {
+        transition-duration: 0.5s;
+        top: 0;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg); }
+
+/* line 140, ../../source_sass/_nav.scss */
+.search_container {
+  position: absolute;
+  left: 95%;
+  top: 27%;
+  transform: translate(-50%);
+  z-index: 10000; }
+
+/* line 150, ../../source_sass/_nav.scss */
+.search-box input[type="text"] {
+  border: none;
+  background: none;
+  z-index: 1;
+  width: 25px;
+  height: 25px;
+  transition: all .25s ease-in .25s;
+  color: #8C92AC;
+  font-size: .75rem;
+  line-height: 25px; }
+  /* line 160, ../../source_sass/_nav.scss */
+  .search-box input[type="text"]:hover {
+    cursor: pointer; }
+    /* line 162, ../../source_sass/_nav.scss */
+    .search-box input[type="text"]:hover:focus {
+      cursor: text; }
+    /* line 165, ../../source_sass/_nav.scss */
+    .search-box input[type="text"]:hover + span {
+      background: #dde8f0; }
+  /* line 169, ../../source_sass/_nav.scss */
+  .search-box input[type="text"]:focus {
+    width: 200px;
+    padding: 0 10px;
+    outline: none;
+    color: #8C92AC;
+    background: none; }
+    /* line 175, ../../source_sass/_nav.scss */
+    .search-box input[type="text"]:focus + span {
+      width: 200px; }
+      /* line 177, ../../source_sass/_nav.scss */
+      .search-box input[type="text"]:focus + span::before {
+        width: 2px;
+        opacity: 0;
+        transition: all .25s ease-in; }
+  /* line 184, ../../source_sass/_nav.scss */
+  .search-box input[type="text"] + span {
+    z-index: -1;
+    position: absolute;
+    border: 2px solid #A8C4D9;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    transition: all .25s ease-in .25s;
+    border-radius: 25px;
+    left: 0; }
+    /* line 194, ../../source_sass/_nav.scss */
+    .search-box input[type="text"] + span::before {
+      transition: all .25s ease-in .5s;
+      transform-origin: left top;
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 5px;
+      border-radius: 5px;
+      background: #A8C4D9;
+      transform: rotate(45deg) translate(26px, -2px); }
+
 /*
   NOTE: Do not touch this file. Write the bulk of your custom styles
   in _base.scss

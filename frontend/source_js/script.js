@@ -1,4 +1,4 @@
-$(document).on('click', '.tabs .tab', function(){    
+$(document).on('click', '.tabs .tab', function(){
     if ($(this).hasClass('signin')) {
         $('.tabs .tab').removeClass('active');
         $(this).addClass('active');

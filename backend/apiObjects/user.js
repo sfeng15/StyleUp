@@ -11,8 +11,8 @@ l=require('../config/lib');
 */
 
 // ALL
-api.getAllUsers = function (skip,limit,cb) {
-  var q=User.find();
+api.getAllUsers = function (skip,limit,where, cb) {
+  var q=User.find(where);
 
   if(skip!=undefined)
     q.skip(skip*1);
@@ -48,8 +48,8 @@ api.addUser = function (user,cb) {
 };
 
 // PUT
-api.editUser = function (id,updateData, cb) {
-  User.findById(id, function (err, user) {
+api.editUser = function (user,updateData, cb) {
+  User.findOne({'username':user}, function (err, user) {
 
    if(updateData===undefined || user===undefined){
     return cbf(cb,'Invalid Data. Please Check user and/or updateData fields',null);
@@ -63,19 +63,36 @@ api.editUser = function (id,updateData, cb) {
     if(typeof updateData["password"] != 'undefined'){
       user["password"] = updateData["password"];
     }
-
-
-  return user.save(function (err) {
+    if(typeof updateData["name"] != 'undefined'){
+      user["name"] = updateData["name"];
+    }
+    if(typeof updateData["username"] != 'undefined'){
+      user["username"] = updateData["username"];
+    }
+    if(typeof updateData["favorites"] != 'undefined'){
+        user["favorites"]=updateData["favorites"];
+    }
+      return user.save(function (err) {
     cbf(cb,err,user.toObject());
     }); //eo user.save
   });// eo user.find
 };
 
 // DELETE
-api.deleteUser = function (id,cb) {
-  return User.findById(id).remove().exec(function (err, user) {
+api.deleteUser = function (username,cb) {
+  return User.findOne({ 'email': username }).remove().exec(function (err, user) {
    return cbf(cb,err,true);
  });
+};
+
+api.setProfilePic = function(username, file, cb) {
+  User.findOne({ 'username': username }, function(err, user) {
+    user.profilePicPath = file.path;
+    console.log(user);
+    user.save(function(err) {
+      cbf(cb,err);
+    })
+  });
 };
 
 

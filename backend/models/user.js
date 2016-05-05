@@ -25,6 +25,10 @@ var fields = {
 			type: String,
 			required: true
 		},
+		profilePicPath: {
+			type: String,
+			default: 'uploads/profilePics/default.png'
+		},
 		collections: [mongoose.Types.ObjectId],
 		favorites: [mongoose.Types.ObjectId]
 };
