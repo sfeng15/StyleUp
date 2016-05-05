@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     },
     watch: {
       options: {
-        livereload: true,
+        livereload: 11111, //true
       },
       express: {
         files:  [ '*.js','routes/*.js', 'models/*.js', 'config/*.js','api/*.js','apiObjects/*.js'  ],
