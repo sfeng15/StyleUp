@@ -13,7 +13,7 @@ apiService.factory('User', function($http, $window, $q){
       $http.post(baseUrl+'login', user)
       .success(function(data) {
         //Set the token as a default header
-        $http.defaults.headers.common['Authorization'] = user.token;
+        $http.defaults.headers.common['Authorization'] = data.token;
         $window.localStorage['curUser'] = user.username;
         deferred.resolve(user);
       }).catch(function(err) {
