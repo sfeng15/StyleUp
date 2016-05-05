@@ -2,13 +2,9 @@ var app = angular.module('project', ['ngRoute', 'projectControllers', 'projectSe
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-    when('/collections', {
-    templateUrl: 'partials/collections.html',
-    controller: 'FirstController'
-  }).
   when('/home', {
     templateUrl: 'partials/home.html',
-    controller: 'FirstController'
+    controller: 'homeController'
   }).
   when('/users/:username', {
     templateUrl: 'partials/userProfile.html',
