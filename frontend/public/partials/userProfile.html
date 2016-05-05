@@ -11,7 +11,7 @@
     <ul>
       <li>
 
-        <div class = "profile_info profile_item float-left text-center">
+        <div class = "profile_info profile_item float-left text-center small-centered">
           <div class = "columns small-12">
 
             <div ng-show="!profile_owner" class= "profile_picture" style = "background-image: url('{{profilePic}}')"> </div>
@@ -39,7 +39,7 @@
 
       <li ng-show = "profile_owner">
 
-        <div ng-click = "showCreateBoard()" class = " profile_item add_board float-left text-center">
+        <div ng-click = "showCreateBoard()" class = " profile_item add_board float-left text-center small-centered">
           <div class = "columns small-12">
             <i class="fa fa-plus-circle fa-5x plus_sign" aria-hidden="true"></i>
             <div class = "create_collection_text"> Create a new collection </div>
@@ -53,7 +53,7 @@
       <li ng-repeat = "collection in collections">
 
         <a ng-click= "showAlbum($index)">
-        <div class = "collection_album profile_item float-left text-center">
+        <div class = "collection_album profile_item float-left text-center small-centered">
           <p class = "collection-title"> {{collection.title}} </p>
           <div class = "row">
             <div class = "columns small-11 small-centered">
