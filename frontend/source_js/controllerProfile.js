@@ -349,9 +349,12 @@ projectControllers.controller('profileController', ['$scope', 'Upload', '$window
 
   /////end of to be deleted
 
+
   ///the right code for when we have the backend
-/*
-  angular.forEach( $scope.user.collections , function(value, i){
+ var promises= [];
+        /*
+  angular.forEach( $scope.user.c
+  ollections , function(value, i){
         promises.push(Collections.get($scope.user.collections[i]._id));
 
   return $q.all(promises);
