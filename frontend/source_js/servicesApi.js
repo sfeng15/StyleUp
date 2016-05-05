@@ -48,6 +48,55 @@ apiService.factory('Collection', function($http, $window, $q) {
   //Create, edit, delete are protected
   //Get collection
   //Add favorite toggling
+  return {
+    get : function(select_options) {
+      return $http.get(baseUrl+'collections', {params:select_options});
+      //return $http.get('./data/collections.json');
+    },
+    post : function(data) {
+      //return $http.post($window.sessionStorage.baseurl+'/api/collections', data , { headers: {'content-type': 'application/json'}});
+      return $http({
+        method:'post',
+        url:baseUrl+'collections',
+        data:data,
+        headers:{'Content-Type': 'application/x-www-form-urlencoded'},
+        transformRequest: function(obj) {
+          var str = [];
+          for(var p in obj){
+            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+          }
+          return str.join("&");
+        }
+      });
+
+    },
+
+    delete : function(id) {
+      return $http.delete(baseUrl+'collection/' + id);
+    },
+    getOne : function(select_options) {
+      return $http.get(baseUrl+'collection/'+select_options);
+    },
+    put : function( id, data) {
+      //return $http.put($window.sessionStorage.baseurl+'/api/collection/' + id, data);
+      return $http({
+        method:'put',
+        url:baseUrl+'collection/'+id,
+        data:data,
+        headers:{'Content-Type': 'application/x-www-form-urlencoded'},
+        transformRequest: function(obj) {
+          var str = [];
+          for(var p in obj){
+            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+          }
+          return str.join("&");
+        }
+      }).success(function(req){
+        //console.log(req);
+      })
+    }
+  }
+
 });
 
 apiService.factory('Item', function($http, $window, $q) {
