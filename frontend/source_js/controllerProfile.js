@@ -1,4 +1,5 @@
-var projectControllers = angular.module('projectControllers', []);
+var projectControllers = angular.module('projectControllers',  []);
+
 
 
 
@@ -12,13 +13,21 @@ projectControllers.controller('FirstController', ['$scope', 'CommonData' , funct
 
   }; */
 
+}]);
+
+projectControllers.controller('testController', ['$scope', 'Upload', 'CommonData' , function($scope, Upload, CommonData ) {
+
+
+
 
 }]);
 
 
-
 projectControllers.controller('loginController', ['$scope', '$location', 'CommonData' , function($scope, $location, CommonData ) {
 
+$scope.showmsg = false;
+$scope.show_error = false;
+$scope.show_ok = false;
 /*
 
   $scope.setData = function(){
@@ -27,6 +36,42 @@ projectControllers.controller('loginController', ['$scope', '$location', 'Common
 
   }; */
 
+  $scope.RedirectToHome = function(){
+    $location.path('/home');
+  }
+
+  $scope.goAway = function(){
+    $scope.show_error = false;
+    $scope.showmsg = false;
+  }
+
+  $scope.TrySignUp = function (){
+
+    var userData = {"name": $scope.signupName, "email":$scope.signupEmail, "password": $scope.signupPassword};
+
+    /*
+    Users.post(userData).success(function(msg){
+
+      Users.get('?where={"email": { "$eq":\"' +  $scope.singupEmail + '\"}').then(function(data){
+
+      $scope.showmsg = true;
+      $scope.show_ok = true;
+      CommonData.setUser(data);
+
+
+    });
+
+    }).error(function(err){
+
+    $scope.showmsg = true;
+    $scope.show_error = true;
+
+
+  });
+    */
+
+  };
+
   $scope.TrySignIn = function (){
     //ValidateUser();
     //If not validated return error
@@ -34,11 +79,13 @@ projectControllers.controller('loginController', ['$scope', '$location', 'Common
     //CommonData.setUser($scope.email).then(function(data){
       //console.log (CommonData.getUser());
     //});
-    console.log($scope.email);
+    console.log($scope.loginEmail);
 
-    CommonData.setUser($scope.email).then(function(data){
+
+
+    CommonData.setUser($scope.loginEmail).then(function(data){
       console.log(CommonData.getUser());
-      $location.path('/home')
+      $location.path('/home');
     });
 
   };
@@ -49,7 +96,7 @@ projectControllers.controller('loginController', ['$scope', '$location', 'Common
 
 
 
-projectControllers.controller('profileController', ['$scope', 'CommonData', '$routeParams', 'Users', 'Collections' , function($scope, CommonData, $routeParams, Users, Collections ) {
+projectControllers.controller('profileController', ['$scope', '$window', 'CommonData', '$routeParams', 'Users', 'Collections' , function($scope, $window, CommonData, $routeParams, Users, Collections ) {
 
 /*
 
@@ -63,6 +110,7 @@ projectControllers.controller('profileController', ['$scope', 'CommonData', '$ro
   var LoggedInUser = CommonData.getUser();
   console.log("logged in user");
   console.log(LoggedInUser._id);
+  console.log($window.sessionStorage.logged_in_user);
 
 
     $scope.profile_owner = false; //whether or not this profile belongs to the visitor
@@ -158,6 +206,86 @@ $scope.closeModal = function (){
   $scope.bottoms = [];
   $scope.accessories = [];
 }
+
+
+  /////for createBoard
+  $scope.CreateBoardModalShow = false;
+
+
+
+$scope.IncrementItem = function()
+{
+  $scope.picFiles.push(null);
+  $scope.categories.push("Dress");
+}
+
+$scope.deleteFile = function(index){
+  $scope.picFiles.splice(index, 1);
+}
+
+
+
+$scope.submitCollectionForm = function() {
+
+  console.log("categories");
+  console.log($scope.categories);
+
+  console.log("picFiles");
+  console.log($scope.picFiles);
+
+  for (var i = 0 ; i < $scope.picFiles.length ; i++)
+    if (!$scope.picFiles[i])
+      {
+        $scope.picFiles.splice(i, 1);
+        $scope.categories.splice(i, 1);
+      }
+
+      var wholeimage = null;
+
+      if ($scope.croppedImage != null)
+          wholeimage = $scope.croppedImage;
+      else if ($scope.sourceImage != null)
+          wholeimage = $scope.sourceImage;
+
+
+  /*
+     if ($scope.picFiles && $scope.picFiles.length) {
+       Upload.upload({ url: 'upload/url', data: {files: $scope.picFiles, categories: $scope.categories, wholeimg : wholeimage }}).then(function(data){
+
+       });
+     }
+     */
+
+   }
+
+
+   var CreateBoardInitialSet = function(){
+     $scope.cropper = {};
+     $scope.cropper.sourceImage = null;
+     $scope.cropper.croppedImage   = null;
+     $scope.bounds = {};
+     $scope.bounds.left = 0;
+     $scope.bounds.right = 0;
+     $scope.bounds.top = 0;
+     $scope.bounds.bottom = 0;
+
+   $scope.picFiles = [null, null, null];
+   $scope.categories = ["Dress", "Dress", "Dress"];
+   }
+
+   $scope.showCreateBoard = function(){
+
+    CreateBoardInitialSet();
+   $scope.CreateBoardModalShow = true;
+
+   }
+
+   $scope.closeCreateBoardModal = function(){
+
+     $scope.CreateBoardModalShow = false;
+   }
+
+
 
 
 }]);

@@ -1,14 +1,24 @@
-<!DOCTYPE html>
-<html >
-  <head>
-    <meta charset="UTF-8">
-    <title>#codevember Sign In / Sign Up</title>
+<div ng-controller= "loginController">
 
+<div ng-show = "showmsg" class = "modal_container">
+  <section  id = "signUpInmsg">
+    <div class = "row">
+      <div class = "columns small-centered small-6 text-center">
+        <p ng-show = "show_ok"> Awesome! </p>
+        <p ng-show = "show_error" id = "error_msg_text"> </p>
+      </div>
+    </div>
 
+    <div class = "row">
+      <div class = "columns small-centered small-4 text-center">
+        <button ng-show="show_ok" ng-click="RedirectToHome()" class = "button msg_modal_button"> Ok </button>
+        <button ng-show="show_error" ng-click= "goAway()" class = "button msg_modal_button"> Ok </button>
 
-  </head>
+      </div>
+    </div>
 
-  <body>
+  </section>
+</div>
 
     <section class="container">
 		    <article class="half">
@@ -20,11 +30,11 @@
 			        <div class="content">
 				            <div class="signin-cont cont">
 					                <form action="#" method="post" enctype="multipart/form-data">
-						                    <input type="email" ng-model="email" id="email" class="inpt" required="required" placeholder="Your email">
+						                    <input type="email" ng-model="loginEmail" id="email" class="inpt" required="required" placeholder="Your email">
 						                    <label for="email">Your email</label>
-						                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="Your password">
+						                    <input type="password" ng-model="loginPassword" id="password" class="inpt" required="required" placeholder="Your password">
                 						    <label for="password">Your password</label>
-						                    <input type="checkbox" id="remember" class="checkbox" checked>
+						                    <input type="checkbox" id="remember" ng-model="loginRemember" class="checkbox" checked>
 						                    <label for="remember">Remember me</label>
 						                    <div class="submit-wrap">
 							                        <input ng-click="TrySignIn()" value="Sign in" class="submit">
@@ -34,14 +44,14 @@
     				        </div>
     				        <div class="signup-cont cont">
                 <form action="#" method="post" enctype="multipart/form-data">
-						                    <input type="name" name="name" id="name" class="inpt" required="required" placeholder="Your name">
+						                    <input type="name" ng-model="signupName" id="name" class="inpt" required="required" placeholder="Your name">
 						                    <label for="name">Your name</label>
-                    <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Your email">
+                    <input type="email" ng-model="signupEmail" id="email" class="inpt" required="required" placeholder="Your email">
 						                    <label for="email">Your email</label>
-						                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="Your password">
+						                    <input type="password" ng-model="signupPassword" id="password" class="inpt" required="required" placeholder="Your password">
                 						    <label for="password">Your password</label>
 						                    <div class="submit-wrap">
-							                        <input type="submit" value="Sign up" class="submit">
+							                        <input type="submit" value="Sign up" ng-click= "TrySignUp()" class="submit">
 							                        <a href="#" class="more">Terms and conditions</a>
 						                    </div>
         					        </form>
@@ -59,8 +69,4 @@
 
 <!--        <script src="js/index.js"></script>-->
 
-
-
-
-  </body>
-</html>
+</div>

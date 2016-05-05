@@ -1,0 +1,104 @@
+<div ng-controller= "testController">
+
+
+  <div  class = "modal_container">
+
+  <div class = "createBoardModal">
+
+    <div class=" modal-header">
+    <h2> Create a collection</h2>
+    <a ng-click= "closeCreateBoardModal()" class="close float-right">&times;</a>
+  </div>
+
+    <div class = "row">
+      <div class = "columns small-12">
+        <form>
+          <label>
+            Collection name
+      <input type="text" ng-model = "collection_name" placeholder="Text field">
+      </label>
+    </div>
+
+    <div class = "row">
+      <div class = "columns small-8">
+
+        <ul>
+
+
+<li ng-repeat = "scenario in scenarios">
+<!--
+            <div>
+
+              <label>Select category</label>
+              <select name="" id="">
+              <option value="Dress">dress</option>
+              <option value="Coat">coat</option>
+              <option value="Shirt">shirt</option>
+              <option value="Pants">pants</option>
+              <option value="Skirt">skirt</option>
+              <option value="Shoes">shoes</option>
+              <option value="Accessory">accessory</option>
+              </select>
+
+              <div class="cropArea">
+                <img-crop image="pieceImgs[0]" result-image="pieceCroppedImgs[0]"></img-crop>
+              </div>
+
+
+              <label>Cropped Image:</label>
+                <div><img ng-src="{{pieceCroppedImgs1}}" /></div>
+
+
+
+            </div>
+
+-->
+
+              <div id="one">
+
+                <div>
+                  <label for="fileInput{{scenario.id}}" > upload photo
+                    <input type="file" id="fileInput{{scenario.id}}" />
+                  </label>
+                </div>
+
+                <div class="cropArea">
+                  <img-crop image="myImage1" area-type="rectangle" result-image="myCroppedImage1" result-image-size="400"></img-crop>
+                </div>
+
+                <button ng-click="clear()" ng-hide="!imageLoaded">Delete</button>
+                <button ng-click="initCrop = true" ng-hide="!imageLoaded">Save</button>
+
+                <label>Cropped Image:</label>
+                    <div><img ng-src="{{myCroppedImage1}}" /></div>
+
+
+
+              </div>
+
+
+
+</li>
+
+        </ul>
+          <button class = "button" ng-click = "IncrementItem()"> </button>
+
+      </div>
+
+      <div class = "columns small-4">
+      </div>
+
+    </div>
+
+
+
+    </form>
+
+
+
+    </div>
+
+  </div>
+
+
+</div>

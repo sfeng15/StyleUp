@@ -4290,7 +4290,7 @@ li {
   /* Black w/ opacity */ }
 
 /* line 128, ../../source_sass/_base.scss */
-.modal {
+.modal, .createBoardModal {
   background-color: #fefefe;
   margin: 2% auto;
   /* 2% from the top and centered */
@@ -4366,6 +4366,58 @@ li {
 /* line 213, ../../source_sass/_base.scss */
 a:focus, a:hover {
   cursor: pointer; }
+
+/* line 217, ../../source_sass/_base.scss */
+.cropArea {
+  background: #E4E4E4;
+  overflow: hidden;
+  width: 500px;
+  height: 350px; }
+
+/* line 225, ../../source_sass/_base.scss */
+.createBoardModal {
+  width: 80%; }
+
+/* line 230, ../../source_sass/_base.scss */
+.uploaded_file_name_holder {
+  overflow: auto; }
+
+/* line 234, ../../source_sass/_base.scss */
+#signUpInmsg {
+  margin: 0 auto;
+  margin: 5% auto;
+  /* 2% from the top and centered */
+  width: 20%;
+  border: 1px solid #dfdfdf;
+  background-color: white; }
+
+/* line 242, ../../source_sass/_base.scss */
+.add_profile_picture {
+  background: #888; }
+
+/* line 245, ../../source_sass/_base.scss */
+.Add_photo_text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); }
+
+/* line 251, ../../source_sass/_base.scss */
+.create_whole_image {
+  height: 300px;
+  width: 200px; }
+
+/* line 256, ../../source_sass/_base.scss */
+canvas {
+  width: 100%;
+  height: auto; }
+
+/* line 261, ../../source_sass/_base.scss */
+.submit_modal_button {
+  margin: 6% auto; }
+
+/* line 265, ../../source_sass/_base.scss */
+.CreateBoardText {
+  margin: 2% 0; }
 
 /* line 7, ../../source_sass/_slider.scss */
 .ps-container {

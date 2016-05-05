@@ -4,7 +4,7 @@ $(document).on('click', '.tabs .tab', function(){
         $(this).addClass('active');
         $('.cont').hide();
         $('.signin-cont').show();
-    } 
+    }
     if ($(this).hasClass('signup')) {
         $('.tabs .tab').removeClass('active');
         $(this).addClass('active');
@@ -24,7 +24,7 @@ $(document).on('mousemove', '.container .bg', (function(e){
 
 
 var Slider = (function() {
-	
+
 	var $container = $( '#ps-container' ),
 		$contentwrapper = $container.children( 'div.ps-contentwrapper' ),
 		// the items (description elements for the slides/products)
@@ -68,7 +68,7 @@ var Slider = (function() {
 
 			$currentItem.css( initCSS );
 			$currentSlide.css( initCSS );
-			
+
 			// update nav images
 			updateNavImages();
 
@@ -93,9 +93,9 @@ var Slider = (function() {
 			$navprev.on( 'click', function( event ) {
 
 				if( !isAnimating ) {
-					
+
 					slide( 'prev' );
-				
+
 				}
 				return false;
 
@@ -104,9 +104,9 @@ var Slider = (function() {
 			$navnext.on( 'click', function( event ) {
 
 				if( !isAnimating ) {
-					
+
 					slide( 'next' );
-				
+
 				}
 				return false;
 
@@ -115,7 +115,7 @@ var Slider = (function() {
 			// transition end event
 			$items.on( transEndEventName, removeTransition );
 			$slides.on( transEndEventName, removeTransition );
-			
+
 		},
 		removeTransition = function() {
 
@@ -151,7 +151,7 @@ var Slider = (function() {
 				top : ( dir === 'next' ) ? '-100%' : '100%',
 				zIndex : 999
 			} );
-			
+
 			$newSlide.css( {
 				top : ( dir === 'next' ) ? '100%' : '-100%',
 				zIndex : 999
@@ -159,7 +159,7 @@ var Slider = (function() {
 
 			setTimeout( function() {
 
-				// move the current item and slide to the top or bottom depending on the direction 
+				// move the current item and slide to the top or bottom depending on the direction
 				$currentItem.addClass( 'ps-move' ).css( {
 					top : ( dir === 'next' ) ? '100%' : '-100%',
 					zIndex : 1

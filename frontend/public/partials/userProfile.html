@@ -1,6 +1,7 @@
 <div class="list" >
 
   <div ng-include="'./partials/CollectionModal.html'"></div>
+  <div ng-include="'./partials/CreateBoardModal.html'"></div>
 
 
 <div class = "row">
@@ -10,7 +11,13 @@
 
         <div class = "profile_info profile_item float-left text-center">
           <div class = "columns small-12">
-            <div class= "profile_picture" style = "background-image: url('./data/images/{{user.profilePicUrl}}.jpg')"> </div>
+            <div ng-show="user.profilePicUrl" class= "profile_picture" style = "background-image: url('./data/images/{{user.profilePicUrl}}.jpg')"> </div>
+
+            <div ng-show="!user.profilePicUrl && !profile_owner" class= "profile_picture" style = "background-image: url('./data/images/profilePicPlaceHolder.jpg')"> </div>
+            <div ng-show="!user.profilePicUrl && profile_owner" ng-click="AddPic()" class= "profile_picture add_profile_picture">
+              <div class = "Add_photo_text"> Add a photo </div>
+             </div>
+
             <p class = "profile_user_name"> {{user.name}} </p>
             <p class = "profile_user_description"> {{user.description}}</p>
         </div>
@@ -20,7 +27,7 @@
 
       <li ng-show = "profile_owner">
 
-        <div class = " profile_item add_board float-left text-center">
+        <div ng-click = "showCreateBoard()" class = " profile_item add_board float-left text-center">
           <div class = "columns small-12">
             <i class="fa fa-plus-circle fa-5x plus_sign" aria-hidden="true"></i>
             <div class = "create_collection_text"> Create a new collection </div>

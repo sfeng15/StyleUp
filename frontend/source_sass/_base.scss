@@ -213,3 +213,55 @@ li {
 a:focus , a:hover {
   cursor: pointer;
 }
+
+.cropArea {
+  background: #E4E4E4;
+  overflow: hidden;
+  width:500px;
+  height:350px;
+}
+
+
+.createBoardModal {
+  @extend .modal;
+  width: 80%;
+}
+
+.uploaded_file_name_holder {
+  overflow: auto;
+}
+
+#signUpInmsg{
+  margin: 0 auto;
+  margin: 5% auto; /* 2% from the top and centered */
+  width: 20%;
+  border: 1px solid #dfdfdf;
+  background-color: white;
+}
+
+.add_profile_picture {
+  background: #888;
+}
+.Add_photo_text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.create_whole_image{
+  height: 300px;
+  width: 200px;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+}
+
+.submit_modal_button {
+  margin: 6% auto;
+}
+
+.CreateBoardText {
+  margin: 2% 0;
+}
