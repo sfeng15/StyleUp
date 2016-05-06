@@ -1,6 +1,6 @@
 
 
-projectControllers.controller('profileController', ['$scope', 'Upload', '$window', 'CommonData', '$routeParams', 'Users', 'Collections' , function($scope, Uplaod, $window, CommonData, $routeParams, Users, Collections ) {
+projectControllers.controller('profileController', ['$scope', 'Upload', '$window', '$location', 'CommonData', '$routeParams', 'Users', 'Collections' , function($scope, Uplaod, $window, $location, CommonData, $routeParams, Users, Collections ) {
 
 /*
 
@@ -201,6 +201,13 @@ $scope.submitCollectionForm = function() {
           ///Users.put()
         }
       });
+
+
+		$scope.searchTextChanged = function(){
+
+			CommonData.setSearchText(angular.element( document.querySelector( '#search_input_text' )).val());
+			$location.path('/search');
+		}
 
 
 }]);
