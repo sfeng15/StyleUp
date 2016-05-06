@@ -24,6 +24,7 @@ apiServices.factory('Users', function($http, $window, $q){
       return deferred.promise;
     },
     setProfilePic: function(image) {
+      console.log(image);
       var fd = new FormData();
       fd.append('image', image);
       $http.defaults.headers.common['Authorization'] = $window.localStorage['curToken'];

@@ -196,7 +196,7 @@
           <div class = "columns small-12">
 
             <div ng-show="!profile_owner" class= "profile_picture" style = "background-image: url('{{profilePic}}')"> </div>
-            <div ng-show="profile_owner" ng-click="AddPic()" class= "profile_picture" style = "background-image: url('{{profilePic}}')">
+            <div ng-show="profile_owner" ng-click="AddPic()" class= "profile_picture" ng-style="{'background-image': 'url('+ profilePic+')'}">
              </div>
 
 
@@ -208,11 +208,11 @@
             <p ng-show="!profile_owner" class = "profile_user_description"> {{user.description}} </p>
           </div>
 
-
-            <div ngf-select="uploadPic($file)" ng-show="profile_owner" class="camera_input">
+          <label  ng-show="profile_owner" class="camera_input">
+              <input type="file" onchange="angular.element(this).scope().uploadPic(this)" accept="image/*">
               <i class="fa fa-camera fa-2x camera_icon" aria-hidden="true"></i>
               <div class="add_pic_text"> Add photo</div>
-            </div>
+         </label>
         </div>
 
       </li>
