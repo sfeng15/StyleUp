@@ -200,18 +200,21 @@ $scope.submitCollectionForm = function() {
      $scope.CreateBoardModalShow = false;
    }
 
-
-////TODO: check to see if that works with put
+	 $scope.newProfPic = {};
    $scope.uploadPic = function (file) {
-        Upload.upload({
-            url: 'upload/url',
-            data: {file: file},
-            method: 'PUT'
-        }).then(function (resp) {
-            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-        });
+        // Upload.upload({
+        //     url: 'upload/url',
+        //     data: {file: file},
+        //     method: 'PUT'
+        // }).then(function (resp) {
+        //     console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+        // ]);
+				Users.setProfilePic(file.files[0]).then(function(data) {
+					// $scope.$apply();
+					// $scope.profilePic = Users.getProfilePicUrl($scope.user.username);
+					$scope.profilePic = $scope.profilePic + '?' + new Date().getTime();
+				});
     };
-////////
 
 
     $scope.$watch('user.description', function(newVal, oldVal) {
