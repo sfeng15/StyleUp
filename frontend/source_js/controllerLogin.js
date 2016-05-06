@@ -16,8 +16,11 @@ $scope.show_ok = false;
   $scope.msg = '';
 
   $scope.RedirectToHome = function(){
+
     $location.path('/home');
   }
+
+
 
   $scope.goAway = function(){
     $scope.show_error = false;

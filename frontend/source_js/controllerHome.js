@@ -3,7 +3,7 @@ var projectControllers = angular.module('projectControllers',  []);
 
 
 
-projectControllers.controller('homeController', ['$scope', '$location', 'CommonData' , function($scope, $location, CommonData ) {
+projectControllers.controller('homeController', ['$scope', 'Users', '$location', 'CommonData' , function($scope, Users, $location, CommonData ) {
 
 
 
@@ -14,6 +14,12 @@ projectControllers.controller('homeController', ['$scope', '$location', 'CommonD
   }
 
 
+    Users.getCurrent().success(function(data) {
+      var LoggedInUser = data.user;
+      if (LoggedInUser != null) {
+        $scope.navBarUserLoggedIn = true;
+      }
+    });
 
 
 var Slider = (function() {
