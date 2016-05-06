@@ -90,7 +90,8 @@ apiServices.factory('Collections', function($http, $window, $q) {
   //Add favorite toggling
   return {
     get : function(select_options) {
-      return $http.get(baseUrl+'collections'+select_options);
+        console.log(select_options);
+      return $http.get(baseUrl+'collections/'+select_options);
       //return $http.get('./data/collections.json');
     },
     post : function(data) {
@@ -115,7 +116,11 @@ apiServices.factory('Collections', function($http, $window, $q) {
     put : function( id, data) {
       $http.defaults.headers.common['Authorization'] = $window.localStorage['curToken'];
       return $http.put(baseUrl+'collection/'+id, data);
-    }
+    },
+      //?
+    getCollectionsPicUrl: function(id) {
+      return baseUrl+'collectionImage/'+id;
+    },
   }
 
 });
@@ -145,7 +150,7 @@ apiServices.factory('Items', function($http, $window, $q) {
       });
       return $http.put(baseUrl+'item/'+id, newItem);
     },
-    getItemImgUrl: function(id) {
+    getItemsPicUrl: function(id) {
       return baseUrl+'itemImage/'+id;
     },
     delete: function(id) {

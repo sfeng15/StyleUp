@@ -1,22 +1,14 @@
-<<<<<<< b89dafa03d18e79d8be667f60a71f27412870238
-var app = angular.module('project', ['ngRoute', 'projectControllers', 'projectServices', 'ngFileUpload', 'angular-img-cropper', 'xeditable']);
-=======
-<<<<<<< Updated upstream
-var app = angular.module('project', ['ngRoute', 'projectControllers', 'projectServices', 'userService']);
+<<<<<<< HEAD
+var app = angular.module('project', ['ngRoute', 'projectControllers', 'projectServices', 'ngFileUpload', 'angular-img-cropper', 'xeditable','userService']);
 =======
 var app = angular.module('project', ['ngRoute', 'projectControllers', 'projectServices', 'apiServices', 'ngFileUpload', 'angular-img-cropper', 'xeditable']);
->>>>>>> Stashed changes
->>>>>>> Work on the profile in controllers
+>>>>>>> new
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-    when('/collections', {
-    templateUrl: 'partials/collections.html',
-    controller: 'FirstController'
-  }).
   when('/home', {
     templateUrl: 'partials/home.html',
-    controller: 'FirstController'
+    controller: 'homeController'
   }).
   when('/users/:username', {
     templateUrl: 'partials/userProfile.html',
@@ -26,6 +18,10 @@ app.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'partials/Login.html',
     controller: 'loginController'
   }).
+  when('/search', {
+  templateUrl: 'partials/search.html',
+  controller: 'searchController'
+}).
   otherwise({
     redirectTo: '/login'
   });

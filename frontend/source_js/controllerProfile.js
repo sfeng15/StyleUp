@@ -9,40 +9,73 @@ projectControllers.controller('profileController', ['$scope', 'Upload', '$window
     $scope.displayText = "Data set"
 
   }; */
-	$scope.logOut = function(){
-		Users.logout().then(function(data){
-			$scope.navBarUserLoggedIn = false;
-			$location.path('/home');
-		})
-}
-
 
 	Users.getCurrent().success(function(data) {
-		$scope.LoggedInUser = data.user;
-		if ($scope.LoggedInUser != null) {
+		var LoggedInUser = data.user;
+		if (LoggedInUser != null) {
 			$scope.navBarUserLoggedIn = true;
-			$scope.profile_owner = $scope.LoggedInUser.username === $routeParams['username'];
+			$scope.profile_owner = LoggedInUser.username === $routeParams['username'];
 		}
 		$scope.collections = [];
+        $scope.collectionsImages = [];
 		Users.getUser($routeParams['username']).then(function(data){
 			console.log(data);
 			$scope.user = data.data.user;
-			$scope.profilePic = Users.getProfilePicUrl($scope.user.username);
-		});
-	}).error(function(err) {
-		$scope.collections = [];
-		Users.getUser($routeParams['username']).then(function(data){
-			console.log(data);
-			$scope.user = data.data.user;
-			$scope.profilePic = Users.getProfilePicUrl($scope.user.username);
-		});
+            $scope.profilePic = Users.getProfilePicUrl($scope.user.username);
+            //console.log($scope.user);
+            console.log($scope.user.collections);
+            //console.log($scope.user.collections.length);
+
+
+            return Collections.get("");
+		})
+        .then(function(data){
+            console.log("user collections");
+            //console.log($scope.user);
+            console.log($scope.user.collections);//array of collection ids
+            //console.log($scope.user.collections.length);
+             //console.log($scope.user.collections[0])
+
+
+
+            console.log("all collections");
+            //console.log(data);
+            //console.log(data.data);
+
+            console.log(data.data.collections);//array of collections
+            //console.log(data.data.collections.length);
+
+            for (var i = 0 ; i < data.data.collections.length; i++)//data.data have all collections
+            {
+                for (var j = 0 ; j < $scope.user.collections.length ; j++)//user.collections has all its own collection ids
+                {
+                    //console.log("here")
+                    //console.log(data.data.collections[i]._id)
+                    //console.log($scope.user.collections[j])
+
+
+                    if (data.data.collections[i]._id == $scope.user.collections[j])
+                    {
+                        //console.log("here")
+                        $scope.collections.push(data.data.collections[i]);//$scope.collections has all collections of a user
+                        console.log(Collections.getCollectionsPicUrl(data.data.collections[i]._id));
+                        $scope.collectionsImages.push(Collections.getCollectionsPicUrl(data.data.collections[i]._id));
+                        //console.log($scope.collections);
+                    }
+                }
+            }
+            console.log($scope.collections);
+        });
 	});
 
   /////end of to be deleted
 
+
   ///the right code for when we have the backend
-/*
-  angular.forEach( $scope.user.collections , function(value, i){
+ var promises= [];
+        /*
+  angular.forEach( $scope.user.c
+  ollections , function(value, i){
         promises.push(Collections.get($scope.user.collections[i]._id));
 
   return $q.all(promises);
