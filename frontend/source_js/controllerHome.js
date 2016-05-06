@@ -57,7 +57,7 @@ $scope.showAlbum = function(index) {
 	$scope.shown_collection.items.forEach(function(item) {
 		promises.push(Items.get(item));
 	});
-
+  $scope.albumCover = Collections.getCollectionsPicUrl($scope.shown_collection._id);
 	$q.all(promises).then(function(data) {
 		console.log('data', data);
 		data.forEach(function(result) {
