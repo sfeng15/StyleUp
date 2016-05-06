@@ -117,6 +117,7 @@ $scope.showAlbum = function(index) {
 	var items = [];
 	var promises = [];
 	$scope.shown_collection.items.forEach(function(item) {
+		console.log('item', item);
 		promises.push(Items.get(item));
 	});
 	$q.all(promises).then(function(data) {
@@ -205,6 +206,7 @@ $scope.submitCollectionForm = function() {
 			});
 			var img = $scope.cropper.croppedImage == null ? null : Upload.dataUrltoBlob($scope.cropper.croppedImage);
 			var newCollection = {name: $scope.collection_name, items: itemIds, image: img};
+			console.log(newCollection);
 			Collections.post(newCollection).then(function(collectionResult) {
 				var id = collectionResult.data._id;
 				Users.getCurrent().success(function(userResult) {
@@ -212,6 +214,8 @@ $scope.submitCollectionForm = function() {
 					console.log(userResult.user);
 					Users.editCurrent(userResult.user).success(function(editResult) {
 						//Reload collections here
+						$scope.collections.push(collectionResult.data);
+						$scope.collectionsImages.push(Collections.getCollectionsPicUrl(collectionResult.data._id));
 						$scope.CreateBoardModalShow = false; //Hide modal
 						$scope.collection_name = '';
 						$scope.categories = [];

@@ -41,7 +41,7 @@ api.addCollection = function (collection, file, cb) {
   }
   if(file != null) collection.picPath = file.path;
   collection = new Collection(collection);
-
+  console.log(collection);
   collection.save(function (err) {
     console.log(err);
     cbf(cb,err,collection.toObject());

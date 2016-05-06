@@ -98,6 +98,7 @@ apiServices.factory('Collections', function($http, $window, $q) {
       $http.defaults.headers.common['Authorization'] = $window.localStorage['curToken'];
       var fd = new FormData();
       fd.append('name', data.name);
+      fd.append('items', data.items);
       fd.append('image', data.image);
       console.log(data.image);
       return $http.post(baseUrl+'collection', fd, {
