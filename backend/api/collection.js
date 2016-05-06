@@ -4,6 +4,10 @@ router = express.Router(),
 collection = require('../apiObjects/collection'),
 l=require('../config/lib');
 
+var path = require('path');
+var multer = require('multer');
+var upload = multer({dest: './uploads/collections'});
+
 var api = {};
 // ALL
 api.collections = function (req, res) {
@@ -30,7 +34,7 @@ api.collections = function (req, res) {
 
 // POST
 api.addcollection = function (req, res) {
-	collection.addCollection(req.body,function	(err,data){
+	collection.addCollection(req.body, req.file, function	(err,data){
 		if(err) res.status(500).json(err);
 		else {
 			res.status(201).json(data);
@@ -106,7 +110,7 @@ api.deleteCollection = function (req, res) {
 
 module.exports = function(passport) {
 
-	router.post('/collection', passport.authenticate('jwt', {session: false}), api.addcollection);//??how to not use .route()
+	router.post('/collection', passport.authenticate('jwt', {session: false}), upload.single('image'), api.addcollection);//??how to not use .route()
 
 	router.route('/collection/:id')
 	.get(api.collection)

@@ -35,12 +35,12 @@ api.getCollection = function (id,cb) {
 };
 
 // POST
-api.addCollection = function (collection,cb) {
+api.addCollection = function (collection, file, cb) {
 
   if(collection == 'undefined'){//?? check whether the length is zero, not checking whether already exists
     cb('No Collection Provided. Please provide valid collection data.');
   }
-
+  if(file != null) collection.picPath = file.path;
   collection = new Collection(collection);
 
   collection.save(function (err) {
