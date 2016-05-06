@@ -44,6 +44,7 @@ api.addCollection = function (collection,cb) {
   collection = new Collection(collection);
 
   collection.save(function (err) {
+    console.log(err);
     cbf(cb,err,collection.toObject());
   });
 };

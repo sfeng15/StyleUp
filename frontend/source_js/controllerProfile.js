@@ -1,6 +1,6 @@
 
 
-projectControllers.controller('profileController', ['$scope', 'Upload', '$window', 'CommonData', '$routeParams', 'Users', 'Collections' , function($scope, Uplaod, $window, CommonData, $routeParams, Users, Collections ) {
+projectControllers.controller('profileController', ['$scope', 'Upload', '$window', 'CommonData', '$routeParams', 'Users', 'Collections', 'Items' , '$q', function($scope, Upload, $window, CommonData, $routeParams, Users, Collections, Items, $q) {
 
 /*
 
@@ -55,6 +55,7 @@ projectControllers.controller('profileController', ['$scope', 'Upload', '$window
 
 
 $scope.modal_show = false;
+$scope.collection_name = '';
 $scope.tops = [];
 $scope.bottoms = [];
 $scope.accessories = [];
@@ -117,29 +118,48 @@ $scope.deleteFile = function(index){
 
 
 $scope.submitCollectionForm = function() {
-
-  console.log("categories");
-  console.log($scope.categories);
-
-  console.log("picFiles");
-  console.log($scope.picFiles);
-
   for (var i = 0 ; i < $scope.picFiles.length ; i++)
-    if (!$scope.picFiles[i])
-      {
-        $scope.picFiles.splice(i, 1);
-        $scope.categories.splice(i, 1);
-      }
+    // if (!$scope.picFiles[i] || $scope.picFiles[i] == null)
+    //   {
+    //     $scope.picFiles.splice(i, 1);
+    //     $scope.categories.splice(i, 1);
+    //   }
 
-      console.log($scope.picFiles[0]);
+      // console.log($scope.picFiles[0]);
 
       var wholeimage = null;
 
-      if ($scope.cropper.croppedImage != null)
+      if (!$scope.cropper.croppedImage)
           wholeimage = $scope.cropper.croppedImage;
-      else if ($scope.cropper.sourceImage != null)
+      else if (!$scope.cropper.sourceImage)
           wholeimage = $scope.cropper.sourceImage;
 
+		var promises = [];
+		for(var i = 0; i < $scope.categories.length; i++) {
+			var cat = $scope.categories[i];
+			var pic = $scope.picFiles[i];
+			if(pic != null) promises.push(Items.post(cat, pic));
+		}
+		var itemIds = [];
+		$q.all(promises).then(function(data) {
+			console.log('data', data);
+			data.forEach(function(result) {
+				itemIds.push(result.data._id);
+			});
+			var newCollection = {name: $scope.collection_name, items: itemIds};
+			Collections.post(newCollection).then(function(collectionResult) {
+				var id = collectionResult.data._id;
+				Users.getCurrent().success(function(userResult) {
+					userResult.user.collections.push(id);
+					console.log(userResult.user);
+					Users.editCurrent(userResult.user).success(function(editResult) {
+						//Reload collections here
+					});
+				})
+			})
+		}).catch(function(err) {
+			console.log(err);
+		});
 
   /*
      if ($scope.picFiles && $scope.picFiles.length) {
@@ -177,7 +197,6 @@ $scope.submitCollectionForm = function() {
    }
 
    $scope.closeCreateBoardModal = function(){
-
      $scope.CreateBoardModalShow = false;
    }
 
