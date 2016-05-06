@@ -192,6 +192,7 @@ li {
 .accessories-section {
   //margin-right: 6%;
   overflow: auto;
+  margin-bottom: 30px;
 
 }
 .bottom-section {
@@ -227,6 +228,8 @@ li {
     font-weight: bold;
     color: $plchldr;
 }
+
+
 
 .accessory_item.place_filler, .modal_whole_image.place_filler {
   @extend .modal_item;
