@@ -10,15 +10,32 @@ projectControllers.controller('profileController', ['$scope', 'Upload', '$window
 
   }; */
 
+	$scope.logOut = function(){
+		Users.logout().then(function(data){
+		$scope.navBarUserLoggedIn = false;
+		$location.path('/home');
+		})
+	}
+
+
 	Users.getCurrent().success(function(data) {
-		var LoggedInUser = data.user;
-		if (LoggedInUser != null) {
+
+		$scope.LoggedInUser = data.user;
+		if ($scope.LoggedInUser != null) {
 			$scope.navBarUserLoggedIn = true;
-			$scope.profile_owner = LoggedInUser.username === $routeParams['username'];
+			$scope.profile_owner = $scope.LoggedInUser.username === $routeParams['username'];
 		}
+
+	}).error(function(data){
+		$scope.LoggedInUser = null;
+		$scope.navBarUserLoggedIn = false;
+		$scope.profile_owner = false;
+	});
+
 		$scope.collections = [];
         $scope.collectionsImages = [];
 		Users.getUser($routeParams['username']).then(function(data){
+			console.log("here's the user");
 			console.log(data);
 			$scope.user = data.data.user;
             $scope.profilePic = Users.getProfilePicUrl($scope.user.username);
@@ -66,7 +83,7 @@ projectControllers.controller('profileController', ['$scope', 'Upload', '$window
             }
             console.log($scope.collections);
         });
-	});
+
 
   /////end of to be deleted
 
@@ -119,20 +136,22 @@ $scope.showAlbum = function(index) {
 	$scope.shown_collection.items.forEach(function(item) {
 		promises.push(Items.get(item));
 	});
+
 	$q.all(promises).then(function(data) {
+		console.log('data', data);
 		data.forEach(function(result) {
-			items.push(result.item);
-			if (result.item.type == "Shirt" ||
-	   	result.item.type == "Blouse" ||
-	 		result.item.type == "Dress" ||
-			result.item.type == "Coat" )
-	    		$scope.tops.push(result.item);
-			else if (result.item.type == "Pants" ||
-			result.item.type == "Skirt" ||
-			result.item.type == "Shoes" )
-					$scope.bottoms.push(result.item);
-			else if (result.item.type == "Accessory" )
-		      $scope.accessories.push(result.item);
+			items.push(result.data.item);
+			if (result.data.item.type == "Shirt" ||
+	   	result.data.item.type == "Blouse" ||
+	 		result.data.item.type == "Dress" ||
+			result.data.item.type == "Coat" )
+	    		$scope.tops.push(result.data.item);
+			else if (result.data.item.type == "Pants" ||
+			result.data.item.type == "Skirt" ||
+			result.data.item.type == "Shoes" )
+					$scope.bottoms.push(result.data.item);
+			else if (result.data.item.type == "Accessory" )
+		      $scope.accessories.push(result.data.item);
 		});
 	});
 
@@ -145,7 +164,8 @@ $scope.showAlbum = function(index) {
 }
 
 $scope.imageUrl = function(id) {
-	return Items.getItemImageUrl(id);
+	console.log('id', id);
+	return Items.getItemsPicUrl(id);
 }
 
 $scope.closeModal = function (){
@@ -205,6 +225,7 @@ $scope.submitCollectionForm = function() {
 			});
 			var img = $scope.cropper.croppedImage == null ? null : Upload.dataUrltoBlob($scope.cropper.croppedImage);
 			var newCollection = {name: $scope.collection_name, items: itemIds, image: img};
+			console.log(newCollection);
 			Collections.post(newCollection).then(function(collectionResult) {
 				var id = collectionResult.data._id;
 				Users.getCurrent().success(function(userResult) {
@@ -212,6 +233,8 @@ $scope.submitCollectionForm = function() {
 					console.log(userResult.user);
 					Users.editCurrent(userResult.user).success(function(editResult) {
 						//Reload collections here
+						$scope.collections.push(collectionResult.data);
+						$scope.collectionsImages.push(Collections.getCollectionsPicUrl(collectionResult.data._id));
 						$scope.CreateBoardModalShow = false; //Hide modal
 						$scope.collection_name = '';
 						$scope.categories = [];

@@ -165,7 +165,7 @@
 
 
            <label class = "button1">
-               <input type ="button" ng-click="submitCollectionForm()">
+               <input type ="button" ng-click="submitCollectionForm()" id="hideMe">
                Make A New Collection
 
            </label>
@@ -202,11 +202,13 @@
 
             <p class = "profile_user_name"> {{user.name}} </p>
 
+<!--
             <div class = "description_holder">
             <a ng-show="profile_owner" href="#" class = "profile_user_description" editable-text="user.description">{{ user.description || "empty" }}</a>
 
             <p ng-show="!profile_owner" class = "profile_user_description"> {{user.description}} </p>
           </div>
+        -->
 
           <label  ng-show="profile_owner" class="camera_input">
               <input type="file" onchange="angular.element(this).scope().uploadPic(this)" accept="image/*">
