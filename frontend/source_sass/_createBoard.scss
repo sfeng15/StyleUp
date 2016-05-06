@@ -1,11 +1,17 @@
+input[type="button"] {
+    display: none;
+}
+
+
 .button1 {
                     font-size: 12px;
                     line-height: 38px;
-                    display: block;
-//                    width: 120%;
+//                    display: inline-block;
+//                    width: 100%;
                     text-align: center;
 //                    padding: 0px 5px 0px 5px;
 //                    height: 42px;
+                
                     cursor: pointer;
                     vertical-align: middle;
                     letter-spacing: 2px;
