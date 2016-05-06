@@ -53,6 +53,23 @@ apiServices.factory('Users', function($http, $window, $q){
     },
     get: function(select_options){
       return $http.get(baseUrl + 'users' + select_options);
+    },
+    addFavorite: function(collectionID) {
+      return $http.get(baseUrl+'user/'+$window.localStorage['curUser']).then(function(data) {
+        if(data.user.favorites.indexOf(collectionID) < 0) {
+          data.user.favorites.push(collectionID);
+        }
+        return $http.put(baseUrl+'user/'+$window.localStorage['curUser'], data.user);
+      });
+    },
+    removeFavorite: function(collectionID) {
+      return $http.get(baseUrl+'user/'+$window.localStorage['curUser']).then(function(data) {
+        var index = data.user.favorites.indexOf(collectionID);
+        if(index >= 0) {
+          data.user.favorites.splice(index, 1);
+        }
+        return $http.put(baseUrl+'user/'+$window.localStorage['curUser'], data.user);
+      });
     }
   };
 });
