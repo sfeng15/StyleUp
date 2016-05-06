@@ -19,7 +19,7 @@
         <div class = "columns large-12">
       <label>
         Collection name
-        <input type="text" ng-model = "collection_name" placeholder="Cool collection">
+        <input type="text" ng-model="collection_name" placeholder="Cool collection">
       </label>
     </div>
   </div>
@@ -34,9 +34,6 @@
 
             <div class = "columns small-3 large-2">
               <button class = "button" type="file" ngf-select ng-model="picFiles[$index]" accept="image/*"> Select file</button>
-              <button class = "button" type="file" > Select file</button>
-                
-<!--              <input type="file" ngf-select ng-model="picFiles[$index]" accept="image/*" value=" Select file" class="button1">-->
             </div>
 
 
@@ -44,13 +41,13 @@
             <div class = "columns small-3 large-3">
               <label>Select category</label>
               <select ng-model="categories[$index]">
-              <option value="Dress">dress</option>
-              <option value="Coat">coat</option>
-              <option value="Shirt">shirt</option>
-              <option value="Pants">pants</option>
-              <option value="Skirt">skirt</option>
-              <option value="Shoes">shoes</option>
-              <option value="Accessory">accessory</option>
+                <option value="Dress">dress</option>
+                <option value="Coat">coat</option>
+                <option value="Shirt">shirt</option>
+                <option value="Pants">pants</option>
+                <option value="Skirt">skirt</option>
+                <option value="Shoes">shoes</option>
+                <option value="Accessory">accessory</option>
               </select>
             </div>
 

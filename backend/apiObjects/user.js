@@ -72,6 +72,10 @@ api.editUser = function (user,updateData, cb) {
     if(typeof updateData["favorites"] != 'undefined'){
         user["favorites"]=updateData["favorites"];
     }
+    if(typeof updateData["collections"] != 'undefined'){
+        user["collections"]=[];
+        user["collections"]=updateData["collections"];
+    }
       return user.save(function (err) {
     cbf(cb,err,user.toObject());
     }); //eo user.save
