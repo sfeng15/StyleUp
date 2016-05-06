@@ -1,11 +1,12 @@
-var apiServices = angular.module('apiServices', []);
+var apiService = angular.module('apiService', []);
 
 // Change this in case of domain name
-var baseUrl = 'http://localhost:4000/api/';
+var baseUrl = 'localhost:4000/api/';
 
-apiServices.factory('Users', function($http, $window, $q){
+apiService.factory('Users', function($http, $window, $q){
   return {
     register: function(user) {
+      console.log(user);
       return $http.post(baseUrl+'register', user);
     },
     login: function(user) {
@@ -14,6 +15,7 @@ apiServices.factory('Users', function($http, $window, $q){
       .success(function(data) {
         //Set the token as a default header
         $http.defaults.headers.common['Authorization'] = data.token;
+        console.log('thing', $http.defaults.headers.common['Authorization']);
         $window.localStorage['curUser'] = user.username;
         deferred.resolve(user);
       }).catch(function(err) {
@@ -29,11 +31,7 @@ apiServices.factory('Users', function($http, $window, $q){
         transformRequest: angular.identity
       });
     },
-    getProfilePicUrl: function(username) {
-      return baseUrl+'profilePic/'+username;
-    },
     getCurrent: function() {
-      console.log('get current');
       return $http.get(baseUrl+'user/'+$window.localStorage['curUser']);
     },
     editCurrent: function(newUser) {
@@ -43,13 +41,12 @@ apiServices.factory('Users', function($http, $window, $q){
       return $http.delete(baseUrl+'user/'+$window.localStorage['curUser']);
     },
     getUser: function(username) {
-      console.log(baseUrl+'user/'+username);
       return $http.get(baseUrl+'user/'+username);
     }
   };
 });
 
-apiServices.factory('Collections', function($http, $window, $q) {
+apiService.factory('Collections', function($http, $window, $q) {
   //Create, edit, delete are protected
   //Get collection
   //Add favorite toggling
@@ -104,7 +101,7 @@ apiServices.factory('Collections', function($http, $window, $q) {
 
 });
 
-apiServices.factory('Items', function($http, $window, $q) {
+apiService.factory('Items', function($http, $window, $q) {
   return {
     get: function(id) {
       return $http.get(baseUrl+'item/'+id);

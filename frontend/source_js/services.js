@@ -2,17 +2,15 @@ var projectServices = angular.module('projectServices', []);
 
 projectServices.factory('CommonData', function($http, $window){
     var data = "";
-    var searched_text = "";
     //the logged in user needs to be an object (a user object with name, user id)
 
     return{
-        getSearchText : function(){
-            return searched_text;
+        getData : function(){
+            return data;
         },
-        setSearchText : function(newData){
-            searched_text = newData;
+        setData : function(newData){
+            data = newData;
         },
-
         getUser : function(){
           return JSON.parse($window.sessionStorage.logged_in_user);
         },
