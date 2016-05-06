@@ -24,6 +24,7 @@ apiServices.factory('Users', function($http, $window, $q){
       return deferred.promise;
     },
     setProfilePic: function(image) {
+      console.log(image);
       var fd = new FormData();
       fd.append('image', image);
       $http.defaults.headers.common['Authorization'] = $window.localStorage['curToken'];
@@ -49,6 +50,9 @@ apiServices.factory('Users', function($http, $window, $q){
     getUser: function(username) {
       console.log(baseUrl+'user/'+username);
       return $http.get(baseUrl+'user/'+username);
+    },
+    get: function(select_options){
+      return $http.get(baseUrl + 'users' + select_options);
     }
   };
 });
@@ -59,13 +63,19 @@ apiServices.factory('Collections', function($http, $window, $q) {
   //Add favorite toggling
   return {
     get : function(select_options) {
-      return $http.get(baseUrl+'collections', {params:select_options});
+      return $http.get(baseUrl+'collections'+select_options);
       //return $http.get('./data/collections.json');
     },
     post : function(data) {
       $http.defaults.headers.common['Authorization'] = $window.localStorage['curToken'];
-      console.log($http.defaults.headers.common['Authorization']);
-      return $http.post(baseUrl+'collection', data);
+      var fd = new FormData();
+      fd.append('name', data.name);
+      fd.append('image', data.image);
+      console.log(data.image);
+      return $http.post(baseUrl+'collection', fd, {
+        headers: {'Content-Type': undefined},
+        transformRequest: angular.identity
+      });
     },
 
     delete : function(id) {

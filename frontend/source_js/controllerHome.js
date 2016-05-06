@@ -3,26 +3,84 @@ var projectControllers = angular.module('projectControllers',  []);
 
 
 
-projectControllers.controller('homeController', ['$scope', 'CommonData' , function($scope, CommonData ) {
+projectControllers.controller('homeController', ['$scope', 'Users', 'Collections', '$location', 'CommonData' , function($scope, Users, Collections, $location, CommonData ) {
 
 
 
-//
-
-////
-
-/*
-
-  $scope.setData = function(){
-    CommonData.setData($scope.data);
-    $scope.displayText = "Data set"
-
-  }; */
 
 
+  $scope.searchTextChanged = function(){
+    CommonData.setSearchText(angular.element( document.querySelector( '#search_input_text' )).val());
+    $location.path('/search');
+  }
 
-//---------------------------
 
+  Users.getCurrent().success(function(data) {
+      var LoggedInUser = data.user;
+      if (LoggedInUser != null) {
+        $scope.navBarUserLoggedIn = true;
+      }
+    });
+
+  Collections.get("").success(function(data){
+    $scope.collections = _.sampleSize(data.collections, 6);
+
+  });
+
+//////collectionModal code
+
+
+$scope.collections = [];
+
+$scope.modal_show = false;
+$scope.tops = [];
+$scope.bottoms = [];
+$scope.accessories = [];
+
+
+
+$scope.showAlbum = function(index) {
+
+  $scope.shown_collection = $scope.collections[index];
+  console.log ("index");
+  console.log(index);
+
+  for (var i = 0 ; i < $scope.collections[index].items.length ; i++)
+  {
+    if ($scope.collections[index].items[i].type == "Shirt" ||
+   $scope.collections[index].items[i].type == "Blouse" ||
+ $scope.collections[index].items[i].type == "Dress" ||
+$scope.collections[index].items[i].type == "Coat" )
+    $scope.tops.push($scope.collections[index].items[i]);
+
+    else if ($scope.collections[index].items[i].type == "Pants" ||
+   $scope.collections[index].items[i].type == "Skirt" ||
+  $scope.collections[index].items[i].type == "Shoes" )
+    $scope.bottoms.push($scope.collections[index].items[i]);
+
+    else if ($scope.collections[index].items[i].type == "Accessory" )
+      $scope.accessories.push($scope.collections[index].items[i]);
+  }
+
+  console.log($scope.accessories);
+  console.log($scope.tops);
+  console.log($scope.bottoms);
+
+  $scope.modal_show = true;
+}
+
+$scope.closeModal = function (){
+
+  $scope.modal_show = false;
+  $scope.tops = [];
+  $scope.bottoms = [];
+  $scope.accessories = [];
+}
+///////////////
+
+
+
+/////
 
 var Slider = (function() {
 

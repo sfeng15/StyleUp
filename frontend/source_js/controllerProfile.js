@@ -1,6 +1,6 @@
 
 
-projectControllers.controller('profileController', ['$scope', 'Upload', '$window', 'CommonData', '$routeParams', 'Users', 'Collections', 'Items' , '$q', function($scope, Upload, $window, CommonData, $routeParams, Users, Collections, Items, $q) {
+projectControllers.controller('profileController', ['$scope', 'Upload', '$window', '$location', 'CommonData', '$routeParams', 'Users', 'Collections', 'Items' , '$q', function($scope, Upload, $window, $location, CommonData, $routeParams, Users, Collections, Items, $q) {
 
 /*
 
@@ -196,7 +196,8 @@ $scope.submitCollectionForm = function() {
 			data.forEach(function(result) {
 				itemIds.push(result.data._id);
 			});
-			var newCollection = {name: $scope.collection_name, items: itemIds};
+			var img = $scope.cropper.croppedImage == null ? null : Upload.dataUrltoBlob($scope.cropper.croppedImage);
+			var newCollection = {name: $scope.collection_name, items: itemIds, image: img};
 			Collections.post(newCollection).then(function(collectionResult) {
 				var id = collectionResult.data._id;
 				Users.getCurrent().success(function(userResult) {
@@ -204,6 +205,10 @@ $scope.submitCollectionForm = function() {
 					console.log(userResult.user);
 					Users.editCurrent(userResult.user).success(function(editResult) {
 						//Reload collections here
+						$scope.CreateBoardModalShow = false; //Hide modal
+						$scope.collection_name = '';
+						$scope.categories = [];
+						$scope.picFiles = [];
 					});
 				})
 			})
@@ -250,18 +255,21 @@ $scope.submitCollectionForm = function() {
      $scope.CreateBoardModalShow = false;
    }
 
-
-////TODO: check to see if that works with put
+	 $scope.newProfPic = {};
    $scope.uploadPic = function (file) {
-        Upload.upload({
-            url: 'upload/url',
-            data: {file: file},
-            method: 'PUT'
-        }).then(function (resp) {
-            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-        });
+        // Upload.upload({
+        //     url: 'upload/url',
+        //     data: {file: file},
+        //     method: 'PUT'
+        // }).then(function (resp) {
+        //     console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+        // ]);
+				Users.setProfilePic(file.files[0]).then(function(data) {
+					// $scope.$apply();
+					// $scope.profilePic = Users.getProfilePicUrl($scope.user.username);
+					$scope.profilePic = $scope.profilePic + '?' + new Date().getTime();
+				});
     };
-////////
 
 
     $scope.$watch('user.description', function(newVal, oldVal) {
@@ -271,5 +279,10 @@ $scope.submitCollectionForm = function() {
         }
       });
 
+			$scope.searchTextChanged = function(){
+
+					CommonData.setSearchText(angular.element( document.querySelector( '#search_input_text' )).val());
+					$location.path('/search');
+				}
 
 }]);

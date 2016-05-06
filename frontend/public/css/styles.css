@@ -4195,14 +4195,29 @@ h1 h2 h3 h4 h5 h6 {
   font-size: 23px; }
 
 /* line 31, ../../source_sass/_base.scss */
+.footer_bar {
+  background-color: #8A8A8A;
+  height: 6vh;
+  text-align: center;
+  top: 52vh;
+  position: relative; }
+
+/* line 38, ../../source_sass/_base.scss */
+#footer_text {
+  color: white;
+  line-height: 6vh;
+  font-family: "Lobster", cursive;
+  font-size: 14px; }
+
+/* line 45, ../../source_sass/_base.scss */
 #main_page_carousel {
   height: 50vh; }
 
-/* line 35, ../../source_sass/_base.scss */
+/* line 49, ../../source_sass/_base.scss */
 li {
   list-style: none; }
 
-/* line 40, ../../source_sass/_base.scss */
+/* line 54, ../../source_sass/_base.scss */
 .profile_item, .add_board {
   position: relative;
   display: block;
@@ -4217,7 +4232,7 @@ li {
   height: 526px;
   background-color: white; }
 
-/* line 56, ../../source_sass/_base.scss */
+/* line 70, ../../source_sass/_base.scss */
 .add_board {
   background: rgba(0, 0, 0, 0.03);
   border: 2px dashed #bbb;
@@ -4231,13 +4246,13 @@ li {
   text-align: center;
   text-shadow: 0 1px 1px #fff; }
 
-/* line 70, ../../source_sass/_base.scss */
+/* line 84, ../../source_sass/_base.scss */
 .plus_sign {
   position: absolute;
   top: 40%;
   transform: translateX(-50%); }
 
-/* line 76, ../../source_sass/_base.scss */
+/* line 90, ../../source_sass/_base.scss */
 .album_cover, .album_cover_img_full, .album_cover_img_partial, .img_white_filler {
   position: relative;
   width: 98%;
@@ -4249,27 +4264,27 @@ li {
   border-radius: 3px;
   margin: 0 auto; }
 
-/* line 88, ../../source_sass/_base.scss */
+/* line 102, ../../source_sass/_base.scss */
 .album_cover_img_full {
   height: 445px;
   width: 93%; }
 
-/* line 94, ../../source_sass/_base.scss */
+/* line 108, ../../source_sass/_base.scss */
 .album_cover_img_partial, .img_white_filler {
   height: 215px;
   margin: 3%; }
 
-/* line 104, ../../source_sass/_base.scss */
+/* line 118, ../../source_sass/_base.scss */
 .collection-title {
   margin: 4%;
   color: #36454F;
   font-weight: 600; }
 
-/* line 109, ../../source_sass/_base.scss */
+/* line 123, ../../source_sass/_base.scss */
 .profile_user_name {
   margin: 2%; }
 
-/* line 113, ../../source_sass/_base.scss */
+/* line 127, ../../source_sass/_base.scss */
 .profile_picture {
   position: relative;
   background-size: 100% auto;
@@ -4282,7 +4297,7 @@ li {
   margin-top: 10%;
   margin-bottom: 5%; }
 
-/* line 130, ../../source_sass/_base.scss */
+/* line 144, ../../source_sass/_base.scss */
 .modal_container {
   position: fixed;
   /* Stay in place */
@@ -4301,7 +4316,7 @@ li {
   background-color: rgba(0, 0, 0, 0.7);
   /* Black w/ opacity */ }
 
-/* line 142, ../../source_sass/_base.scss */
+/* line 156, ../../source_sass/_base.scss */
 .modal, .createBoardModal {
   background-color: #f8f8f8;
   margin: 2% auto;
@@ -4309,7 +4324,7 @@ li {
   border: 1px solid #888;
   width: 90%; }
 
-/* line 149, ../../source_sass/_base.scss */
+/* line 163, ../../source_sass/_base.scss */
 .modal_item, .modal_whole_image, .accessory_item.place_filler, .modal_whole_image.place_filler, .top_item.place_filler, .bottom_item.place_filler {
   position: relative;
   background-size: 100% auto;
@@ -4325,30 +4340,30 @@ li {
   -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.33) inset;
   border-radius: 5px; }
 
-/* line 169, ../../source_sass/_base.scss */
+/* line 183, ../../source_sass/_base.scss */
 .top-section {
   margin-bottom: 4%;
   overflow: auto; }
 
-/* line 174, ../../source_sass/_base.scss */
+/* line 188, ../../source_sass/_base.scss */
 .modal_item.accessory_item, .accessory_item.modal_whole_image, .accessory_item.place_filler {
   margin-bottom: 3%; }
 
-/* line 178, ../../source_sass/_base.scss */
+/* line 192, ../../source_sass/_base.scss */
 .accessories-section {
   overflow: auto; }
 
-/* line 183, ../../source_sass/_base.scss */
+/* line 197, ../../source_sass/_base.scss */
 .bottom-section {
   overflow: auto;
   margin-bottom: 4%; }
 
-/* line 188, ../../source_sass/_base.scss */
+/* line 202, ../../source_sass/_base.scss */
 .modal_whole_image {
   width: 300px;
   height: 465px; }
 
-/* line 195, ../../source_sass/_base.scss */
+/* line 209, ../../source_sass/_base.scss */
 .modal-header {
   padding: 6px 16px;
   background-color: #8A8A8A;
@@ -4356,50 +4371,50 @@ li {
   border-top-left-radius: 16px;
   border-top-right-radius: 16px; }
 
-/* line 206, ../../source_sass/_base.scss */
+/* line 220, ../../source_sass/_base.scss */
 .modal-header h2 {
   text-align: center;
   font-family: "Lobster", cursive; }
 
-/* line 211, ../../source_sass/_base.scss */
+/* line 225, ../../source_sass/_base.scss */
 .close {
   font-size: 36px;
   font-weight: bold;
   color: #999999; }
 
-/* line 217, ../../source_sass/_base.scss */
+/* line 231, ../../source_sass/_base.scss */
 .accessory_item.place_filler, .modal_whole_image.place_filler {
   height: 465px;
   border: 1px solid #dfdfdf; }
 
-/* line 224, ../../source_sass/_base.scss */
+/* line 238, ../../source_sass/_base.scss */
 .top_item.place_filler, .bottom_item.place_filler {
   height: 200px;
   width: 430px;
   border: 1px solid #dfdfdf; }
 
-/* line 233, ../../source_sass/_base.scss */
+/* line 247, ../../source_sass/_base.scss */
 a:focus, a:hover {
   cursor: pointer; }
 
-/* line 237, ../../source_sass/_base.scss */
+/* line 251, ../../source_sass/_base.scss */
 .cropArea {
   background: #E4E4E4;
   overflow: hidden;
   width: 500px;
   height: 350px; }
 
-/* line 245, ../../source_sass/_base.scss */
+/* line 259, ../../source_sass/_base.scss */
 .createBoardModal {
   width: 80%;
   border: 2px solid;
   border-radius: 16px; }
 
-/* line 252, ../../source_sass/_base.scss */
+/* line 266, ../../source_sass/_base.scss */
 .uploaded_file_name_holder {
   overflow: auto; }
 
-/* line 256, ../../source_sass/_base.scss */
+/* line 270, ../../source_sass/_base.scss */
 #signUpInmsg {
   margin: 0 auto;
   margin: 5% auto;
@@ -4408,38 +4423,38 @@ a:focus, a:hover {
   border: 1px solid #dfdfdf;
   background-color: white; }
 
-/* line 264, ../../source_sass/_base.scss */
+/* line 278, ../../source_sass/_base.scss */
 .add_profile_picture {
   background: #888; }
 
-/* line 267, ../../source_sass/_base.scss */
+/* line 281, ../../source_sass/_base.scss */
 .Add_photo_text {
   position: relative;
   top: 50%;
   transform: translateY(-50%); }
 
-/* line 273, ../../source_sass/_base.scss */
+/* line 287, ../../source_sass/_base.scss */
 .create_whole_image {
   height: 300px;
   width: 200px; }
 
-/* line 278, ../../source_sass/_base.scss */
+/* line 292, ../../source_sass/_base.scss */
 canvas {
   width: 100%;
   height: auto; }
 
-/* line 283, ../../source_sass/_base.scss */
+/* line 297, ../../source_sass/_base.scss */
 .submit_modal_button {
   margin: 6% auto; }
 
-/* line 287, ../../source_sass/_base.scss */
+/* line 301, ../../source_sass/_base.scss */
 .CreateBoardText {
   margin: 2% 0;
   color: grey;
   font-size: 15px;
   font-weight: 500px; }
 
-/* line 294, ../../source_sass/_base.scss */
+/* line 308, ../../source_sass/_base.scss */
 .camera_input {
   position: absolute;
   z-index: 1;
@@ -4450,42 +4465,46 @@ canvas {
   bottom: 3%;
   cursor: pointer; }
 
-/* line 305, ../../source_sass/_base.scss */
+/* line 319, ../../source_sass/_base.scss */
 .add_pic_text {
   margin: 0 2% 2% 2%;
   font-size: 12px;
   font-weight: lighter; }
 
-/* line 311, ../../source_sass/_base.scss */
+/* line 325, ../../source_sass/_base.scss */
 .camera_icon {
   margin: 8%; }
 
-/* line 315, ../../source_sass/_base.scss */
+/* line 329, ../../source_sass/_base.scss */
 .description_holder {
   overflow: scroll; }
 
-/* line 319, ../../source_sass/_base.scss */
+/* line 333, ../../source_sass/_base.scss */
 .topNavBar {
   padding-left: 1%; }
 
-/* line 323, ../../source_sass/_base.scss */
+/* line 337, ../../source_sass/_base.scss */
 .temporary_buttons {
   position: relative;
   top: 56vh; }
 
-/* line 328, ../../source_sass/_base.scss */
+/* line 342, ../../source_sass/_base.scss */
 .add_margin {
   margin: 13px; }
 
-/* line 333, ../../source_sass/_base.scss */
+/* line 347, ../../source_sass/_base.scss */
 .imagecorp_margin {
   margin: 20px 20px 13px 10px; }
 
-/* line 338, ../../source_sass/_base.scss */
+/* line 352, ../../source_sass/_base.scss */
 .collection_name {
   margin: 13px 13px 13px 0px;
   font-size: 20px;
   font-weight: 700;
+  color: grey; }
+
+/* line 361, ../../source_sass/_base.scss */
+.user_anchor {
   color: grey; }
 
 /* line 7, ../../source_sass/_slider.scss */
@@ -5209,8 +5228,8 @@ input[type="button"] {
   text-transform: uppercase;
   border: 3px solid #263238;
   margin: 28px 0px 28px 0px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 35px;
+  padding-right: 35px;
   background-color: #263238;
   color: #ffffff;
   -moz-border-radius: 2px;
@@ -5289,6 +5308,11 @@ input[type="file"] {
 /* line 1, ../../source_sass/_collection.scss */
 .clothes_title {
   margin: 16px; }
+
+/* line 1, ../../source_sass/_newBase.scss */
+.trending_collections {
+  position: relative;
+  top: 50vh; }
 
 /*
   NOTE: Do not touch this file. Write the bulk of your custom styles
