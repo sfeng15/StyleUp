@@ -25,8 +25,16 @@ projectControllers.controller('homeController', ['$scope', 'Users', 'Collections
       }
     });
 
+	$scope.collectionsImages = [];
   Collections.get("").success(function(data){
     $scope.collections = _.sampleSize(data.collections, 6);
+
+
+	console.log($scope.collections);
+	  for(var i=0;i<$scope.collections.length;i++){
+		  console.log($scope.collections[i]._id);
+		  $scope.collectionsImages.push(Collections.getCollectionsPicUrl($scope.collections[i]._id));
+	  }
 
   });
 

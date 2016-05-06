@@ -79,9 +79,19 @@ $scope.searchTextChanged = function(search_term){
 	//var search_term = angular.element( document.querySelector( '#search_input_text' )).val();
 	console.log(search_term);
 
+    $scope.collectionsImages = [];
 	Collections.get('?where={"name":/' + search_term + '/i}').then(function(data){
 
 		$scope.collections = data.data.collections;
+        console.log("here")
+        console.log($scope.collections);
+        console.log($scope.collections.length);
+        console.log($scope.collections[0]);
+        for(var i=0;i<$scope.collections.length;i++){
+            console.log($scope.collections[i]._id)
+            $scope.collectionsImages.push(Collections.getCollectionsPicUrl($scope.collections[i]._id));
+        }
+        console.log($scope.collectionsImages)
 		return Users.get('?where={ "$or": [{"name":/'+ search_term +'/i}, {"description":/'+ search_term +'/i }]}');
 	}).then(function(data){
 		$scope.user_items = data.data.users;
