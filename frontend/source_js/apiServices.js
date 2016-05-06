@@ -6,6 +6,7 @@ var baseUrl = 'http://localhost:4000/api/';
 apiServices.factory('Users', function($http, $window, $q){
   return {
     register: function(user) {
+      console.log(user);
       return $http.post(baseUrl+'register', user);
     },
     login: function(user) {

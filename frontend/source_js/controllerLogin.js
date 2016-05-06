@@ -29,6 +29,11 @@ $scope.show_ok = false;
 
   $scope.TrySignUp = function (){
     Users.register($scope.user).success(function(data) {
+      // if(data.msg) {
+      //   $scope.msg = 'Fill everything out!';
+      //   $scope.showmsg = true;
+      //   return;
+      // }
       Users.login($scope.user).then(function(data) {
         $location.path('/home');
       });
