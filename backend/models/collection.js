@@ -16,7 +16,7 @@ var fields = {
         },
 				picPath: {
 					type: String,
-					default:"uploads/collections/default.png"
+					default:"uploads/collections/default.jpg"
 				},
         items: [String]
 

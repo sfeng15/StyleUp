@@ -20,16 +20,18 @@ projectControllers.controller('profileController', ['$scope', 'Upload', '$window
 		}
 
 		$scope.collections = [];
+        $scope.collectionsImages=[];
 		Users.getUser($routeParams['username'])
         .then(function(data){
+            console.log("I am here")
 			$scope.user = data.data.user;
             $scope.profilePic = Users.getProfilePicUrl($scope.user.username);
             //console.log($scope.user);
-            //console.log($scope.user.collections);
+            console.log($scope.user.collections);
             //console.log($scope.user.collections.length);
 
 
-            return Collections.get();
+            return Collections.get("");
 		})
         .then(function(data){
             console.log("user collections");
@@ -60,6 +62,8 @@ projectControllers.controller('profileController', ['$scope', 'Upload', '$window
                     {
                         //console.log("here")
                         $scope.collections.push(data.data.collections[i]);//$scope.collections has all collections of a user
+                        console.log(Collections.getCollectionsPicUrl(data.data.collections[i]._id));
+                        $scope.collectionsImages.push(Collections.getCollectionsPicUrl(data.data.collections[i]._id));
                         //console.log($scope.collections);
                     }
                 }

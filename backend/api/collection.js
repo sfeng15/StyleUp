@@ -91,6 +91,19 @@ api.deleteCollection = function (req, res) {
 		}
 	});
 };
+//?
+api.collectionImage = function(req, res) {
+    var id = req.params.id;
+    collection.getCollection(id,function(err,data){
+        if (err) {
+            res.status(404).sendFile(path.resolve('uploads/collections/default.jpg'));
+        } else {
+            res.status(200).sendFile(path.resolve(data.picPath));
+        }
+    });
+}
+
+
 
 // DELETE All
 //api.deleteAllCollections = function (req, res) {
@@ -123,6 +136,9 @@ module.exports = function(passport) {
 	.get(api.collections);
 	//.delete(api.deleteAllCollections);
 	//prevent users from deleting all records
+
+    //?
+    router.get('/collectionImage/:id', api.collectionImage);
 
 
 	router.get('/collections/test',function(req,res){
