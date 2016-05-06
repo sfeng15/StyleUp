@@ -68,8 +68,14 @@ apiServices.factory('Collections', function($http, $window, $q) {
     },
     post : function(data) {
       $http.defaults.headers.common['Authorization'] = $window.localStorage['curToken'];
-      console.log($http.defaults.headers.common['Authorization']);
-      return $http.post(baseUrl+'collection', data);
+      var fd = new FormData();
+      fd.append('name', data.name);
+      fd.append('image', data.image);
+      console.log(data.image);
+      return $http.post(baseUrl+'collection', fd, {
+        headers: {'Content-Type': undefined},
+        transformRequest: angular.identity
+      });
     },
 
     delete : function(id) {

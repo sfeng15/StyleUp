@@ -146,7 +146,8 @@ $scope.submitCollectionForm = function() {
 			data.forEach(function(result) {
 				itemIds.push(result.data._id);
 			});
-			var newCollection = {name: $scope.collection_name, items: itemIds};
+			var newCollection = {name: $scope.collection_name, items: itemIds, image: Upload.dataUrltoBlob($scope.cropper.croppedImage)};
+			console.log(newCollection);
 			Collections.post(newCollection).then(function(collectionResult) {
 				var id = collectionResult.data._id;
 				Users.getCurrent().success(function(userResult) {

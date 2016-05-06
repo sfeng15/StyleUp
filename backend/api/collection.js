@@ -34,6 +34,7 @@ api.collections = function (req, res) {
 
 // POST
 api.addcollection = function (req, res) {
+	console.log(req.file);
 	collection.addCollection(req.body, req.file, function	(err,data){
 		if(err) res.status(500).json(err);
 		else {
