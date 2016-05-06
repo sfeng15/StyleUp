@@ -19,8 +19,8 @@ projectControllers.controller('homeController', ['$scope', 'Users', 'Collections
 
 
   Users.getCurrent().success(function(data) {
-      var LoggedInUser = data.user;
-      if (LoggedInUser != null) {
+      $scope.LoggedInUser = data.user;
+      if ($scope.LoggedInUser != null) {
         $scope.navBarUserLoggedIn = true;
       }
     });
