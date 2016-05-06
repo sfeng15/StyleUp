@@ -3,7 +3,132 @@
   <div ng-include="'./partials/navbar.html'"></div>
 
   <div ng-include="'./partials/CollectionModal.html'"></div>
-  <div ng-include="'./partials/CreateBoardModal.html'"></div>
+
+
+    <div ng-show="CreateBoardModalShow"  class = "modal_container">
+
+    <div class = "createBoardModal">
+
+      <div class=" modal-header">
+      <h2> Create a collection</h2>
+      <a ng-click= "closeCreateBoardModal()" class="close float-right">&times;</a>
+    </div>
+
+      <form>
+
+    <div class = "row">
+
+      <div class = "columns small-12 large-8">
+
+        <div class = "row">
+          <div class = "columns large-12">
+        <label>
+          Collection name
+          <input type="text" ng-model="collection_name" placeholder="Cool collection">
+        </label>
+      </div>
+    </div>
+
+    <div class = "row">
+      <div class = "columns small-12">
+
+        <ul>
+          <li ng-repeat = "upload_item in picFiles track by $index">
+
+            <div class = "row">
+
+              <div class = "columns small-3 large-2">
+                <button class = "button" type="file" ngf-select ng-model="picFiles[$index]" accept="image/*"> Select file</button>
+              </div>
+
+
+
+              <div class = "columns small-3 large-3">
+                <label>Select category</label>
+                <select ng-model="categories[$index]">
+                  <option value="Dress">dress</option>
+                  <option value="Coat">coat</option>
+                  <option value="Shirt">shirt</option>
+                  <option value="Pants">pants</option>
+                  <option value="Skirt">skirt</option>
+                  <option value="Shoes">shoes</option>
+                  <option value="Accessory">accessory</option>
+                </select>
+              </div>
+
+              <div class = "columns small-3 uploaded_file_name_holder">
+                <div style="font:smaller">{{picFiles[$index].name}} </div>
+
+              </div>
+
+
+              <div class = "columns small-3 large-2">
+                <button class = "alert button" ng-click="deleteFile($index)" > delete</button>
+              </div>
+
+
+            </div>
+
+
+          <li>
+        </ul>
+
+      </div>
+    </div>
+
+
+    <div class = "row">
+      <div class = "columns small-offset-9 large-offset-10 small-3 large-2">
+          <button class = "button " ng-click = "IncrementItem()"> add file</button>
+      </div>
+    </div>
+
+
+      </div>
+
+      <div class = "columns small-12 large-4">
+          <div class="CreateBoardText"> Pieces all together </div>
+
+          <label for="FileUploadInput" class="button">Upload File</label>
+          <input class="show-for-sr" id = "FileUploadInput" type="file" name="wholeImg" img-cropper-fileread image="cropper.sourceImage" accept="image/*">
+
+          <div>
+            <canvas id="canvas" image-cropper image="cropper.sourceImage" cropped-image="cropper.croppedImage" crop-width="150" crop-height="225" min-width="50" min-height="50" keep-aspect="false" crop-area-bounds="bounds"></canvas>
+          </div>
+
+          <div class="CreateBoardText">Take a peek at how it'll look like. </div>
+
+
+  <div class = "row">
+    <div class = "columns small-12 small-centered text-center">
+
+      <div ng-show="cropper.croppedImage!=null">
+        <img class ="create_whole_image" ng-src="{{cropper.croppedImage}}" />
+      </div>
+
+    </div>
+  </div>
+
+
+
+    </div>
+
+      </div>
+
+      <div class = "row">
+        <div class = "columns small-3 small-centered text-center">
+          <button class = "button submit_modal_button" ng-click = "submitCollectionForm()"> make collection </button>
+        </div>
+      </div>
+
+    </form>
+
+
+
+    </div>
+
+  </div>
+
 
 
 <div class = "row">
@@ -45,7 +170,6 @@
             <div class = "create_collection_text"> Create a new collection </div>
 
         </div>
-      </div>
 
       </li>
 
@@ -60,13 +184,13 @@
             <div class = "columns small-11 small-centered">
 
               <span ng-show="collection.wholeimgUrl">
-                <div class = "album_cover_img_full" style ="background-image:url('{{collection.wholeimgUrl}}')"></div>
+                <div class = "album_cover_img_full" style ="background-image:url('./data/images/{{collection.wholeimgUrl}}.jpg')"></div>
               </span>
 
               <span ng-hide="collection.wholeimgUrl">
-                <div class = "album_cover_img_partial" style ="background-image: url('{{collection.items[0].url}}')"> </div>
+                <div class = "album_cover_img_partial" style ="background-image: url('./data/images/{{collection.items[0].url}}.jpg')"> </div>
 
-                <div ng-show = "collection.items[1]" class = "album_cover_img_partial" style = "background-image: url('{{collection.items[1].url}}')"> </div>
+                <div ng-show = "collection.items[1]" class = "album_cover_img_partial" style = "background-image: url('./data/images/{{collection.items[1].url}}.jpg')"> </div>
                 <div ng-hide = "collection.items[1]" class = "album_cover_img_partial img_white_filler"> </div>
 
               </span>
