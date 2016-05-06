@@ -28,6 +28,20 @@ h1 h2 h3 h4 h5 h6 {
   font-size: 23px;
 }
 
+.footer_bar {
+    background-color: #8A8A8A;
+    height: 6vh;
+    text-align: center;
+    top: 52vh;
+    position: relative;
+}
+#footer_text {
+    color: white;
+    line-height: 6vh;
+    font-family: "Lobster", cursive;
+    font-size: 14px;
+}
+
 #main_page_carousel {
   height: 50vh;
 }
