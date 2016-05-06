@@ -103,7 +103,6 @@ module.exports = function(passport) {
 
 	router.get('/itemImage/:id', api.itemImage);
 
-
 	router.route('/items')
 	.get(api.items)
 
