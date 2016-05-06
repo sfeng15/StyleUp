@@ -11,11 +11,10 @@
 //}
 .logo{
     float:left;
-    padding-top: 17px;
-    padding-left: 32px;
+    padding-top: 10px;
+    padding-left:20px;
     margin-left: 65px;
-
-    font-size: 21px;
+    font-size: 23px;
     color: white;
     text-decoration: none;
     font-family: $font_logo;
@@ -33,8 +32,8 @@ a:hover {
 nav{
 
   width: 100%;
-  height: 69px;
-  background-color: #8A8A8A;
+  height: 61px;
+  background-color: #36454F;
   position: relative;
   transition-duration: 0.5s;
   transition-timing-function: swing;
@@ -65,7 +64,7 @@ nav{
   position: absolute;
   width: 60px;
   height: 60px;
-  top: 22px;
+  top: 20px;
 //  left: 20px;
   transition-duration: 0.5s;
 
@@ -151,8 +150,7 @@ nav{
 .search_container {
 
 	position: absolute;
-	left:92%;
-
+	left:90%;
 	top: 27%;
 	transform: translate(-50%);
     z-index: 10000;
@@ -166,7 +164,7 @@ nav{
 		width: 25px;
 		height: 25px;
 		transition: all .25s ease-in .25s;
-		color: black;
+		color: $cool_grey;
 		font-size: .75rem;
 		line-height:25px;
 		&:hover {
@@ -175,14 +173,14 @@ nav{
 				cursor: text;
 			}
 			+ span {
-				background: white;
+				background: #dde8f0;
 			}
 		}
 		&:focus {
 			width: 200px;
 			padding: 0 10px;
 			outline: none;
-			color: black;
+			color: $cool_grey;
 			background:none;
 			+ span {
 				width: 200px;
@@ -196,7 +194,7 @@ nav{
 		+ span {
 			z-index: -1;
 			position: absolute;
-			border: 2px solid white;
+			border: 2px solid #A8C4D9;
 			top: 0;
 			width: 25px;
 			height: 25px;
@@ -211,7 +209,7 @@ nav{
 				width: 10px;
 				height: 5px;
 				border-radius: 5px;
-				background: white;
+				background: #A8C4D9;
 				transform: rotate(45deg) translate(26px, -2px);
 			}
 		}
