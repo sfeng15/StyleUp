@@ -15,15 +15,15 @@ h1 h2 h3 h4 h5 h6 {
 }
 
 .trending_bar {
-  background-color : #8A8A8A;
-  height: 13vh;
+  background-color : $charcoal;
+  height: 14vh;
   text-align: center;
   top: 50vh;
   position: relative;;
 }
 #trending_text {
   color: white;
-  line-height: 13vh;
+  line-height: 14vh;
   font-family: $font_title1;
   font-size: 23px;
 }
@@ -71,6 +71,9 @@ li {
   position: absolute;
   top: 40%;
   transform: translateX(-50%);
+}
+.create_collection_text {
+  margin-top: 2%;
 }
 
 .album_cover {
@@ -193,19 +196,13 @@ li {
 }
 
 .modal-header {
-    padding: 6px 16px;
-    background-color: #8A8A8A;
+    padding: 2px 16px;
+    background-color: $main_blue;
     color: white;
-   // border: 2px solid;
-   // border-radius: 25px;
-    border-top-left-radius:16px;
-    border-top-right-radius:16px;
-
 }
 
 .modal-header h2 {
   text-align: center;
-  font-family: $font_title1;
 }
 
 .close {
@@ -245,8 +242,6 @@ a:focus , a:hover {
 .createBoardModal {
   @extend .modal;
   width: 80%;
-  border: 2px solid;
-  border-radius: 16px;
 }
 
 .uploaded_file_name_holder {
@@ -286,9 +281,6 @@ canvas {
 
 .CreateBoardText {
   margin: 2% 0;
-  color: grey;
-  font-size: 15px;
-  font-weight: 500px;
 }
 
 .camera_input {
@@ -323,22 +315,4 @@ canvas {
 .temporary_buttons {
   position: relative;
   top:56vh;
-}
-
-.add_margin{
-    margin: 13px;
-    //margin: 13px 13px 13px 0px;
-}
-
-.imagecorp_margin{
-
-    margin: 20px 20px 13px 10px;
-}
-
-.collection_name {
-    margin: 13px 13px 13px 0px;
-    font-size: 20px;
-    font-weight: 700;
-    color: grey;
-    
 }
