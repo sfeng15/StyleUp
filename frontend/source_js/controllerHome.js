@@ -3,25 +3,17 @@ var projectControllers = angular.module('projectControllers',  []);
 
 
 
-projectControllers.controller('homeController', ['$scope', 'CommonData' , function($scope, CommonData ) {
+projectControllers.controller('homeController', ['$scope', '$location', 'CommonData' , function($scope, $location, CommonData ) {
 
 
 
-//
+  $scope.searchTextChanged = function(){
 
-////
-
-/*
-
-  $scope.setData = function(){
-    CommonData.setData($scope.data);
-    $scope.displayText = "Data set"
-
-  }; */
+    CommonData.setSearchText(angular.element( document.querySelector( '#search_input_text' )).val());
+    $location.path('/search');
+  }
 
 
-
-//---------------------------
 
 
 var Slider = (function() {

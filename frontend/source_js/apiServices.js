@@ -49,6 +49,9 @@ apiServices.factory('Users', function($http, $window, $q){
     getUser: function(username) {
       console.log(baseUrl+'user/'+username);
       return $http.get(baseUrl+'user/'+username);
+    },
+    get: function(select_options){
+      return $http.get(baseUrl + 'users' + select_options);
     }
   };
 });
@@ -59,7 +62,7 @@ apiServices.factory('Collections', function($http, $window, $q) {
   //Add favorite toggling
   return {
     get : function(select_options) {
-      return $http.get(baseUrl+'collections', {params:select_options});
+      return $http.get(baseUrl+'collections'+select_options);
       //return $http.get('./data/collections.json');
     },
     post : function(data) {

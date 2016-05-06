@@ -6,7 +6,9 @@ projectControllers.controller('searchController', ['$scope', '$window', '$locati
 
 $scope.search_text = CommonData.getSearchText();
 
-//if ($scope.search_text != "") $scope.searchTextChanged();
+var entered_search_page = true;
+
+
 
 $scope.collections = [];
 
@@ -59,6 +61,7 @@ $scope.searchTextChanged = function(){
 
 	var promises = [];
 	var search_term = angular.element( document.querySelector( '#search_input_text' )).val();
+	console.log(search_term);
 
 	Collections.get('?where={"name":/' + search_term + '/i}').then(function(data){
 
@@ -82,6 +85,8 @@ $scope.searchTextChanged = function(){
 
 
 }
+
+
 
 
 
