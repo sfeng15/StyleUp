@@ -4,7 +4,7 @@
 
   <div class=" modal-header">
   <h2> {{shown_collection.name}}</h2>
-  
+
 </div>
 
 <!--
@@ -21,7 +21,7 @@
   </div>
 
   <div class = "row">
-      
+
     <div class = "columns small-12 medium-12 large-5">
 
 
@@ -44,7 +44,7 @@
 
           <ul ng-show = "tops.length">
             <li ng-repeat = "item in tops">
-              <div class = "modal_item top_item" style = "background-image: url('./data/images/{{item.url}}.jpg')"> </div>
+              <div class = "modal_item top_item" style = "background-image: url('{{imageUrl(item.id)}}')"> </div>
             </li>
           </ul>
 
@@ -76,7 +76,7 @@
 
           <ul ng-show = "bottoms.length">
             <li ng-repeat = "item in bottoms">
-              <div class = "modal_item bottom_item" style = "background-image: url('./data/images/{{item.url}}.jpg')"> </div>
+              <div class = "modal_item bottom_item" style = "background-image: url('{{imageUrl(item.id)}}')"> </div>
             </li>
           </ul>
 
@@ -110,7 +110,7 @@
 
           <ul ng-show = "accessories.length">
             <li ng-repeat = "item in accessories">
-              <div class = "modal_item accessory_item" style = "background-image: url('./data/images/{{item.url}}.jpg')"> </div>
+              <div class = "modal_item accessory_item" style = "background-image: url('{{imageUrl(item.id)}}')"> </div>
             </li>
           </ul>
 
