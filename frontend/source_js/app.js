@@ -1,4 +1,4 @@
-var app = angular.module('project', ['ngRoute', 'projectControllers', 'projectServices', 'ngFileUpload', 'angular-img-cropper', 'xeditable']);
+var app = angular.module('project', ['ngRoute', 'projectControllers', 'projectServices', 'ngFileUpload', 'angular-img-cropper', 'xeditable', 'apiServices']);
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
