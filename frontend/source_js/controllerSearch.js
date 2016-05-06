@@ -2,11 +2,21 @@
 
 projectControllers.controller('searchController', ['$scope', '$window', '$location', 'CommonData', '$routeParams', 'Users', 'Collections', '$q' , function($scope, $window, $location, CommonData, $routeParams, Users, Collections, $q ) {
 
-//CommonDate.getSearchText();
 
-$scope.search_text = CommonData.getSearchText();
 
-var entered_search_page = true;
+//$scope.search_text = CommonData.getSearchText();
+
+//console.log(angular.element( document.querySelector( '#search_input_text' )).val());
+
+//just for navBar
+	//$scope.navBarUserLoggedIn = false;
+
+  Users.getCurrent().success(function(data) {
+    var LoggedInUser = data.user;
+    if (LoggedInUser != null) {
+      $scope.navBarUserLoggedIn = true;
+    }
+  });
 
 
 
@@ -57,10 +67,10 @@ $scope.closeModal = function (){
   $scope.accessories = [];
 }
 
-$scope.searchTextChanged = function(){
+$scope.searchTextChanged = function(search_term){
 
 	var promises = [];
-	var search_term = angular.element( document.querySelector( '#search_input_text' )).val();
+	//var search_term = angular.element( document.querySelector( '#search_input_text' )).val();
 	console.log(search_term);
 
 	Collections.get('?where={"name":/' + search_term + '/i}').then(function(data){
@@ -87,6 +97,12 @@ $scope.searchTextChanged = function(){
 }
 
 
+CommonData.getSearchText().then(function(data){
+	console.log("data");
+	console.log(data);
+	$scope.search_text = data;
+	$scope.searchTextChanged(data);
+});
 
 
 
