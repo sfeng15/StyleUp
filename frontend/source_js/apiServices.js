@@ -47,6 +47,7 @@ apiServices.factory('Users', function($http, $window, $q){
       return baseUrl+'profilePic/'+username;
     },
     getCurrent: function() {
+        
       return $http.get(baseUrl+'user/'+$window.localStorage['curUser']);
     },
     editCurrent: function(newUser) {

@@ -18,16 +18,24 @@ projectControllers.controller('profileController', ['$scope', 'Upload', '$window
 	}
 
 
-
 	Users.getCurrent().success(function(data) {
+
 		$scope.LoggedInUser = data.user;
 		if ($scope.LoggedInUser != null) {
 			$scope.navBarUserLoggedIn = true;
 			$scope.profile_owner = $scope.LoggedInUser.username === $routeParams['username'];
 		}
+
+	}).error(function(data){
+		$scope.LoggedInUser = null;
+		$scope.navBarUserLoggedIn = false;
+		$scope.profile_owner = false;
+	});
+
 		$scope.collections = [];
         $scope.collectionsImages = [];
 		Users.getUser($routeParams['username']).then(function(data){
+			console.log("here's the user");
 			console.log(data);
 			$scope.user = data.data.user;
             $scope.profilePic = Users.getProfilePicUrl($scope.user.username);
@@ -75,7 +83,7 @@ projectControllers.controller('profileController', ['$scope', 'Upload', '$window
             }
             console.log($scope.collections);
         });
-	});
+
 
   /////end of to be deleted
 
