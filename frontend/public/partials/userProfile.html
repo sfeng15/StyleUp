@@ -195,7 +195,7 @@
         <div class = "profile_info profile_item float-left text-center small-centered">
           <div class = "columns small-12">
 
-            <div ng-show="!profile_owner" class= "profile_picture" style = "background-image: url('{{profilePic}}')"> </div>
+            <div ng-show="!profile_owner" class= "profile_picture" ng-style="{'background-image': 'url('+ profilePic+')'}"> </div>
             <div ng-show="profile_owner" ng-click="AddPic()" class= "profile_picture" ng-style="{'background-image': 'url('+ profilePic+')'}">
              </div>
 

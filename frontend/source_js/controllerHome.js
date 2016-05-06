@@ -5,8 +5,11 @@ var projectControllers = angular.module('projectControllers',  []);
 
 projectControllers.controller('homeController', ['$scope', 'Users', 'Collections', '$location', 'CommonData' , function($scope, Users, Collections, $location, CommonData ) {
 
-
-
+  $scope.logOut = function(){
+      Users.logout().then(function(data){
+        $scope.navBarUserLoggedIn = false;
+      })
+  }
 
 
   $scope.searchTextChanged = function(){
@@ -16,8 +19,8 @@ projectControllers.controller('homeController', ['$scope', 'Users', 'Collections
 
 
   Users.getCurrent().success(function(data) {
-      var LoggedInUser = data.user;
-      if (LoggedInUser != null) {
+      $scope.LoggedInUser = data.user;
+      if ($scope.LoggedInUser != null) {
         $scope.navBarUserLoggedIn = true;
       }
     });

@@ -10,20 +10,16 @@ projectControllers.controller('profileController', ['$scope', 'Upload', '$window
 
   }; */
 
-    //console.log("I am here")
 	Users.getCurrent().success(function(data) {
 		var LoggedInUser = data.user;
 		if (LoggedInUser != null) {
 			$scope.navBarUserLoggedIn = true;
 			$scope.profile_owner = LoggedInUser.username === $routeParams['username'];
-            //return Collections.get();
 		}
-
 		$scope.collections = [];
-        $scope.collectionsImages=[];
-		Users.getUser($routeParams['username'])
-        .then(function(data){
-            console.log("I am here")
+        $scope.collectionsImages = [];
+		Users.getUser($routeParams['username']).then(function(data){
+			console.log(data);
 			$scope.user = data.data.user;
             $scope.profilePic = Users.getProfilePicUrl($scope.user.username);
             //console.log($scope.user);
@@ -113,13 +109,6 @@ $scope.showAlbum = function(index) {
   $scope.shown_collection = $scope.collections[index];
   console.log ("index");
   console.log(index);
-
-    for(var i=0;i<$scope.collections.length;i++){
-        Items.get($scope.collections[i]).success(function(){
-
-
-        });
-    }
 
   for (var i = 0 ; i < $scope.collections[index].items.length ; i++)
   {
