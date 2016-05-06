@@ -29,8 +29,8 @@ var fields = {
 			type: String,
 			default: 'uploads/profilePics/default.png'
 		},
-		collections: [mongoose.Types.ObjectId],
-		favorites: [mongoose.Types.ObjectId]
+		collections: [String],
+		favorites: [String]
 };
 
 var userSchema = new Schema(fields);

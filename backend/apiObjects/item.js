@@ -40,9 +40,8 @@ api.addItem = function (item, file, cb) {
   if(!item) {
     cb('No Item Provided. Please provide valid item data.');
   }
-  item.path = file.path;
+  item['path'] = file.path;
   item = new Item(item);
-
   item.save(function (err) {
     cbf(cb,err,item.toObject());
   });
@@ -57,9 +56,6 @@ api.editItem = function (id,updateData, file, cb) {
   }
 
 
-    if(typeof updateData["name"] != 'undefined'){
-      item["name"] = updateData["name"];
-    }
 
     if(typeof updateData["type"] != 'undefined'){
       item["type"] = updateData["type"];
