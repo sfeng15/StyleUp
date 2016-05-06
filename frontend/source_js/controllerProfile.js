@@ -22,7 +22,13 @@ projectControllers.controller('profileController', ['$scope', 'Upload', '$window
 			$scope.user = data.data.user;
 			$scope.profilePic = Users.getProfilePicUrl($scope.user.username);
 		});
-		return Collections.get();
+	}).error(function(err) {
+		$scope.collections = [];
+		Users.getUser($routeParams['username']).then(function(data){
+			console.log(data);
+			$scope.user = data.data.user;
+			$scope.profilePic = Users.getProfilePicUrl($scope.user.username);
+		});
 	});
 
   /////end of to be deleted
