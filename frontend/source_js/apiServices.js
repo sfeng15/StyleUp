@@ -15,8 +15,6 @@ apiServices.factory('Users', function($http, $window, $q){
         //Set the token as a default header
         $http.defaults.headers.common['Authorization'] = data.token;
         $window.localStorage['curUser'] = user.username;
-        $window.localStorage['curToken'] = data.token;
-        console.log($http.defaults.headers.common['Authorization']);
         deferred.resolve(user);
       }).catch(function(err) {
         deferred.reject(err);
@@ -26,7 +24,6 @@ apiServices.factory('Users', function($http, $window, $q){
     setProfilePic: function(image) {
       var fd = new FormData();
       fd.append('image', image);
-      $http.defaults.headers.common['Authorization'] = $window.localStorage['curToken'];
       return $http.post(baseUrl+'profilePic/'+$window.localStorage['curUser'], fd, {
         headers: {'Content-Type': undefined},
         transformRequest: angular.identity
@@ -36,14 +33,13 @@ apiServices.factory('Users', function($http, $window, $q){
       return baseUrl+'profilePic/'+username;
     },
     getCurrent: function() {
+      console.log('get current');
       return $http.get(baseUrl+'user/'+$window.localStorage['curUser']);
     },
     editCurrent: function(newUser) {
-      $http.defaults.headers.common['Authorization'] = $window.localStorage['curToken'];
       return $http.put(baseUrl+'user/'+$window.localStorage['curUser'], newUser);
     },
     deleteCurrent: function() {
-      $http.defaults.headers.common['Authorization'] = $window.localStorage['curToken'];
       return $http.delete(baseUrl+'user/'+$window.localStorage['curUser']);
     },
     getUser: function(username) {
@@ -63,21 +59,46 @@ apiServices.factory('Collections', function($http, $window, $q) {
       //return $http.get('./data/collections.json');
     },
     post : function(data) {
-      $http.defaults.headers.common['Authorization'] = $window.localStorage['curToken'];
-      console.log($http.defaults.headers.common['Authorization']);
-      return $http.post(baseUrl+'collection', data);
+      //return $http.post($window.sessionStorage.baseurl+'/api/collections', data , { headers: {'content-type': 'application/json'}});
+      return $http({
+        method:'post',
+        url:baseUrl+'collections',
+        data:data,
+        headers:{'Content-Type': 'application/x-www-form-urlencoded'},
+        transformRequest: function(obj) {
+          var str = [];
+          for(var p in obj){
+            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+          }
+          return str.join("&");
+        }
+      });
+
     },
 
     delete : function(id) {
-      $http.defaults.headers.common['Authorization'] = $window.localStorage['curToken'];
       return $http.delete(baseUrl+'collection/' + id);
     },
     getOne : function(select_options) {
       return $http.get(baseUrl+'collection/'+select_options);
     },
     put : function( id, data) {
-      $http.defaults.headers.common['Authorization'] = $window.localStorage['curToken'];
-      return $http.put(baseUrl+'collection/'+id, data);
+      //return $http.put($window.sessionStorage.baseurl+'/api/collection/' + id, data);
+      return $http({
+        method:'put',
+        url:baseUrl+'collection/'+id,
+        data:data,
+        headers:{'Content-Type': 'application/x-www-form-urlencoded'},
+        transformRequest: function(obj) {
+          var str = [];
+          for(var p in obj){
+            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+          }
+          return str.join("&");
+        }
+      }).success(function(req){
+        //console.log(req);
+      })
     }
   }
 
@@ -88,9 +109,10 @@ apiServices.factory('Items', function($http, $window, $q) {
     get: function(id) {
       return $http.get(baseUrl+'item/'+id);
     },
-    post: function(type, image) {
+    post: function(name, type, image) {
       var fd = new FormData();
       fd.append('image', image);
+      fd.append('name', name);
       fd.append('type', type);
       return $http.post(baseUrl+'item', fd, {
         headers: {'Content-Type': undefined},
