@@ -4,13 +4,20 @@
   <section  id = "signUpInmsg">
     <div class = "row">
       <div class = "columns small-centered small-6 text-center">
-        <p>{{msg}}</p>
+        <p style="margin-top: 30px;">{{msg}}</p>
       </div>
     </div>
 
-    <div class = "row">
-      <div class = "columns small-centered small-4 text-center">
-        <button ng-click= "goAway()" class = "button msg_modal_button"> Ok </button>
+    <div class = "">
+      <div class = "small-centered small-4 text-center">
+<!--        <button ng-click= "goAway()" class = "button msg_modal_button"> Ok </button>-->
+          
+              
+         <label class = "custom-file-upload" style="margin-bottom: 30px;">
+             <input type ="button" ng-click="goAway()">
+             Ok
+          
+         </label>
 
       </div>
     </div>
