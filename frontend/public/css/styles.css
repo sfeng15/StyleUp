@@ -4503,6 +4503,10 @@ canvas {
   font-weight: 700;
   color: grey; }
 
+/* line 361, ../../source_sass/_base.scss */
+.user_anchor {
+  color: grey; }
+
 /* line 7, ../../source_sass/_slider.scss */
 .ps-container {
   position: absolute;
@@ -5304,6 +5308,11 @@ input[type="file"] {
 /* line 1, ../../source_sass/_collection.scss */
 .clothes_title {
   margin: 16px; }
+
+/* line 1, ../../source_sass/_newBase.scss */
+.trending_collections {
+  position: relative;
+  top: 50vh; }
 
 /*
   NOTE: Do not touch this file. Write the bulk of your custom styles
