@@ -14,6 +14,10 @@ app.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'partials/Login.html',
     controller: 'loginController'
   }).
+  when('/search', {
+    templateUrl: 'partials/search.html',
+    controller: 'searchController'
+  }).
   otherwise({
     redirectTo: '/login'
   });

@@ -1,0 +1,75 @@
+<div ng-controller="searchController">
+  <div ng-include="'./partials/navbar.html'"></div>
+  <div ng-include="'./partials/CollectionModal.html'"></div>
+
+  <div class = "row">
+    <div class = "columns small-12">
+
+  <ul>
+  <li ng-repeat = "collection in collections">
+
+    <a ng-click= "showAlbum($index)">
+    <div class = "collection_album profile_item float-left text-center small-centered">
+      <p class = "collection-title"> {{collection.name}} </p>
+      <div class = "row">
+        <div class = "columns small-11 small-centered">
+
+          <span ng-show="collection.wholeimgUrl">
+            <div class = "album_cover_img_full" style ="background-image:url('{{collection.wholeimgUrl}}')"></div>
+          </span>
+
+          <span ng-hide="collection.wholeimgUrl">
+            <div class = "album_cover_img_partial" style ="background-image: url('{{collection.items[0].url}}')"> </div>
+
+            <div ng-show = "collection.items[1]" class = "album_cover_img_partial" style = "background-image: url('{{collection.items[1].url}}')"> </div>
+            <div ng-hide = "collection.items[1]" class = "album_cover_img_partial img_white_filler"> </div>
+
+          </span>
+
+        </div>
+      </div>
+    </div>
+  </a>
+
+
+  </li>
+
+
+</ul>
+
+<div class = "row">
+  <div class = "columns small-12">
+    <ul>
+      <li ng-repeat = "user in user_items track by $index">
+
+        <div class = "profile_info profile_item float-left text-center small-centered">
+          <div class = "columns small-12">
+
+            <div class= "profile_picture" style = "background-image: url('{{profile_pics[$index]}}')"> </div>
+             </div>
+
+
+            <p class = "profile_user_name"> {{user.name}} </p>
+
+            <div class = "description_holder">
+            <p class = "profile_user_description"> {{user.description}} </p>
+          </div>
+
+
+        </div>
+
+      </li>
+
+    </ul>
+
+  </div>
+</div>
+
+
+
+
+
+</div>
+</div>
+
+</div>

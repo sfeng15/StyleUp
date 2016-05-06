@@ -16,6 +16,8 @@ $scope.show_ok = false;
   $scope.msg = '';
 
   $scope.RedirectToHome = function(){
+    angular.element( document.querySelector( '#search_input_text' )).val(CommonData.getSearchText());
+
     $location.path('/home');
   }
 
