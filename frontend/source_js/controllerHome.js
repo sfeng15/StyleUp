@@ -5,6 +5,8 @@ var projectControllers = angular.module('projectControllers',  []);
 
 projectControllers.controller('homeController', ['$scope', 'Users', 'Collections', '$location', 'CommonData' , function($scope, Users, Collections, $location, CommonData ) {
 
+
+
   $scope.logOut = function(){
       Users.logout().then(function(data){
         $scope.navBarUserLoggedIn = false;
@@ -84,7 +86,7 @@ $scope.closeModal = function (){
 
 
 /////
-
+/*
 var Slider = (function() {
 
 	var $container = $( '#ps-container' ),
@@ -259,6 +261,6 @@ var Slider = (function() {
 
     });
 
-
+*/
 
 }]);

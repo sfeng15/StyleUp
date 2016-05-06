@@ -42,7 +42,7 @@
           <div ng-hide="tops.length" class = "top_item place_filler" style = "background-image: url('./data/images/clothes_line.jpg')">
           </div>
 
-          <ul ng-show = "tops.length">
+          <ul $scopew = "tops.length">
             <li ng-repeat = "item in tops">
               <div class = "modal_item top_item" style = "background-image: url('{{imageUrl(item._id)}}')"> </div>
             </li>
@@ -74,7 +74,7 @@
           <div ng-hide="bottoms.length" class = "bottom_item place_filler" style = "background-image: url('./data/images/clothes_line.jpg')">
           </div>
 
-          <ul ng-show = "bottoms.length">
+          <ul $scopew = "bottoms.length">
             <li ng-repeat = "item in bottoms">
               <div class = "modal_item bottom_item" style = "background-image: url('{{imageUrl(item._id)}}')"> </div>
             </li>
@@ -108,7 +108,7 @@
           <div ng-hide = "accessories.length" class = "accessory_item place_filler" style = "background-image: url('./data/images/handbag.jpg')">
           </div>
 
-          <ul ng-show = "accessories.length">
+          <ul $scopew = "accessories.length">
             <li ng-repeat = "item in accessories">
               <div class = "modal_item accessory_item" style = "background-image: url('{{imageUrl(item._id)}}')"> </div>
             </li>
@@ -131,8 +131,7 @@
 
       <div class = "row">
         <div class = "columns small-12">
-          <div ng-hide="shown_collection.wholeimgUrl" class= "modal_whole_image place_filler" style = "background-image: url('./data/images/man_woman.jpg')" > </div>
-          <div ng-show="shown_collection.wholeimgUrl" class= "modal_whole_image" style = "background-image: url('./data/images/{{shown_collection.wholeimgUrl}}.jpg')"> </div>
+          <div class= "modal_whole_image" style = "background-image: url('./data/images/{{shown_collection.wholeimgUrl}}.jpg')"> </div>
         </div>
       </div>
 
