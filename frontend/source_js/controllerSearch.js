@@ -11,12 +11,12 @@ projectControllers.controller('searchController', ['$scope', '$window', '$locati
 //just for navBar
 	//$scope.navBarUserLoggedIn = false;
 
-  Users.getCurrent().success(function(data) {
-    var LoggedInUser = data.user;
-    if (LoggedInUser != null) {
-      $scope.navBarUserLoggedIn = true;
-    }
-  });
+	Users.getCurrent().success(function(data) {
+			$scope.LoggedInUser = data.user;
+			if ($scope.LoggedInUser != null) {
+				$scope.navBarUserLoggedIn = true;
+			}
+		});
 
 	$scope.logOut = function(){
       Users.logout().then(function(data){
