@@ -5,7 +5,7 @@
   <div class = "createBoardModal">
 
     <div class=" modal-header">
-    <h2> Create a collection</h2>
+    <h2 class = "modal_title"> Create a collection</h2>
     <a ng-click= "closeCreateBoardModal()" class="close float-right">&times;</a>
   </div>
 
@@ -15,34 +15,26 @@
 
     <div class = "columns small-12 large-8">
 
-      <div class = "row">
-        <div class = "columns large-12">
-      <label>
-        Collection name
-        <input type="text" ng-model = "collection_name" placeholder="Cool collection">
-      </label>
+    <div class = "row">
+        <div class = "columns large-12 add_margin">
+          <label class = "add_margin">
+             <div class ="collection_name"> Collection name </div>
+             <input type="text" ng-model = "collection_name" placeholder="Give a name to your collection">
+          </label>
     </div>
   </div>
 
   <div class = "row">
-    <div class = "columns small-12">
-
-      <ul>
+    <div class = "columns small-12 add_margin">
+        <div class = "add_margin">
+            <div class ="collection_name"> Upload clothes </div>
+        <ul>
         <li ng-repeat = "upload_item in picFiles track by $index">
 
           <div class = "row">
 
-            <div class = "columns small-3 large-2">
-              <button class = "button" type="file" ngf-select ng-model="picFiles[$index]" accept="image/*"> Select file</button>
-              <button class = "button" type="file" > Select file</button>
-                
-<!--              <input type="file" ngf-select ng-model="picFiles[$index]" accept="image/*" value=" Select file" class="button1">-->
-            </div>
-
-
-
-            <div class = "columns small-3 large-3">
-              <label>Select category</label>
+            <div class = "columns small-6 medium-6">
+              <label class = "CreateBoardText">Select category</label>
               <select ng-model="categories[$index]">
               <option value="Dress">dress</option>
               <option value="Coat">coat</option>
@@ -53,16 +45,35 @@
               <option value="Accessory">accessory</option>
               </select>
             </div>
-
-            <div class = "columns small-3 uploaded_file_name_holder">
+            
+    
+            <div class = "columns small-1 medium-2 large-5 uploaded_file_name_holder">
               <div style="font:smaller">{{picFiles[$index].name}} </div>
 
             </div>
+              
+            <div class = "columns small-5 medium-4 large-3 small-centered"> 
+                <div class = "row small-12 column">
 
+               <label class="custom-file-upload">
+                   <input type="file"/ ngf-select ng-model="picFiles[$index]" accept="image/*">
+                    <i class="fa fa-cloud-upload"></i> Select file
+                </label>
 
-            <div class = "columns small-3 large-2">
-              <button class = "alert button" ng-click="deleteFile($index)" > delete</button>
-            </div>
+                      
+                </div>
+
+                <div class = "row small-12 column">
+
+                                       
+              <input type ="button" ng-click="deleteFile($index)" value="Delete" class="button2">
+           
+  
+                </div>
+                
+              </div>
+
+       
 
 
           </div>
@@ -70,53 +81,95 @@
 
         <li>
       </ul>
+        <div class= "small-5 large-4 add_margin">
+            <input type ="button" ng-click="IncrementItem()" value=" Add Category" class="button2">
+        </div>
+        
+            
 
     </div>
+        
+        </div>
+    
   </div>
 
 
+<!--
   <div class = "row">
-    <div class = "columns small-offset-9 large-offset-10 small-3 large-2">
+    <div class = "columns small-3">
         <button class = "button " ng-click = "IncrementItem()"> add file</button>
+        
+        <input type ="button" ng-click="IncrementItem()" value=" Add Category" class="button2">
+        
+        
     </div>
+      
+      
   </div>
+-->
 
 
     </div>
 
     <div class = "columns small-12 large-4">
-        <div class="CreateBoardText"> Pieces all together </div>
+        
+    <div class= "imagecorp_margin">
+            <div class="collection_name"> Pieces all together </div>
 
-        <label for="FileUploadInput" class="button">Upload File</label>
-        <input class="show-for-sr" id = "FileUploadInput" type="file" name="wholeImg" img-cropper-fileread image="cropper.sourceImage" accept="image/*">
+<!--
+            <label for="FileUploadInput" class="button">Upload File</label>
+            <input class="show-for-sr" id = "FileUploadInput" type="file" name="wholeImg" img-cropper-fileread image="cropper.sourceImage" accept="image/*">
+-->
+        
+        
+        
+            <label class="button1 small-4 large-6 column row" for="FileUploadInput" style=" border: 1px solid #263238; */
+ ">
+               
+               <input type="file"/ class="show-for-sr" id = "FileUploadInput" name="wholeImg" img-cropper-fileread image="cropper.sourceImage" accept="image/*">
+                    <i class="fa fa-cloud-upload"></i> Upload File
+            </label>
 
-        <div>
-          <canvas id="canvas" image-cropper image="cropper.sourceImage" cropped-image="cropper.croppedImage" crop-width="150" crop-height="225" min-width="50" min-height="50" keep-aspect="false" crop-area-bounds="bounds"></canvas>
+
+            <div>
+              <canvas id="canvas" image-cropper image="cropper.sourceImage" cropped-image="cropper.croppedImage" crop-width="150" crop-height="225" min-width="50" min-height="50" keep-aspect="false" crop-area-bounds="bounds"></canvas>
+            </div>
+
+            <div class="CreateBoardText">Take a peek at how it'll look like.
+        
+            </div>
+        
+              <div class = "row">
+                  <div class = "columns small-12 small-centered text-center">
+
+                <div ng-show="cropper.croppedImage!=null">
+                  <img class ="create_whole_image" ng-src="{{cropper.croppedImage}}" />
+                </div>
+
+                </div>
+            </div>
         </div>
 
-        <div class="CreateBoardText">Take a peek at how it'll look like. </div>
-
-
-<div class = "row">
-  <div class = "columns small-12 small-centered text-center">
-
-    <div ng-show="cropper.croppedImage!=null">
-      <img class ="create_whole_image" ng-src="{{cropper.croppedImage}}" />
-    </div>
-
-  </div>
-</div>
-
-
-
-  </div>
+ </div>
 
     </div>
 
-    <div class = "row">
-      <div class = "columns small-3 small-centered text-center">
-        <button class = "button submit_modal_button" ng-click = "submitCollectionForm()"> make collection </button>
+    <div class = "">
+      <div class = "columns small-3 small-centered text-centered">
+<!--        <button class = "button submit_modal_button" ng-click = "submitCollectionForm()"> make collection </button>-->
+          
+          
+         <label class = "button1">
+             <input type ="button" ng-click="submitCollectionForm()">
+             Make A New Collection
+          
+         </label>
+              
+           
+     
       </div>
+        
+        
     </div>
 
   </form>
