@@ -42,6 +42,7 @@
     <ul>
       <li ng-repeat = "user in user_items track by $index">
 
+        <a class="user_anchor" href="#/users/{{user.username}}">
         <div class = "profile_info profile_item float-left text-center small-centered">
           <div class = "columns small-12">
 
@@ -57,6 +58,7 @@
 
 
         </div>
+      </a>
 
       </li>
 
