@@ -3,7 +3,7 @@ var projectControllers = angular.module('projectControllers',  []);
 
 
 
-projectControllers.controller('homeController', ['$scope', 'Users', 'Collections', '$location', 'CommonData' , function($scope, Users, Collections, $location, CommonData ) {
+projectControllers.controller('homeController', ['$scope', 'Users', 'Items', 'Collections', '$location', 'CommonData', '$q', function($scope, Users, Items, Collections, $location, CommonData, $q ) {
 
 
 
@@ -27,51 +27,68 @@ projectControllers.controller('homeController', ['$scope', 'Users', 'Collections
       }
     });
 
+	$scope.collectionsImages = [];
   Collections.get("").success(function(data){
     $scope.collections = _.sampleSize(data.collections, 6);
+
+
+	console.log($scope.collections);
+	  for(var i=0;i<$scope.collections.length;i++){
+		  console.log($scope.collections[i]._id);
+		  $scope.collectionsImages.push(Collections.getCollectionsPicUrl($scope.collections[i]._id));
+	  }
 
   });
 
 //////collectionModal code
 
-
-$scope.collections = [];
-
 $scope.modal_show = false;
+$scope.collection_name = '';
 $scope.tops = [];
 $scope.bottoms = [];
 $scope.accessories = [];
-
-
-
 $scope.showAlbum = function(index) {
 
   $scope.shown_collection = $scope.collections[index];
+	// $scope.collection_image =
   console.log ("index");
   console.log(index);
 
-  for (var i = 0 ; i < $scope.collections[index].items.length ; i++)
-  {
-    if ($scope.collections[index].items[i].type == "Shirt" ||
-   $scope.collections[index].items[i].type == "Blouse" ||
- $scope.collections[index].items[i].type == "Dress" ||
-$scope.collections[index].items[i].type == "Coat" )
-    $scope.tops.push($scope.collections[index].items[i]);
+	var items = [];
+	var promises = [];
+	$scope.shown_collection.items.forEach(function(item) {
+		promises.push(Items.get(item));
+	});
 
-    else if ($scope.collections[index].items[i].type == "Pants" ||
-   $scope.collections[index].items[i].type == "Skirt" ||
-  $scope.collections[index].items[i].type == "Shoes" )
-    $scope.bottoms.push($scope.collections[index].items[i]);
+	$q.all(promises).then(function(data) {
+		console.log('data', data);
+		data.forEach(function(result) {
+			items.push(result.data.item);
+			if (result.data.item.type == "Shirt" ||
+	   	result.data.item.type == "Blouse" ||
+	 		result.data.item.type == "Dress" ||
+			result.data.item.type == "Coat" )
+	    		$scope.tops.push(result.data.item);
+			else if (result.data.item.type == "Pants" ||
+			result.data.item.type == "Skirt" ||
+			result.data.item.type == "Shoes" )
+					$scope.bottoms.push(result.data.item);
+			else if (result.data.item.type == "Accessory" )
+		      $scope.accessories.push(result.data.item);
+		});
+	});
 
-    else if ($scope.collections[index].items[i].type == "Accessory" )
-      $scope.accessories.push($scope.collections[index].items[i]);
-  }
 
   console.log($scope.accessories);
   console.log($scope.tops);
   console.log($scope.bottoms);
 
   $scope.modal_show = true;
+}
+
+$scope.imageUrl = function(id) {
+	console.log('id', id);
+	return Items.getItemsPicUrl(id);
 }
 
 $scope.closeModal = function (){
@@ -81,7 +98,6 @@ $scope.closeModal = function (){
   $scope.bottoms = [];
   $scope.accessories = [];
 }
-///////////////
 
 
 

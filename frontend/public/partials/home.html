@@ -98,7 +98,7 @@
 
 
 <div class = "trending_bar">
-  <span id = "trending_text"> Potpurri </span>
+  <span id = "trending_text"> Potpourri </span>
 
 </div>
 
@@ -111,20 +111,24 @@
   <a ng-click= "showAlbum($index)">
   <div class = "collection_album profile_item float-left text-center small-centered">
     <p class = "collection-title"> {{collection.name}} </p>
+
+	  <div style="background-image: url('{{collectionsImages[$index]}}')" class="album_cover_img_full" > </div>
+
+
     <div class = "row">
       <div class = "columns small-11 small-centered">
 
-        <span ng-show="collection.wholeimgUrl">
-          <div class = "album_cover_img_full" style ="background-image:url('{{collection.wholeimgUrl}}')"></div>
-        </span>
+        <!--<span ng-show="collection.wholeimgUrl">-->
+          <!--<div class = "album_cover_img_full" style ="background-image:url('{{collection.wholeimgUrl}}')"></div>-->
+        <!--</span>-->
 
-        <span ng-hide="collection.wholeimgUrl">
-          <div class = "album_cover_img_partial" style ="background-image: url('{{collection.items[0].url}}')"> </div>
+        <!--<span ng-hide="collection.wholeimgUrl">-->
+          <!--<div class = "album_cover_img_partial" style ="background-image: url('{{collection.items[0].url}}')"> </div>-->
 
-          <div ng-show = "collection.items[1]" class = "album_cover_img_partial" style = "background-image: url('{{collection.items[1].url}}')"> </div>
-          <div ng-hide = "collection.items[1]" class = "album_cover_img_partial img_white_filler"> </div>
+          <!--<div ng-show = "collection.items[1]" class = "album_cover_img_partial" style = "background-image: url('{{collection.items[1].url}}')"> </div>-->
+          <!--<div ng-hide = "collection.items[1]" class = "album_cover_img_partial img_white_filler"> </div>-->
 
-        </span>
+        <!--</span>-->
 
       </div>
     </div>

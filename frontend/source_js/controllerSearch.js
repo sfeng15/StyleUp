@@ -1,6 +1,6 @@
 
 
-projectControllers.controller('searchController', ['$scope', '$window', '$location', 'CommonData', '$routeParams', 'Users', 'Collections', '$q' , function($scope, $window, $location, CommonData, $routeParams, Users, Collections, $q ) {
+projectControllers.controller('searchController', ['$scope', '$window', '$location', 'CommonData', '$routeParams', 'Users', 'Items', 'Collections', '$q' , function($scope, $window, $location, CommonData, $routeParams, Users, Items, Collections, $q ) {
 
 
 
@@ -25,63 +25,81 @@ projectControllers.controller('searchController', ['$scope', '$window', '$locati
   }
 
 
+	$scope.modal_show = false;
+	$scope.collection_name = '';
+	$scope.tops = [];
+	$scope.bottoms = [];
+	$scope.accessories = [];
+	$scope.showAlbum = function(index) {
 
-$scope.collections = [];
+	  $scope.shown_collection = $scope.collections[index];
+		// $scope.collection_image =
+	  console.log ("index");
+	  console.log(index);
 
-$scope.modal_show = false;
-$scope.tops = [];
-$scope.bottoms = [];
-$scope.accessories = [];
+		var items = [];
+		var promises = [];
+		$scope.shown_collection.items.forEach(function(item) {
+			promises.push(Items.get(item));
+		});
+
+		$q.all(promises).then(function(data) {
+			console.log('data', data);
+			data.forEach(function(result) {
+				items.push(result.data.item);
+				if (result.data.item.type == "Shirt" ||
+		   	result.data.item.type == "Blouse" ||
+		 		result.data.item.type == "Dress" ||
+				result.data.item.type == "Coat" )
+		    		$scope.tops.push(result.data.item);
+				else if (result.data.item.type == "Pants" ||
+				result.data.item.type == "Skirt" ||
+				result.data.item.type == "Shoes" )
+						$scope.bottoms.push(result.data.item);
+				else if (result.data.item.type == "Accessory" )
+			      $scope.accessories.push(result.data.item);
+			});
+		});
 
 
+	  console.log($scope.accessories);
+	  console.log($scope.tops);
+	  console.log($scope.bottoms);
 
-$scope.showAlbum = function(index) {
+	  $scope.modal_show = true;
+	}
 
-  $scope.shown_collection = $scope.collections[index];
-  console.log ("index");
-  console.log(index);
+	$scope.imageUrl = function(id) {
+		console.log('id', id);
+		return Items.getItemsPicUrl(id);
+	}
 
-  for (var i = 0 ; i < $scope.collections[index].items.length ; i++)
-  {
-    if ($scope.collections[index].items[i].type == "Shirt" ||
-   $scope.collections[index].items[i].type == "Blouse" ||
- $scope.collections[index].items[i].type == "Dress" ||
-$scope.collections[index].items[i].type == "Coat" )
-    $scope.tops.push($scope.collections[index].items[i]);
+	$scope.closeModal = function (){
 
-    else if ($scope.collections[index].items[i].type == "Pants" ||
-   $scope.collections[index].items[i].type == "Skirt" ||
-  $scope.collections[index].items[i].type == "Shoes" )
-    $scope.bottoms.push($scope.collections[index].items[i]);
-
-    else if ($scope.collections[index].items[i].type == "Accessory" )
-      $scope.accessories.push($scope.collections[index].items[i]);
-  }
-
-  console.log($scope.accessories);
-  console.log($scope.tops);
-  console.log($scope.bottoms);
-
-  $scope.modal_show = true;
-}
-
-$scope.closeModal = function (){
-
-  $scope.modal_show = false;
-  $scope.tops = [];
-  $scope.bottoms = [];
-  $scope.accessories = [];
-}
-
+	  $scope.modal_show = false;
+	  $scope.tops = [];
+	  $scope.bottoms = [];
+	  $scope.accessories = [];
+	}
 $scope.searchTextChanged = function(search_term){
 
 	var promises = [];
 	//var search_term = angular.element( document.querySelector( '#search_input_text' )).val();
 	console.log(search_term);
 
+    $scope.collectionsImages = [];
 	Collections.get('?where={"name":/' + search_term + '/i}').then(function(data){
 
 		$scope.collections = data.data.collections;
+        console.log("here")
+        console.log($scope.collections);
+        console.log($scope.collections.length);
+        console.log($scope.collections[0]);
+        for(var i=0;i<$scope.collections.length;i++){
+            console.log($scope.collections[i]._id)
+            $scope.collectionsImages.push(Collections.getCollectionsPicUrl($scope.collections[i]._id));
+        }
+        console.log($scope.collectionsImages)
 		return Users.get('?where={ "$or": [{"name":/'+ search_term +'/i}, {"description":/'+ search_term +'/i }]}');
 	}).then(function(data){
 		$scope.user_items = data.data.users;
