@@ -9,6 +9,13 @@ projectControllers.controller('profileController', ['$scope', 'Upload', '$window
     $scope.displayText = "Data set"
 
   }; */
+	$scope.logOut = function(){
+		Users.logout().then(function(data){
+			$scope.navBarUserLoggedIn = false;
+			$location.path('/home');
+		})
+}
+
 
 	Users.getCurrent().success(function(data) {
 		var LoggedInUser = data.user;

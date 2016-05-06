@@ -23,6 +23,8 @@
   <ul>
     <li><a href="#/home">Home</a></li>
     <li ng-show="!navBarUserLoggedIn" ><a href="#/login">Login / Sign up</a></li>
+    <li ng-show="navBarUserLoggedIn" ><a ng-click="logOut()">Logout</a></li>
+
 
 <!--
     <li><a href="#">Services</a></li>

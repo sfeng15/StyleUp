@@ -18,6 +18,12 @@ projectControllers.controller('searchController', ['$scope', '$window', '$locati
     }
   });
 
+	$scope.logOut = function(){
+      Users.logout().then(function(data){
+        $scope.navBarUserLoggedIn = false;
+      })
+  }
+
 
 
 $scope.collections = [];

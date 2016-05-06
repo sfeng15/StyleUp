@@ -23,6 +23,15 @@ apiServices.factory('Users', function($http, $window, $q){
       });
       return deferred.promise;
     },
+    logout: function(){
+
+      return $q(function(resolve) {
+        $window.localStorage['curUser'] = "";
+        $window.localStorage['curToken'] = "";
+        resolve("resolved");
+        });
+
+    },
     setProfilePic: function(image) {
       console.log(image);
       var fd = new FormData();
