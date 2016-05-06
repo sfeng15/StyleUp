@@ -45,14 +45,14 @@
               <option value="Accessory">accessory</option>
               </select>
             </div>
-            
-    
+
+
             <div class = "columns small-1 medium-2 large-5 uploaded_file_name_holder">
               <div style="font:smaller">{{picFiles[$index].name}} </div>
 
             </div>
-              
-            <div class = "columns small-5 medium-4 large-3 small-centered"> 
+
+            <div class = "columns small-5 medium-4 large-3 small-centered">
                 <div class = "row small-12 column">
 
                <label class="custom-file-upload">
@@ -60,20 +60,20 @@
                     <i class="fa fa-cloud-upload"></i> Select file
                 </label>
 
-                      
+
                 </div>
 
                 <div class = "row small-12 column">
 
-                                       
+
               <input type ="button" ng-click="deleteFile($index)" value="Delete" class="button2">
-           
-  
+
+
                 </div>
-                
+
               </div>
 
-       
+
 
 
           </div>
@@ -84,13 +84,13 @@
         <div class= "small-5 large-4 add_margin">
             <input type ="button" ng-click="IncrementItem()" value=" Add Category" class="button2">
         </div>
-        
-            
+
+
 
     </div>
-        
+
         </div>
-    
+
   </div>
 
 
@@ -98,13 +98,13 @@
   <div class = "row">
     <div class = "columns small-3">
         <button class = "button " ng-click = "IncrementItem()"> add file</button>
-        
+
         <input type ="button" ng-click="IncrementItem()" value=" Add Category" class="button2">
-        
-        
+
+
     </div>
-      
-      
+
+
   </div>
 -->
 
@@ -112,7 +112,7 @@
     </div>
 
     <div class = "columns small-12 large-4">
-        
+
     <div class= "imagecorp_margin">
             <div class="collection_name"> Pieces all together </div>
 
@@ -120,12 +120,12 @@
             <label for="FileUploadInput" class="button">Upload File</label>
             <input class="show-for-sr" id = "FileUploadInput" type="file" name="wholeImg" img-cropper-fileread image="cropper.sourceImage" accept="image/*">
 -->
-        
-        
-        
+
+
+
             <label class="button1 small-4 large-6 column row" for="FileUploadInput" style=" border: 1px solid #263238; */
  ">
-               
+
                <input type="file"/ class="show-for-sr" id = "FileUploadInput" name="wholeImg" img-cropper-fileread image="cropper.sourceImage" accept="image/*">
                     <i class="fa fa-cloud-upload"></i> Upload File
             </label>
@@ -136,9 +136,9 @@
             </div>
 
             <div class="CreateBoardText">Take a peek at how it'll look like.
-        
+
             </div>
-        
+
               <div class = "row">
                   <div class = "columns small-12 small-centered text-center">
 
@@ -157,19 +157,19 @@
     <div class = "">
       <div class = "columns small-3 small-centered text-centered">
 <!--        <button class = "button submit_modal_button" ng-click = "submitCollectionForm()"> make collection </button>-->
-          
-          
+
+
          <label class = "button1">
              <input type ="button" ng-click="submitCollectionForm()">
              Make A New Collection
-          
+
          </label>
-              
-           
-     
+
+
+
       </div>
-        
-        
+
+
     </div>
 
   </form>

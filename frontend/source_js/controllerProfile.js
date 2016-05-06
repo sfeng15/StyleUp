@@ -117,23 +117,24 @@ $scope.showAlbum = function(index) {
 	var items = [];
 	var promises = [];
 	$scope.shown_collection.items.forEach(function(item) {
-		console.log('item', item);
 		promises.push(Items.get(item));
 	});
+
 	$q.all(promises).then(function(data) {
+		console.log('data', data);
 		data.forEach(function(result) {
-			items.push(result.item);
-			if (result.item.type == "Shirt" ||
-	   	result.item.type == "Blouse" ||
-	 		result.item.type == "Dress" ||
-			result.item.type == "Coat" )
-	    		$scope.tops.push(result.item);
-			else if (result.item.type == "Pants" ||
-			result.item.type == "Skirt" ||
-			result.item.type == "Shoes" )
-					$scope.bottoms.push(result.item);
-			else if (result.item.type == "Accessory" )
-		      $scope.accessories.push(result.item);
+			items.push(result.data.item);
+			if (result.data.item.type == "Shirt" ||
+	   	result.data.item.type == "Blouse" ||
+	 		result.data.item.type == "Dress" ||
+			result.data.item.type == "Coat" )
+	    		$scope.tops.push(result.data.item);
+			else if (result.data.item.type == "Pants" ||
+			result.data.item.type == "Skirt" ||
+			result.data.item.type == "Shoes" )
+					$scope.bottoms.push(result.data.item);
+			else if (result.data.item.type == "Accessory" )
+		      $scope.accessories.push(result.data.item);
 		});
 	});
 
@@ -146,7 +147,8 @@ $scope.showAlbum = function(index) {
 }
 
 $scope.imageUrl = function(id) {
-	return Items.getItemImageUrl(id);
+	console.log('id', id);
+	return Items.getItemsPicUrl(id);
 }
 
 $scope.closeModal = function (){

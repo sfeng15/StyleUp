@@ -44,7 +44,7 @@
 
           <ul ng-show = "tops.length">
             <li ng-repeat = "item in tops">
-              <div class = "modal_item top_item" style = "background-image: url('{{imageUrl(item.id)}}')"> </div>
+              <div class = "modal_item top_item" style = "background-image: url('{{imageUrl(item._id)}}')"> </div>
             </li>
           </ul>
 
@@ -76,7 +76,7 @@
 
           <ul ng-show = "bottoms.length">
             <li ng-repeat = "item in bottoms">
-              <div class = "modal_item bottom_item" style = "background-image: url('{{imageUrl(item.id)}}')"> </div>
+              <div class = "modal_item bottom_item" style = "background-image: url('{{imageUrl(item._id)}}')"> </div>
             </li>
           </ul>
 
@@ -110,7 +110,7 @@
 
           <ul ng-show = "accessories.length">
             <li ng-repeat = "item in accessories">
-              <div class = "modal_item accessory_item" style = "background-image: url('{{imageUrl(item.id)}}')"> </div>
+              <div class = "modal_item accessory_item" style = "background-image: url('{{imageUrl(item._id)}}')"> </div>
             </li>
           </ul>
 

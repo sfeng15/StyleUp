@@ -40,6 +40,7 @@ api.addCollection = function (collection, file, cb) {
     cb('No Collection Provided. Please provide valid collection data.');
   }
   if(file != null) collection.picPath = file.path;
+  collection.items = collection.items.split(',');
   collection = new Collection(collection);
   console.log(collection);
   collection.save(function (err) {
