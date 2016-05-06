@@ -7,7 +7,7 @@ l=require('../config/lib');
 var api = {};
 // ALL
 api.collections = function (req, res) {
-	var skip=null,limit=10,where=null;
+	var skip=null,limit=null,where=null;
 
 	if(req.query.skip!=undefined)
 		skip=req.query.skip;

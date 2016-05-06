@@ -108,6 +108,9 @@ apiServices.factory('Items', function($http, $window, $q) {
       });
       return $http.put(baseUrl+'item/'+id, newItem);
     },
+    getItemsPicUrl: function(id) {
+      return baseUrl+'itemImage/'+id;
+    },
     delete: function(id) {
       return $http.delete(baseUrl+'item/'+id);
     }

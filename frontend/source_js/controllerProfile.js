@@ -10,19 +10,62 @@ projectControllers.controller('profileController', ['$scope', 'Upload', '$window
 
   }; */
 
+    //console.log("I am here")
 	Users.getCurrent().success(function(data) {
 		var LoggedInUser = data.user;
 		if (LoggedInUser != null) {
 			$scope.navBarUserLoggedIn = true;
 			$scope.profile_owner = LoggedInUser.username === $routeParams['username'];
+            //return Collections.get();
 		}
+
 		$scope.collections = [];
-		Users.getUser($routeParams['username']).then(function(data){
-			console.log(data);
+		Users.getUser($routeParams['username'])
+        .then(function(data){
 			$scope.user = data.data.user;
-			$scope.profilePic = Users.getProfilePicUrl($scope.user.username);
-		});
-		return Collections.get();
+            $scope.profilePic = Users.getProfilePicUrl($scope.user.username);
+            //console.log($scope.user);
+            //console.log($scope.user.collections);
+            //console.log($scope.user.collections.length);
+
+
+            return Collections.get();
+		})
+        .then(function(data){
+            console.log("user collections");
+            //console.log($scope.user);
+            console.log($scope.user.collections);//array of collection ids
+            //console.log($scope.user.collections.length);
+             //console.log($scope.user.collections[0])
+
+
+
+            console.log("all collections");
+            //console.log(data);
+            //console.log(data.data);
+
+            console.log(data.data.collections);//array of collections
+            //console.log(data.data.collections.length);
+
+            for (var i = 0 ; i < data.data.collections.length; i++)//data.data have all collections
+            {
+                for (var j = 0 ; j < $scope.user.collections.length ; j++)//user.collections has all its own collection ids
+                {
+                    //console.log("here")
+                    //console.log(data.data.collections[i]._id)
+                    //console.log($scope.user.collections[j])
+
+
+                    if (data.data.collections[i]._id == $scope.user.collections[j])
+                    {
+                        //console.log("here")
+                        $scope.collections.push(data.data.collections[i]);//$scope.collections has all collections of a user
+                        //console.log($scope.collections);
+                    }
+                }
+            }
+            console.log($scope.collections);
+        });
 	});
 
   /////end of to be deleted
@@ -66,6 +109,13 @@ $scope.showAlbum = function(index) {
   $scope.shown_collection = $scope.collections[index];
   console.log ("index");
   console.log(index);
+
+    for(var i=0;i<$scope.collections.length;i++){
+        Items.get($scope.collections[i]).success(function(){
+
+
+        });
+    }
 
   for (var i = 0 ; i < $scope.collections[index].items.length ; i++)
   {
