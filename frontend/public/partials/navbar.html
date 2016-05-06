@@ -6,13 +6,13 @@
   </div>
 
   <div class = "logo small-1 columns">
-        StyleUP
+     <a href="#/home"> StyleUP </a>
   </div>
 
   <div class = "small-3 large-2 columns">
         <div class="search_container">
             <div class="search-box">
-                <input type="text" />
+                <input type="text" id="search_input_text" ng-model="search_text" ng-change="searchTextChanged(search_text)" />
                 <span></span>
             </div>
         </div>
@@ -21,8 +21,10 @@
 
 
   <ul>
-    <li><a href="#">Home</a></li>
     <li ng-show="!navBarUserLoggedIn" ><a href="#/login">Login / Sign up</a></li>
+    <li ng-show="navBarUserLoggedIn" ><a href="#/users/{{LoggedInUser.username}}">Profile</a></li>
+    <li ng-show="navBarUserLoggedIn" ><a ng-click="logOut()">Logout</a></li>
+
 
 <!--
     <li><a href="#">Services</a></li>

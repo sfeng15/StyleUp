@@ -1,15 +1,6 @@
-var projectControllers = angular.module('projectControllers',  []);
 
 
-
-
-projectControllers.controller('FirstController', ['$scope', 'CommonData' , function($scope, CommonData ) {
-
-
-
-//
-
-////
+projectControllers.controller('profileController', ['$scope', 'Upload', '$window', '$location', 'CommonData', '$routeParams', 'Users', 'Collections', 'Items' , '$q', function($scope, Upload, $window, $location, CommonData, $routeParams, Users, Collections, Items, $q) {
 
 /*
 
@@ -19,333 +10,63 @@ projectControllers.controller('FirstController', ['$scope', 'CommonData' , funct
 
   }; */
 
-
-
-//---------------------------
-
-
-var Slider = (function() {
-
-	var $container = $( '#ps-container' ),
-		$contentwrapper = $container.children( 'div.ps-contentwrapper' ),
-		// the items (description elements for the slides/products)
-		$items = $contentwrapper.children( 'div.ps-content' ),
-		itemsCount = $items.length,
-		$slidewrapper = $container.children( 'div.ps-slidewrapper' ),
-		// the slides (product images)
-		$slidescontainer = $slidewrapper.find( 'div.ps-slides' ),
-		$slides = $slidescontainer.children( 'div' ),
-		// navigation arrows
-		$navprev = $slidewrapper.find( 'nav > a.ps-prev' ),
-		$navnext = $slidewrapper.find( 'nav > a.ps-next' ),
-		// current index for items and slides
-		current = 0,
-		// checks if the transition is in progress
-		isAnimating = false,
-		// support for CSS transitions
-		support = Modernizr.csstransitions,
-		// transition end event
-		// https://github.com/twitter/bootstrap/issues/2870
-		transEndEventNames = {
-			'WebkitTransition' : 'webkitTransitionEnd',
-			'MozTransition' : 'transitionend',
-			'OTransition' : 'oTransitionEnd',
-			'msTransition' : 'MSTransitionEnd',
-			'transition' : 'transitionend'
-		},
-		// its name
-		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-
-		init = function() {
-
-
-			// show first item
-			var $currentItem = $items.eq( current ),
-				$currentSlide = $slides.eq( current ),
-				initCSS = {
-					top : 0,
-					zIndex : 999
-				};
-
-			$currentItem.css( initCSS );
-			$currentSlide.css( initCSS );
-
-			// update nav images
-			updateNavImages();
-
-			// initialize some events
-			initEvents();
-
-		},
-		updateNavImages = function() {
-
-
-			// updates the background image for the navigation arrows
-			var configPrev = ( current > 0 ) ? $slides.eq( current - 1 ).css( 'background-image' ) : $slides.eq( itemsCount - 1 ).css( 'background-image' ),
-				configNext = ( current < itemsCount - 1 ) ? $slides.eq( current + 1 ).css( 'background-image' ) : $slides.eq( 0 ).css( 'background-image' );
-
-			$navprev.css( 'background-image', configPrev );
-			$navnext.css( 'background-image', configNext );
-
-		},
-		initEvents = function() {
-
-			$navprev.on( 'click', function( event ) {
-
-				if( !isAnimating ) {
-
-					slide( 'prev' );
-
-				}
-				return false;
-
-			} );
-
-			$navnext.on( 'click', function( event ) {
-
-				if( !isAnimating ) {
-
-					slide( 'next' );
-
-				}
-				return false;
-
-			} );
-
-			// transition end event
-			$items.on( transEndEventName, removeTransition );
-			$slides.on( transEndEventName, removeTransition );
-
-		},
-		removeTransition = function() {
-
-			isAnimating = false;
-			$(this).removeClass('ps-move');
-
-		},
-		slide = function( dir ) {
-
-			isAnimating = true;
-
-			var $currentItem = $items.eq( current ),
-				$currentSlide = $slides.eq( current );
-
-			// update current value
-			if( dir === 'next' ) {
-
-				( current < itemsCount - 1 ) ? ++current : current = 0;
-
-			}
-			else if( dir === 'prev' ) {
-
-				( current > 0 ) ? --current : current = itemsCount - 1;
-
-			}
-				// new item that will be shown
-			var $newItem = $items.eq( current ),
-				// new slide that will be shown
-				$newSlide = $slides.eq( current );
-
-			// position the new item up or down the viewport depending on the direction
-			$newItem.css( {
-				top : ( dir === 'next' ) ? '-100%' : '100%',
-				zIndex : 999
-			} );
-
-			$newSlide.css( {
-				top : ( dir === 'next' ) ? '100%' : '-100%',
-				zIndex : 999
-			} );
-
-			setTimeout( function() {
-
-				// move the current item and slide to the top or bottom depending on the direction
-				$currentItem.addClass( 'ps-move' ).css( {
-					top : ( dir === 'next' ) ? '100%' : '-100%',
-					zIndex : 1
-				} );
-
-				$currentSlide.addClass( 'ps-move' ).css( {
-					top : ( dir === 'next' ) ? '-100%' : '100%',
-					zIndex : 1
-				} );
-
-				// move the new ones to the main viewport
-				$newItem.addClass( 'ps-move' ).css( 'top', 0 );
-				$newSlide.addClass( 'ps-move' ).css( 'top', 0 );
-
-				// if no CSS transitions set the isAnimating flag to false
-				if( !support ) {
-
-					isAnimating = false;
-
-				}
-
-			}, 0 );
-
-			// update nav images
-			updateNavImages();
-
-		};
-
-	return { init : init };
-
-})();
-
-    $(function() {
-
-        Slider.init();
-
-    });
-
-
-
-}]);
-
-projectControllers.controller('testController', ['$scope', 'Upload', 'CommonData' , function($scope, Upload, CommonData ) {
-
-
-
-
-}]);
-
-
-projectControllers.controller('loginController', ['$scope',  '$location', 'CommonData' , function($scope, $location, CommonData ) {
-
-$scope.showmsg = false;
-$scope.show_error = false;
-$scope.show_ok = false;
-/*
-
-  $scope.setData = function(){
-    CommonData.setData($scope.data);
-    $scope.displayText = "Data set"
-
-  }; */
-
-  $scope.RedirectToHome = function(){
-    $location.path('/home');
-  }
-
-  $scope.goAway = function(){
-    $scope.show_error = false;
-    $scope.showmsg = false;
-  }
-
-  $scope.TrySignUp = function (){
-
-    var userData = {"name": $scope.signupName, "email":$scope.signupEmail, "password": $scope.signupPassword};
-
-    /*
-    Users.post(userData).success(function(msg){
-
-      Users.get('?where={"email": { "$eq":\"' +  $scope.singupEmail + '\"}').then(function(data){
-
-      $scope.showmsg = true;
-      $scope.show_ok = true;
-      CommonData.setUser(data);
-
-
-    });
-
-    }).error(function(err){
-
-    $scope.showmsg = true;
-    $scope.show_error = true;
-
-
-  });
-    */
-
-  };
-
-  $scope.TrySignIn = function (){
-    //ValidateUser();
-    //If not validated return error
-    //if validated:
-    //CommonData.setUser($scope.email).then(function(data){
-      //console.log (CommonData.getUser());
-    //});
-    console.log($scope.loginEmail);
-
-
-
-    CommonData.setUser($scope.loginEmail).then(function(data){
-      console.log(CommonData.getUser());
-      $location.path('/home');
-    });
-
-  };
-
-     $(document).on('click', '.tabs .tab', function(){
-    if ($(this).hasClass('signin')) {
-        $('.tabs .tab').removeClass('active');
-        $(this).addClass('active');
-        $('.cont').hide();
-        $('.signin-cont').show();
-    }
-    if ($(this).hasClass('signup')) {
-        $('.tabs .tab').removeClass('active');
-        $(this).addClass('active');
-        $('.cont').hide();
-        $('.signup-cont').show();
-    }
-});
-
-
-$(document).on('mousemove', '.container .bg', (function(e){
-    var amountMovedX = (e.pageX * -1 / 30);
-    var amountMovedY = (e.pageY * -1 / 9);
-    $(this).css('background-position', amountMovedX + 'px ' + amountMovedY + 'px');
-}));
-
-
-
-
-}]);
-
-
-
-projectControllers.controller('profileController', ['$scope', 'Upload', '$window', 'CommonData', '$routeParams', 'Users', 'Collections' , function($scope, Uplaod, $window, CommonData, $routeParams, Users, Collections ) {
-
-/*
-
-  $scope.setData = function(){
-    CommonData.setData($scope.data);
-    $scope.displayText = "Data set"
-
-  }; */
-
-
-  var LoggedInUser = CommonData.getUser();
-  console.log("logged in user");
-  console.log(LoggedInUser._id);
-  console.log($window.sessionStorage.logged_in_user);
-
-  if (LoggedInUser != null)
-  $scope.navBarUserLoggedIn = true;
-
-
-    $scope.profile_owner = false; //whether or not this profile belongs to the visitor
-    $scope.collections = [];
-    console.log($routeParams.id);
-
-    Users.get().then(function(data){
-      console.log(data.data);
-  /////to be deleted in real code where we specify the id in the get request to the server
-    for (var i = 0 ; i < data.data.length ; i++)
-    {
-      if (data.data[i]._id == $routeParams.id)
-        $scope.user = data.data[i];
-      }
-      console.log($scope.user.profilePicUrl);
-
-      if (LoggedInUser._id == $scope.user._id)
-        {
-          $scope.profile_owner = true;
-          console.log("same user");
-
-        }
+	Users.getCurrent().success(function(data) {
+		var LoggedInUser = data.user;
+		if (LoggedInUser != null) {
+			$scope.navBarUserLoggedIn = true;
+			$scope.profile_owner = LoggedInUser.username === $routeParams['username'];
+		}
+		$scope.collections = [];
+        $scope.collectionsImages = [];
+		Users.getUser($routeParams['username']).then(function(data){
+			console.log(data);
+			$scope.user = data.data.user;
+            $scope.profilePic = Users.getProfilePicUrl($scope.user.username);
+            //console.log($scope.user);
+            console.log($scope.user.collections);
+            //console.log($scope.user.collections.length);
+
+
+            return Collections.get("");
+		})
+        .then(function(data){
+            console.log("user collections");
+            //console.log($scope.user);
+            console.log($scope.user.collections);//array of collection ids
+            //console.log($scope.user.collections.length);
+             //console.log($scope.user.collections[0])
+
+
+
+            console.log("all collections");
+            //console.log(data);
+            //console.log(data.data);
+
+            console.log(data.data.collections);//array of collections
+            //console.log(data.data.collections.length);
+
+            for (var i = 0 ; i < data.data.collections.length; i++)//data.data have all collections
+            {
+                for (var j = 0 ; j < $scope.user.collections.length ; j++)//user.collections has all its own collection ids
+                {
+                    //console.log("here")
+                    //console.log(data.data.collections[i]._id)
+                    //console.log($scope.user.collections[j])
+
+
+                    if (data.data.collections[i]._id == $scope.user.collections[j])
+                    {
+                        //console.log("here")
+                        $scope.collections.push(data.data.collections[i]);//$scope.collections has all collections of a user
+                        console.log(Collections.getCollectionsPicUrl(data.data.collections[i]._id));
+                        $scope.collectionsImages.push(Collections.getCollectionsPicUrl(data.data.collections[i]._id));
+                        //console.log($scope.collections);
+                    }
+                }
+            }
+            console.log($scope.collections);
+        });
+	});
 
   /////end of to be deleted
 
@@ -363,23 +84,24 @@ projectControllers.controller('profileController', ['$scope', 'Upload', '$window
   ///end of the right code
 
 //to be deleted when we have the backend
-  return Collections.get();
-//the end of to be deleted
-}).then(function(data){
-
-  ///with the backend, the code below could be replaced with getting specific ids from the server
-  console.log(data.data);
-  for (var i = 0 ; i < data.data.length; i++)
-  {
-    for (var j = 0 ; j < $scope.user.collections.length ; j++)
-      if (data.data[i]._id == $scope.user.collections[j])
-        $scope.collections.push(data.data[i]);
-  }
-
-});
+//   return Collections.get();
+// //the end of to be deleted
+// }).then(function(data){
+//
+//   ///with the backend, the code below could be replaced with getting specific ids from the server
+//   console.log(data.data);
+//   for (var i = 0 ; i < data.data.length; i++)
+//   {
+//     for (var j = 0 ; j < $scope.user.collections.length ; j++)
+//       if (data.data[i]._id == $scope.user.collections[j])
+//         $scope.collections.push(data.data[i]);
+//   }
+//
+// });
 
 
 $scope.modal_show = false;
+$scope.collection_name = '';
 $scope.tops = [];
 $scope.bottoms = [];
 $scope.accessories = [];
@@ -442,29 +164,53 @@ $scope.deleteFile = function(index){
 
 
 $scope.submitCollectionForm = function() {
-
-  console.log("categories");
-  console.log($scope.categories);
-
-  console.log("picFiles");
-  console.log($scope.picFiles);
-
   for (var i = 0 ; i < $scope.picFiles.length ; i++)
-    if (!$scope.picFiles[i])
-      {
-        $scope.picFiles.splice(i, 1);
-        $scope.categories.splice(i, 1);
-      }
+    // if (!$scope.picFiles[i] || $scope.picFiles[i] == null)
+    //   {
+    //     $scope.picFiles.splice(i, 1);
+    //     $scope.categories.splice(i, 1);
+    //   }
 
-      console.log($scope.picFiles[0]);
+      // console.log($scope.picFiles[0]);
 
       var wholeimage = null;
 
-      if ($scope.cropper.croppedImage != null)
+      if (!$scope.cropper.croppedImage)
           wholeimage = $scope.cropper.croppedImage;
-      else if ($scope.cropper.sourceImage != null)
+      else if (!$scope.cropper.sourceImage)
           wholeimage = $scope.cropper.sourceImage;
 
+		var promises = [];
+		for(var i = 0; i < $scope.categories.length; i++) {
+			var cat = $scope.categories[i];
+			var pic = $scope.picFiles[i];
+			if(pic != null) promises.push(Items.post(cat, pic));
+		}
+		var itemIds = [];
+		$q.all(promises).then(function(data) {
+			console.log('data', data);
+			data.forEach(function(result) {
+				itemIds.push(result.data._id);
+			});
+			var img = $scope.cropper.croppedImage == null ? null : Upload.dataUrltoBlob($scope.cropper.croppedImage);
+			var newCollection = {name: $scope.collection_name, items: itemIds, image: img};
+			Collections.post(newCollection).then(function(collectionResult) {
+				var id = collectionResult.data._id;
+				Users.getCurrent().success(function(userResult) {
+					userResult.user.collections.push(id);
+					console.log(userResult.user);
+					Users.editCurrent(userResult.user).success(function(editResult) {
+						//Reload collections here
+						$scope.CreateBoardModalShow = false; //Hide modal
+						$scope.collection_name = '';
+						$scope.categories = [];
+						$scope.picFiles = [];
+					});
+				})
+			})
+		}).catch(function(err) {
+			console.log(err);
+		});
 
   /*
      if ($scope.picFiles && $scope.picFiles.length) {
@@ -502,22 +248,24 @@ $scope.submitCollectionForm = function() {
    }
 
    $scope.closeCreateBoardModal = function(){
-
      $scope.CreateBoardModalShow = false;
    }
 
-
-////TODO: check to see if that works with put
+	 $scope.newProfPic = {};
    $scope.uploadPic = function (file) {
-        Upload.upload({
-            url: 'upload/url',
-            data: {file: file},
-            method: 'PUT'
-        }).then(function (resp) {
-            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-        });
+        // Upload.upload({
+        //     url: 'upload/url',
+        //     data: {file: file},
+        //     method: 'PUT'
+        // }).then(function (resp) {
+        //     console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+        // ]);
+				Users.setProfilePic(file.files[0]).then(function(data) {
+					// $scope.$apply();
+					// $scope.profilePic = Users.getProfilePicUrl($scope.user.username);
+					$scope.profilePic = $scope.profilePic + '?' + new Date().getTime();
+				});
     };
-////////
 
 
     $scope.$watch('user.description', function(newVal, oldVal) {
@@ -527,5 +275,10 @@ $scope.submitCollectionForm = function() {
         }
       });
 
+			$scope.searchTextChanged = function(){
+
+					CommonData.setSearchText(angular.element( document.querySelector( '#search_input_text' )).val());
+					$location.path('/search');
+				}
 
 }]);

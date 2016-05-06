@@ -2,20 +2,44 @@
   color: white;
 }
 
+div {
+    font-family: $font1;
+}
+
+h1 h2 h3 h4 h5 h6 { 
+    font-family: $font1;
+}
+
 #search_icon_label {
   margin-right: 4%;
 }
 
 .trending_bar {
-  background-color : $charcoal;
-  height: 6vh;
+  background-color : #8A8A8A;
+  height: 13vh;
   text-align: center;
   top: 50vh;
   position: relative;;
 }
 #trending_text {
   color: white;
-  line-height: 6vh;
+  line-height: 13vh;
+  font-family: $font_title1;
+  font-size: 23px;
+}
+
+.footer_bar {
+    background-color: #8A8A8A;
+    height: 6vh;
+    text-align: center;
+    top: 52vh;
+    position: relative;
+}
+#footer_text {
+    color: white;
+    line-height: 6vh;
+    font-family: "Lobster", cursive;
+    font-size: 14px;
 }
 
 #main_page_carousel {
@@ -31,11 +55,15 @@ li {
   position: relative;
   display: block;
   margin: 1%;
+  margin-top: 3%;
+  margin-right: 1%;
+  margin-left: 5%;
   border-radius: 6px;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
   -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
-  width: 300px;
-  height: 500px;
+  width: 288px;
+  height: 526px;
+    
   background-color: white;
 }
 
@@ -58,9 +86,6 @@ li {
   top: 40%;
   transform: translateX(-50%);
 }
-.create_collection_text {
-  margin-top: 2%;
-}
 
 .album_cover {
   position: relative;
@@ -76,7 +101,8 @@ li {
 
 .album_cover_img_full {
   @extend .album_cover;
-  height: 440px;
+   height: 445px;
+   width: 93%;
 }
 
 .album_cover_img_partial {
@@ -90,14 +116,12 @@ li {
 }
 
 .collection-title {
-  margin: 2%;
-  color: black;
+  margin: 4%;
+  color: $charcoal;
+  font-weight: 600;
 }
 .profile_user_name {
   margin: 2%;
-}
-.profile_info {
-  position: relative;
 }
 
 .profile_picture {
@@ -111,11 +135,10 @@ li {
   margin: 0 auto;
   margin-top: 10%;
   margin-bottom: 5%;
-  z-index: 2;
 }
 
 .profile_user_description {
-  word-wrap: break-word;
+
 }
 
 .modal_container {
@@ -131,7 +154,7 @@ li {
 }
 
 .modal {
-  background-color: #fefefe;
+  background-color: $bg;
    margin: 2% auto; /* 2% from the top and centered */
    border: 1px solid #888;
    width: 90%;
@@ -184,25 +207,32 @@ li {
 }
 
 .modal-header {
-    padding: 2px 16px;
-    background-color: $charcoal;
+    padding: 6px 16px;
+    background-color: #8A8A8A;
     color: white;
+   // border: 2px solid;
+   // border-radius: 25px;
+    border-top-left-radius:16px;
+    border-top-right-radius:16px;
+
 }
 
 .modal-header h2 {
-  display: inline-block;
+  text-align: center;
+  font-family: $font_title1;
 }
 
 .close {
     font-size: 36px;
     font-weight: bold;
-    color: white;
+    color: $plchldr;
 }
 
 .accessory_item.place_filler, .modal_whole_image.place_filler {
   @extend .modal_item;
   height: 465px;
   border: 1px solid #dfdfdf;
+  width:92%;
 }
 
 
@@ -211,6 +241,7 @@ li {
   height: 200px;
   width: 430px;
   border: 1px solid #dfdfdf;
+  width:92%;
 
 }
 
@@ -230,6 +261,8 @@ a:focus , a:hover {
 .createBoardModal {
   @extend .modal;
   width: 80%;
+  border: 2px solid;
+  border-radius: 16px;
 }
 
 .uploaded_file_name_holder {
@@ -269,6 +302,9 @@ canvas {
 
 .CreateBoardText {
   margin: 2% 0;
+  color: grey;
+  font-size: 15px;
+  font-weight: 500px;
 }
 
 .camera_input {
@@ -303,4 +339,27 @@ canvas {
 .temporary_buttons {
   position: relative;
   top:56vh;
+}
+
+.add_margin{
+    margin: 13px;
+    //margin: 13px 13px 13px 0px;
+}
+
+.imagecorp_margin{
+
+    margin: 20px 20px 13px 10px;
+}
+
+.collection_name {
+    margin: 13px 13px 13px 0px;
+    font-size: 20px;
+    font-weight: 700;
+    color: grey;
+    
+}
+
+
+.user_anchor{
+    color: grey;
 }

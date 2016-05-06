@@ -8,7 +8,7 @@
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	
+	z-index: -10000;
 	text-transform: uppercase;
 	color: #555;
 	background: #fff;
@@ -74,24 +74,31 @@
 	word-spacing: 10px;
 	padding: 10px 15px;
 	font-weight: 400;
-	text-align: justify;
+	text-align: end;
 	border-left: 1px solid #f2f2f2;
 	border-top: 1px solid #f2f2f2;
 }
 
-.ps-content span.ps-price {
-	float: left;
-	margin: 10px;
-	width: 140px;
-	height: 140px;
-	line-height: 140px;
-	text-align: center;
-	color: #fff;
-	background: #f7cfc6;
-	background: rgba(247,197,185,0.8);
-	font-size: 55px;
-	font-weight: 200;
+//.ps-content span.ps-price {
+//	float: left;
+//	margin: 10px;
+//	width: 140px;
+//	height: 140px;
+//	line-height: 140px;
+//	text-align: center;
+//	color: #fff;
+//	background: #f7cfc6;
+//	background: rgba(247,197,185,0.8);
+//	font-size: 55px;
+//	font-weight: 200;
+//}
+
+.ps-photo {
+    width: 150px;
+    float: left;
+    margin: 10px;
 }
+
 
 .ps-content a:last-child {
 	font-size: 14px;

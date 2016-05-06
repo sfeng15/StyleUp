@@ -6,7 +6,7 @@ ObjectId = Schema.ObjectId,
 l=require('../config/lib');
 
 var fields = {
-		name: {
+				name: {
             required: true,
             type: String
         },
@@ -14,7 +14,10 @@ var fields = {
             type:String,
             default:""
         },
-
+				picPath: {
+					type: String,
+					default:"uploads/collections/default.jpg"
+				},
         items: [String]
 
 };

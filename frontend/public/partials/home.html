@@ -1,54 +1,10 @@
-<div class="list" ng-controller='FirstController'>
+<div class="list" ng-controller='homeController'>
 
-<!--
-<div data-sticky-container>
-<div class="top-bar" data-sticky data-options="marginTop:0;" style="width:100%" data-top-anchor="1" data-btm-anchor="content:bottom">
-  <div class="top-bar-title">
-     <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
-      <button class="menu-icon dark" type="button" data-toggle></button>
-    </span>
-
-    <span>StyleUp</span>
-  </div>
-
-  <div id="responsive-menu">
-
-    <div class="top-bar-left row">
-      <ul class="menu columns small-12">
-
-        <div class = "search_component">
-          <label id = "search_icon_label" for="search-input" class = "float-left">
-            <i class="fa fa-search fa-2x" aria-hidden="true"></i>
-          </label>
-
-          <input id="search-input" type = "search" class="form-control input-lg" placeholder="Search">
+  <div ng-include="'./partials/CollectionModal.html'"></div>
+  <div ng-include="'./partials/navbar.html'"></div>
 
 
-
-        </div>
-
-
-      </ul>
-
-    </div>
-
-    <div class="top-bar-right">
-      <ul class =  "menu">
-        <button> Login </button>
-    </ul>
-
-      </div>
-    </div>
-    </div>
-  </div>
--->
-
-<div ng-include="'./partials/navbar.html'"></div>
-
-
-
-
-<section id = "main_page_carousel">
+  <section id = "main_page_carousel">
 
     			<!-- Codrops top bar -->
 <!--
@@ -82,37 +38,37 @@
 			<div class="ps-contentwrapper">
 
 				<div class="ps-content">
-					<h2>Name</h2>
-					<span class="ps-price">Photo</span>
-					<p>Summary about stylist 1:With restful springiness in the seat; prevents static sitting and provides enhanced seating comfort. Padded seat and back for enhanced seating comfort. Soft, hardwearing and easy care leather, which ages gracefully.</p>
+					<h2>Dandi</h2>
+					<img class="thumbnail ps-photo" src="../data/images/user1.jpg" alt="User picture">
+					<p>Lorem ipsum dolor sit amet, usu singulis liberavisse an, mel ut elitr persequeris. Dolorum blandit gubergren an mei. Nec debet nusquam ut, delenit senserit iudicabit per no. In tractatos expetenda quo.</p>
 					<a href="http://www.ikea.com/gb/en/catalog/products/80163804/#/60203882">See this stylist</a>
 				</div>
 
 				<div class="ps-content">
-					<h2>Name</h2>
-					<span class="ps-price">Photo</span>
-					<p>Summary about stylist 2: For increased stability, re-tighten the screws about two weeks after assembly. Seat and back with restful flexibility; prevents a static sitting posture and enhances comfort.</p>
+					<h2>Farnez</h2>
+					<img class="thumbnail ps-photo" src="../data/images/user2.jpg" alt="User picture">
+					<p>Ius quas mucius omnium ex, qui commune eleifend erroribus id, aeterno nusquam erroribus cu vel. Cu amet legere utroque pro. At his aperiri nostrum scripserit. </p>
 					<a href="http://www.ikea.com/gb/en/catalog/products/90185320/#/20115038">See this stylist</a>
 				</div>
 
 				<div class="ps-content">
-					<h2>Name</h2>
-					<span class="ps-price">Photo</span>
-					<p>Summary about stylist 3:Frame made of layer-glued bent birch; a very strong and durable material. High back provides great support for your neck. Sheepskin has natural insulating properties, which make it feel warm and cosy to sit on. Extra cushions are available for variation and renewal.</p>
+					<h2>Shuo</h2>
+					<img class="thumbnail ps-photo" src="../data/images/user3.jpg" alt="User picture">
+					<p>Prompta quaeque senserit cum ad, an liber volumus definitionem pri. Mei dico soleat corpora eu. Corpora pertinax duo ei, mea debet utinam repudiare te. Ponderum complectitur ea per.</p>
 					<a href="http://www.ikea.com/gb/en/catalog/products/S79889694/#/S59901017">See this stylist</a>
 				</div>
 
 				<div class="ps-content">
-					<h2>Name</h2>
-					<span class="ps-price">Photo</span>
-					<p>Summary about stylist 4: Easy to keep clean; removable, machine washable cover. Seat cushion with a top layer of memory foam; moulds to the precise contours of your body and regains its shape when you get up.</p>
+					<h2>Michael</h2>
+					<img class="thumbnail ps-photo" src="../data/images/user4.jpg" alt="User picture">
+					<p>Audire perfecto in eos, vix ad odio pericula. Id eum atqui appareat interpretaris. Sea nobis facete euripidis no. Ut vix dolor affert accusata, id vis tale harum utinam.</p>
 					<a href="http://www.ikea.com/gb/en/catalog/products/S99895000/#/S69894380">See this stylist</a>
 				</div>
 
 				<div class="ps-content">
-					<h2>Name</h2>
-					<span class="ps-price">Photo</span>
-					<p>Summary about stylist 5:Height adjustable for a comfortable sitting posture. The sloping seat gives a comfortable sitting position when leaning forwards.</p>
+					<h2>Victoria</h2>
+					<img class="thumbnail ps-photo" src="../data/images/user5.jpg" alt="User picture">
+					<p>Prompta quaeque senserit cum ad, an liber volumus definitionem pri. Mei dico soleat corpora eu. Corpora pertinax duo ei, mea debet utinam repudiare te. </p>
 					<a href="http://www.ikea.com/gb/en/catalog/products/70224756/">See this stylist</a>
 				</div>
 
@@ -146,7 +102,55 @@
 
 </div>
 
+<div class = "row trending_collections">
+  <div class = "columns small-12">
 
+<ul>
+<li ng-repeat = "collection in collections">
+
+  <a ng-click= "showAlbum($index)">
+  <div class = "collection_album profile_item float-left text-center small-centered">
+    <p class = "collection-title"> {{collection.name}} </p>
+    <div class = "row">
+      <div class = "columns small-11 small-centered">
+
+        <span ng-show="collection.wholeimgUrl">
+          <div class = "album_cover_img_full" style ="background-image:url('{{collection.wholeimgUrl}}')"></div>
+        </span>
+
+        <span ng-hide="collection.wholeimgUrl">
+          <div class = "album_cover_img_partial" style ="background-image: url('{{collection.items[0].url}}')"> </div>
+
+          <div ng-show = "collection.items[1]" class = "album_cover_img_partial" style = "background-image: url('{{collection.items[1].url}}')"> </div>
+          <div ng-hide = "collection.items[1]" class = "album_cover_img_partial img_white_filler"> </div>
+
+        </span>
+
+      </div>
+    </div>
+  </div>
+</a>
+
+
+</li>
+
+
+</ul>
+
+</div>
+</div>
+
+
+
+<div class = "footer_bar">
+  <span id = "footer_text">
+             Copyright © StyleUp 2016
+           </span>
+
+</div>
+
+
+<!--
 <div class = "temporary_buttons">
     <a href = "#/users/111111" class= "button" > Farnaz's Profile</a>
     <a href = "#/users/111112" class= "button" > Dandi's Profile</a>
@@ -154,6 +158,7 @@
     <a href = "#/users/111114" class= "button" > Michael's Profile</a>
 
 </div>
+-->
 
 <!-- jQuery if needed -->
 

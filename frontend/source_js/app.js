@@ -1,16 +1,12 @@
-var app = angular.module('project', ['ngRoute', 'projectControllers', 'projectServices', 'ngFileUpload', 'angular-img-cropper', 'xeditable','userService']);
+var app = angular.module('project', ['ngRoute', 'projectControllers', 'projectServices', 'ngFileUpload', 'angular-img-cropper', 'xeditable']);
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-    when('/collections', {
-    templateUrl: 'partials/collections.html',
-    controller: 'FirstController'
-  }).
   when('/home', {
     templateUrl: 'partials/home.html',
-    controller: 'FirstController'
+    controller: 'homeController'
   }).
-  when('/users/:id', {
+  when('/users/:username', {
     templateUrl: 'partials/userProfile.html',
     controller: 'profileController'
   }).
@@ -18,6 +14,10 @@ app.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'partials/Login.html',
     controller: 'loginController'
   }).
+  when('/search', {
+  templateUrl: 'partials/search.html',
+  controller: 'searchController'
+}).
   otherwise({
     redirectTo: '/login'
   });

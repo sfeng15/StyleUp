@@ -4,10 +4,14 @@ router = express.Router(),
 collection = require('../apiObjects/collection'),
 l=require('../config/lib');
 
+var path = require('path');
+var multer = require('multer');
+var upload = multer({dest: './uploads/collections'});
+
 var api = {};
 // ALL
 api.collections = function (req, res) {
-	var skip=null,limit=10,where=null;
+	var skip=null,limit=null,where=null;
 
 	if(req.query.skip!=undefined)
 		skip=req.query.skip;
@@ -30,7 +34,8 @@ api.collections = function (req, res) {
 
 // POST
 api.addcollection = function (req, res) {
-	collection.addCollection(req.body,function	(err,data){
+	console.log(req.file);
+	collection.addCollection(req.body, req.file, function	(err,data){
 		if(err) res.status(500).json(err);
 		else {
 			res.status(201).json(data);
@@ -86,6 +91,19 @@ api.deleteCollection = function (req, res) {
 		}
 	});
 };
+//?
+api.collectionImage = function(req, res) {
+    var id = req.params.id;
+    collection.getCollection(id,function(err,data){
+        if (err) {
+            res.status(404).sendFile(path.resolve('uploads/collections/default.jpg'));
+        } else {
+            res.status(200).sendFile(path.resolve(data.picPath));
+        }
+    });
+}
+
+
 
 // DELETE All
 //api.deleteAllCollections = function (req, res) {
@@ -106,7 +124,7 @@ api.deleteCollection = function (req, res) {
 
 module.exports = function(passport) {
 
-	router.post('/collection', passport.authenticate('jwt', {session: false}), api.addcollection);//??how to not use .route()
+	router.post('/collection', passport.authenticate('jwt', {session: false}), upload.single('image'), api.addcollection);//??how to not use .route()
 
 	router.route('/collection/:id')
 	.get(api.collection)
@@ -118,6 +136,9 @@ module.exports = function(passport) {
 	.get(api.collections);
 	//.delete(api.deleteAllCollections);
 	//prevent users from deleting all records
+
+    //?
+    router.get('/collectionImage/:id', api.collectionImage);
 
 
 	router.get('/collections/test',function(req,res){

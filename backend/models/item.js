@@ -6,9 +6,8 @@ ObjectId = Schema.ObjectId,
 l=require('../config/lib');
 
 var fields = {
-		name: { type: String, required: true },
 		type: { type: String, required: true },
-		path: { type: String, default: 'uploads/items/default.png' }	
+		path: { type: String, default: 'uploads/items/default.png' }
 };
 
 var itemSchema = new Schema(fields);

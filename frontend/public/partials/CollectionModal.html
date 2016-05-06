@@ -1,10 +1,10 @@
 <div ng-show= "modal_show" class = "modal_container">
 
-<div class = "modal">
+<div class = "createBoardModal">
 
   <div class=" modal-header">
-  <h2> {{shown_collection.title}}</h2>
-  <a ng-click= "closeModal()" class="close float-right">&times;</a>
+  <h2> {{shown_collection.name}}</h2>
+  
 </div>
 
 <!--
@@ -16,39 +16,13 @@
     </div>
   </div>
 -->
+<div class = "row column">
+      <a ng-click= "closeModal()" class="close float-right">&times;</a>
+  </div>
 
   <div class = "row">
-
-    <div class = "columns small-12 large-3 accessories-section">
-      <div class = "row">
-        <div class = "columns small-12">
-          <h4> Accessories </h4>
-        </div>
-      </div>
-
-      <div class = "row">
-        <div class = "columns small-12">
-
-          <div ng-hide = "accessories.length" class = "accessory_item place_filler" style = "background-image: url('./data/images/handbag.jpg')">
-          </div>
-
-          <ul ng-show = "accessories.length">
-            <li ng-repeat = "item in accessories">
-              <div class = "modal_item accessory_item" style = "background-image: url('./data/images/{{item.url}}.jpg')"> </div>
-            </li>
-          </ul>
-
-        </div>
-      </div>
-
-    </div>
-
-
-
-
-
-
-    <div class = "columns small-12 large-6">
+      
+    <div class = "columns small-12 medium-12 large-5">
 
 
 
@@ -56,9 +30,9 @@
 
         <div class = "columns small-12">
 
-        <div class = "row">
+        <div class = "">
           <div class = "columns small-12">
-            <h4> Tops </h4>
+            <h4 class = "collection-title"> Tops </h4>
           </div>
         </div>
 
@@ -88,9 +62,9 @@
 
         <div class = "columns small-12">
 
-        <div class = "row">
+        <div class = "">
           <div class = "columns small-12">
-            <h4> Bottoms </h4>
+            <h4 class = "collection-title"> Bottoms </h4>
           </div>
         </div>
 
@@ -121,12 +95,36 @@
 
 
 
-
-    <div class = "columns small-12 large-3">
+    <div class = "columns small-12 medium-6 large-3 accessories-section">
+      <div class = "">
+        <div class = "columns small-12">
+          <h4 class = "collection-title"> Accessories </h4>
+        </div>
+      </div>
 
       <div class = "row">
         <div class = "columns small-12">
-          <h4> All Together</h4>
+
+          <div ng-hide = "accessories.length" class = "accessory_item place_filler" style = "background-image: url('./data/images/handbag.jpg')">
+          </div>
+
+          <ul ng-show = "accessories.length">
+            <li ng-repeat = "item in accessories">
+              <div class = "modal_item accessory_item" style = "background-image: url('./data/images/{{item.url}}.jpg')"> </div>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class = "columns small-12 medium-6 large-4">
+
+      <div class = "row">
+        <div class = "columns small-12">
+          <h4 class ="collection-title"> All Together</h4>
         </div>
       </div>
 

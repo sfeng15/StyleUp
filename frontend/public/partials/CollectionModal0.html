@@ -1,0 +1,145 @@
+<div ng-show= "modal_show" class = "modal_container">
+
+<div class = "modal">
+
+  <div class=" modal-header">
+  <h2> {{shown_collection.name}}</h2>
+  <a ng-click= "closeModal()" class="close float-right">&times;</a>
+</div>
+
+<!--
+  <div class = "row modal_title">
+    <div class = "columns small-11">
+    </div>
+    <div class = "columns small-1">
+      <span> X </span>
+    </div>
+  </div>
+-->
+
+  <div class = "row">
+
+    <div class = "columns small-12 large-3 accessories-section">
+      <div class = "">
+        <div class = "columns small-12">
+          <h4 class = "clothes_title"> Accessories </h4>
+        </div>
+      </div>
+
+      <div class = "row">
+        <div class = "columns small-12">
+
+          <div ng-hide = "accessories.length" class = "accessory_item place_filler" style = "background-image: url('./data/images/handbag.jpg')">
+          </div>
+
+          <ul ng-show = "accessories.length">
+            <li ng-repeat = "item in accessories">
+              <div class = "modal_item accessory_item" style = "background-image: url('./data/images/{{item.url}}.jpg')"> </div>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <div class = "columns small-12 large-5">
+
+
+
+      <div class = "row top-section">
+
+        <div class = "columns small-12">
+
+        <div class = "">
+          <div class = "columns small-12">
+            <h4 class = "clothes_title"> Tops </h4>
+          </div>
+        </div>
+
+        <div class = "row">
+          <div class = "columns small-12">
+
+          <div ng-hide="tops.length" class = "top_item place_filler" style = "background-image: url('./data/images/clothes_line.jpg')">
+          </div>
+
+          <ul ng-show = "tops.length">
+            <li ng-repeat = "item in tops">
+              <div class = "modal_item top_item" style = "background-image: url('./data/images/{{item.url}}.jpg')"> </div>
+            </li>
+          </ul>
+
+
+        </div>
+      </div>
+
+    </div>
+
+      </div>
+
+
+
+      <div class = "row bottom-section">
+
+        <div class = "columns small-12">
+
+        <div class = "">
+          <div class = "columns small-12">
+            <h4 class = "clothes_title"> Bottoms </h4>
+          </div>
+        </div>
+
+        <div class = "row">
+          <div class = "columns small-12">
+
+          <div ng-hide="bottoms.length" class = "bottom_item place_filler" style = "background-image: url('./data/images/clothes_line.jpg')">
+          </div>
+
+          <ul ng-show = "bottoms.length">
+            <li ng-repeat = "item in bottoms">
+              <div class = "modal_item bottom_item" style = "background-image: url('./data/images/{{item.url}}.jpg')"> </div>
+            </li>
+          </ul>
+
+
+        </div>
+      </div>
+
+    </div>
+
+      </div>
+
+
+
+
+    </div>
+
+
+
+
+    <div class = "columns small-12 large-4">
+
+      <div class = "row">
+        <div class = "columns small-12">
+          <h4> All Together</h4>
+        </div>
+      </div>
+
+
+      <div class = "row">
+        <div class = "columns small-12">
+          <div ng-hide="shown_collection.wholeimgUrl" class= "modal_whole_image place_filler" style = "background-image: url('./data/images/man_woman.jpg')" > </div>
+          <div ng-show="shown_collection.wholeimgUrl" class= "modal_whole_image" style = "background-image: url('./data/images/{{shown_collection.wholeimgUrl}}.jpg')"> </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</div>
