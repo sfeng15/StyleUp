@@ -2,11 +2,11 @@
 var mongoose = require('mongoose');
 
 var config = {
-  "db": "styleup",
-  "host": "ds013891.mlab.com",
+  "db": "style",
+  "host": "ds015902.mlab.com",
   "user": "api",
   "pw": "thisisthepassword",
-  "port": "13891"
+  "port": "15902"
 };
 
 var port = (config.port.length > 0) ? ":" + config.port : '';
